@@ -47,6 +47,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "10.Tests", "10.Tests", "{C3
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "11.Samples", "11.Samples", "{1BA29EB7-8471-4D8A-AD91-891D206726B6}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8E8F7A97-F6F8-451E-802F-8A299644240A}"
+	ProjectSection(SolutionItems) = preProject
+		history.txt = history.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
