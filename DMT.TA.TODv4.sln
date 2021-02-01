@@ -52,7 +52,25 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		history.txt = history.txt
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NLib", "00.NLib\NLib\NLib.csproj", "{41A9D6C0-C833-403F-9BC1-EECDC246A428}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NLib.Reports", "00.NLib\NLib.Reports\NLib.Reports.csproj", "{5879D92A-F850-4A70-8D88-99D29F6A46F3}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{41A9D6C0-C833-403F-9BC1-EECDC246A428}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41A9D6C0-C833-403F-9BC1-EECDC246A428}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41A9D6C0-C833-403F-9BC1-EECDC246A428}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41A9D6C0-C833-403F-9BC1-EECDC246A428}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5879D92A-F850-4A70-8D88-99D29F6A46F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5879D92A-F850-4A70-8D88-99D29F6A46F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5879D92A-F850-4A70-8D88-99D29F6A46F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5879D92A-F850-4A70-8D88-99D29F6A46F3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
@@ -61,6 +79,8 @@ Global
 		{DA78D455-22A7-4248-9E7B-D1028F27260B} = {FE2F9D63-2110-422D-AF7C-5600449597B0}
 		{2E1C54A2-FE1F-452F-9FD3-41BE1A488E18} = {43D3A296-717F-4050-AAA5-E5BB3ED28178}
 		{099DC3B8-945D-4417-A919-D44FA49A4AE3} = {DA78D455-22A7-4248-9E7B-D1028F27260B}
+		{41A9D6C0-C833-403F-9BC1-EECDC246A428} = {AFF236CF-290E-4121-9DCC-41B24EA46431}
+		{5879D92A-F850-4A70-8D88-99D29F6A46F3} = {AFF236CF-290E-4121-9DCC-41B24EA46431}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E2352083-EE88-4EDB-BE3B-2FA8D4B955A7}
