@@ -3,9 +3,39 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "99.Tools", "99.Tools", "{FE2F9D63-2110-422D-AF7C-5600449597B0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01.VSIX", "01.VSIX", "{43D3A296-717F-4050-AAA5-E5BB3ED28178}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02.RFREADER", "02.RFREADER", "{DA78D455-22A7-4248-9E7B-D1028F27260B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ReportViewer", "ReportViewer", "{2E1C54A2-FE1F-452F-9FD3-41BE1A488E18}"
+	ProjectSection(SolutionItems) = preProject
+		99.Tools\01.VSIX\ReportViewer\Microsoft.DataTools.ReportingServices.z01 = 99.Tools\01.VSIX\ReportViewer\Microsoft.DataTools.ReportingServices.z01
+		99.Tools\01.VSIX\ReportViewer\Microsoft.DataTools.ReportingServices.z02 = 99.Tools\01.VSIX\ReportViewer\Microsoft.DataTools.ReportingServices.z02
+		99.Tools\01.VSIX\ReportViewer\Microsoft.DataTools.ReportingServices.zip = 99.Tools\01.VSIX\ReportViewer\Microsoft.DataTools.ReportingServices.zip
+		99.Tools\01.VSIX\ReportViewer\Microsoft.RdlcDesigner.vsix = 99.Tools\01.VSIX\ReportViewer\Microsoft.RdlcDesigner.vsix
+		99.Tools\01.VSIX\ReportViewer\note.txt = 99.Tools\01.VSIX\ReportViewer\note.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02.RFREADER", "02.RFREADER", "{099DC3B8-945D-4417-A919-D44FA49A4AE3}"
+	ProjectSection(SolutionItems) = preProject
+		99.Tools\02.RFREADER\ICTransfer.exe = 99.Tools\02.RFREADER\ICTransfer.exe
+		99.Tools\02.RFREADER\MasterCom.dll = 99.Tools\02.RFREADER\MasterCom.dll
+		99.Tools\02.RFREADER\MasterRD.dll = 99.Tools\02.RFREADER\MasterRD.dll
+		99.Tools\02.RFREADER\SL600 test.txt = 99.Tools\02.RFREADER\SL600 test.txt
+		99.Tools\02.RFREADER\SL_Paper.dll = 99.Tools\02.RFREADER\SL_Paper.dll
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{43D3A296-717F-4050-AAA5-E5BB3ED28178} = {FE2F9D63-2110-422D-AF7C-5600449597B0}
+		{DA78D455-22A7-4248-9E7B-D1028F27260B} = {FE2F9D63-2110-422D-AF7C-5600449597B0}
+		{2E1C54A2-FE1F-452F-9FD3-41BE1A488E18} = {43D3A296-717F-4050-AAA5-E5BB3ED28178}
+		{099DC3B8-945D-4417-A919-D44FA49A4AE3} = {DA78D455-22A7-4248-9E7B-D1028F27260B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E2352083-EE88-4EDB-BE3B-2FA8D4B955A7}
