@@ -56,8 +56,14 @@ Ported DMTv2 to DMT.TA.TODv1, DMT.TA.TODv2 #1296
 Ported DMTv2 to DMT.TA.TODv1, DMT.TA.TODv2 #1295
 - 
 
+[commited]
 Ported DMTv2 to DMT.TA.TODv1, DMT.TA.TODv2 #1294
-- 
+- DMT.TAxTODv3
+  - RabbitMQService - add todo
+  - SCWMQService - add todo
+  - TAxTODMQService - add todo
+  - TAMQService - add todo
+  - TODMQService - add todo
 
 [commited]
 Ported DMTv2 to DMT.TA.TODv1, DMT.TA.TODv2 #1293
