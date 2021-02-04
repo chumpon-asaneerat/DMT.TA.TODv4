@@ -90,6 +90,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DMT.Controls", "06.Controls
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartcardM1Test", "11.Samples\SmartcardM1Test\SmartcardM1Test.csproj", "{4C0B5727-1A0D-49AD-9BFE-BEE56DB81A53}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DMT.Account.App", "09.App\DMT.Account.App\DMT.Account.App.csproj", "{57C7FDC1-1DDF-4C9B-A5AF-C9F518B8EF81}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -172,6 +174,10 @@ Global
 		{4C0B5727-1A0D-49AD-9BFE-BEE56DB81A53}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4C0B5727-1A0D-49AD-9BFE-BEE56DB81A53}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4C0B5727-1A0D-49AD-9BFE-BEE56DB81A53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57C7FDC1-1DDF-4C9B-A5AF-C9F518B8EF81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57C7FDC1-1DDF-4C9B-A5AF-C9F518B8EF81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57C7FDC1-1DDF-4C9B-A5AF-C9F518B8EF81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57C7FDC1-1DDF-4C9B-A5AF-C9F518B8EF81}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -200,6 +206,7 @@ Global
 		{313DCC84-B2FF-46C4-B7A4-AE5A0BCFD1B2} = {E551BCE7-2E72-4ED9-95DD-92A86111031F}
 		{AEED7B1C-4E56-4D44-BBD1-A936BE653D4D} = {BC3F32C3-4A6D-425A-A828-2078F4B2D976}
 		{4C0B5727-1A0D-49AD-9BFE-BEE56DB81A53} = {1BA29EB7-8471-4D8A-AD91-891D206726B6}
+		{57C7FDC1-1DDF-4C9B-A5AF-C9F518B8EF81} = {8EB55EC8-A0B8-4E70-A307-2A960E470F21}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E2352083-EE88-4EDB-BE3B-2FA8D4B955A7}
