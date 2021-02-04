@@ -104,6 +104,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ExtensionMethods\NullableType.ExtensionMethods.cs" />
+    <Compile Include="Models\Common\DMTModelBase.cs" />
+    <Compile Include="Models\Common\NDbResult.cs" />
+    <Compile Include="Models\Common\NQueries.cs" />
+    <Compile Include="Models\Common\NSearch.cs" />
+    <Compile Include="Models\Common\NTables.cs" />
+    <Compile Include="Models\Common\UICommands.cs" />
+    <Compile Include="Models\Common\Utils.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -117,7 +124,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\Common\" />
     <Folder Include="Models\Plaza\Common\" />
     <Folder Include="Models\Plaza\Configuration\" />
     <Folder Include="Models\Plaza\Coupon\Common\" />
