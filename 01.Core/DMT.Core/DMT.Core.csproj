@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DB7FB4B5-3662-479E-A7DA-26B73611BFD4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DMT</RootNamespace>
+    <AssemblyName>DMT.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\Executables\Production\Common\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DocumentationFile>
+    </DocumentationFile>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\References\Newtonsoft.Json.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Configurations\ApplicationConfigs.cs" />
+    <Compile Include="Configurations\ApplicationInferfaces.cs" />
+    <Compile Include="Configurations\UIConfigs.cs" />
+    <Compile Include="Configurations\_BaseConfigs.cs" />
+    <Compile Include="Consts\AppConsts.cs" />
+    <Compile Include="Consts\ErrorConsts.cs" />
+    <Compile Include="Consts\Routes\RouteConsts.cs" />
+    <Compile Include="Consts\Routes\SCW\Emu\SCW.Emulator.RouteConsts.cs" />
+    <Compile Include="Consts\Routes\SCW\Master\SCW.Master.RouteConsts.cs" />
+    <Compile Include="Consts\Routes\SCW\SCW.RouteConsts.cs" />
+    <Compile Include="Consts\Routes\SCW\Security\SCW.Security.RouteConsts.cs" />
+    <Compile Include="Consts\Routes\SCW\TOD\SCW.TOD.RouteConsts.cs" />
+    <Compile Include="Consts\Routes\TAxTOD\Coupons\TAxTOD.Coupon.RouteConsts.cs" />
+    <Compile Include="Consts\Routes\TAxTOD\TAA\TAxTOD.TAA.RouteConsts.cs" />
+    <Compile Include="Consts\Routes\TAxTOD\TAxTOD.RouteConsts.cs" />
+    <Compile Include="Consts\Routes\TAxTOD\TCT\TAxTOD.TCT.RouteConsts.cs" />
+    <Compile Include="Consts\Routes\TA\Coupon\Actions\TSB\Current.cs" />
+    <Compile Include="Consts\Routes\TA\Coupon\Actions\User\Sold.cs" />
+    <Compile Include="Consts\Routes\TA\Coupon\TA.Coupon.Controller.cs" />
+    <Compile Include="Consts\Routes\TA\Credit\Actions\User\Completed.cs" />
+    <Compile Include="Consts\Routes\TA\Credit\Actions\User\Current.cs" />
+    <Compile Include="Consts\Routes\TA\Credit\Actions\User\Save.cs" />
+    <Compile Include="Consts\Routes\TA\Credit\TA.Credit.Controller.cs" />
+    <Compile Include="Consts\Routes\TA\Infrastructure\Actions\Lane\Gets.cs" />
+    <Compile Include="Consts\Routes\TA\Infrastructure\Actions\Lane\Save.cs" />
+    <Compile Include="Consts\Routes\TA\Infrastructure\Actions\Lane\Searchs.cs" />
+    <Compile Include="Consts\Routes\TA\Infrastructure\Actions\PlazaGroup\Gets.cs" />
+    <Compile Include="Consts\Routes\TA\Infrastructure\Actions\PlazaGroup\Save.cs" />
+    <Compile Include="Consts\Routes\TA\Infrastructure\Actions\PlazaGroup\Searchs.cs" />
+    <Compile Include="Consts\Routes\TA\Infrastructure\Actions\Plaza\Gets.cs" />
+    <Compile Include="Consts\Routes\TA\Infrastructure\Actions\Plaza\Save.cs" />
+    <Compile Include="Consts\Routes\TA\Infrastructure\Actions\Plaza\Searchs.cs" />
+    <Compile Include="Consts\Routes\TA\Infrastructure\Actions\TSB\Current.cs" />
+    <Compile Include="Consts\Routes\TA\Infrastructure\Actions\TSB\Gets.cs" />
+    <Compile Include="Consts\Routes\TA\Infrastructure\Actions\TSB\Save.cs" />
+    <Compile Include="Consts\Routes\TA\Infrastructure\Actions\TSB\SetActive.cs" />
+    <Compile Include="Consts\Routes\TA\Infrastructure\TA.Infrastructure.Controller.cs" />
+    <Compile Include="Consts\Routes\TA\Notify\Actions\IsAlive.cs" />
+    <Compile Include="Consts\Routes\TA\Notify\Actions\Register.cs" />
+    <Compile Include="Consts\Routes\TA\Notify\Actions\TSBChanged.cs" />
+    <Compile Include="Consts\Routes\TA\Notify\Actions\Unregister.cs" />
+    <Compile Include="Consts\Routes\TA\Notify\TA.Notify.Controller.cs" />
+    <Compile Include="Consts\Routes\TA\Security\Actions\Role\Gets.cs" />
+    <Compile Include="Consts\Routes\TA\Security\Actions\Role\Save.cs" />
+    <Compile Include="Consts\Routes\TA\Security\Actions\User\Gets.cs" />
+    <Compile Include="Consts\Routes\TA\Security\Actions\User\Save.cs" />
+    <Compile Include="Consts\Routes\TA\Security\Actions\User\Searchs.cs" />
+    <Compile Include="Consts\Routes\TA\Security\TA.Security.Controller.cs" />
+    <Compile Include="Consts\Routes\TA\Shift\Actions\Common\Gets.cs" />
+    <Compile Include="Consts\Routes\TA\Shift\TA.Shift.Controller.cs" />
+    <Compile Include="Consts\Routes\TA\TA.Controller.cs" />
+    <Compile Include="Consts\Routes\TOD\Infrastructure\Actions\Lane\Gets.cs" />
+    <Compile Include="Consts\Routes\TOD\Infrastructure\Actions\Lane\Save.cs" />
+    <Compile Include="Consts\Routes\TOD\Infrastructure\Actions\Lane\Searchs.cs" />
+    <Compile Include="Consts\Routes\TOD\Infrastructure\Actions\PlazaGroup\Gets.cs" />
+    <Compile Include="Consts\Routes\TOD\Infrastructure\Actions\PlazaGroup\Save.cs" />
+    <Compile Include="Consts\Routes\TOD\Infrastructure\Actions\PlazaGroup\Searchs.cs" />
+    <Compile Include="Consts\Routes\TOD\Infrastructure\Actions\Plaza\Gets.cs" />
+    <Compile Include="Consts\Routes\TOD\Infrastructure\Actions\Plaza\Save.cs" />
+    <Compile Include="Consts\Routes\TOD\Infrastructure\Actions\Plaza\Searchs.cs" />
+    <Compile Include="Consts\Routes\TOD\Infrastructure\Actions\TSB\Current.cs" />
+    <Compile Include="Consts\Routes\TOD\Infrastructure\Actions\TSB\Gets.cs" />
+    <Compile Include="Consts\Routes\TOD\Infrastructure\Actions\TSB\Save.cs" />
+    <Compile Include="Consts\Routes\TOD\Infrastructure\Actions\TSB\SetActive.cs" />
+    <Compile Include="Consts\Routes\TOD\Infrastructure\TOD.Infrastructure.Controller.cs" />
+    <Compile Include="Consts\Routes\TOD\Notify\Actions\IsAlive.cs" />
+    <Compile Include="Consts\Routes\TOD\Notify\Actions\TSBShiftChanged.cs" />
+    <Compile Include="Consts\Routes\TOD\Notify\Actions\TSBChanged.cs" />
+    <Compile Include="Consts\Routes\TOD\Notify\TOD.Notify.Controller.cs" />
+    <Compile Include="Consts\Routes\TOD\Security\Actions\Role\Gets.cs" />
+    <Compile Include="Consts\Routes\TOD\Security\Actions\Role\Save.cs" />
+    <Compile Include="Consts\Routes\TOD\Security\Actions\User\Gets.cs" />
+    <Compile Include="Consts\Routes\TOD\Security\Actions\User\Save.cs" />
+    <Compile Include="Consts\Routes\TOD\Security\Actions\User\Searchs.cs" />
+    <Compile Include="Consts\Routes\TOD\Security\TOD.Security.Controller.cs" />
+    <Compile Include="Consts\Routes\TOD\Shift\Actions\Common\Gets.cs" />
+    <Compile Include="Consts\Routes\TA\Shift\Actions\TSB\Current.cs" />
+    <Compile Include="Consts\Routes\TOD\Shift\TOD.Shift.Controller.cs" />
+    <Compile Include="Consts\Routes\TOD\TOD.Controller.cs" />
+    <Compile Include="ExtensionMethods\DateTime.cs" />
+    <Compile Include="ExtensionMethods\NJson.cs" />
+    <Compile Include="ExtensionMethods\RangeParser.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\Cmd.cs" />
+    <Compile Include="Configurations\ConfigManager.cs" />
+    <Compile Include="Services\JsonMessageTransferService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\00.NLib\NLib\NLib.csproj">
+      <Project>{41a9d6c0-c833-403f-9bc1-eecdc246a428}</Project>
+      <Name>NLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
