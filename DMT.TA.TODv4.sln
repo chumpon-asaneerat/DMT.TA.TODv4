@@ -76,6 +76,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DMT.RabbitMQ.Client", "03.W
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DMT.SCW.Rest.Client", "04.WebServices.Clients\DMT.SCW.Rest.Client\DMT.SCW.Rest.Client.csproj", "{5AFDD4C5-434E-4B9F-A6E8-05C75DD95B59}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DMT.TA.Rest.Client", "04.WebServices.Clients\DMT.TA.Rest.Client\DMT.TA.Rest.Client.csproj", "{B0D8BCD7-CE8F-41B9-9AD1-0D2B0BE7E45D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -130,6 +132,10 @@ Global
 		{5AFDD4C5-434E-4B9F-A6E8-05C75DD95B59}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5AFDD4C5-434E-4B9F-A6E8-05C75DD95B59}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5AFDD4C5-434E-4B9F-A6E8-05C75DD95B59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0D8BCD7-CE8F-41B9-9AD1-0D2B0BE7E45D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0D8BCD7-CE8F-41B9-9AD1-0D2B0BE7E45D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0D8BCD7-CE8F-41B9-9AD1-0D2B0BE7E45D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0D8BCD7-CE8F-41B9-9AD1-0D2B0BE7E45D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -151,6 +157,7 @@ Global
 		{53F967F3-9713-43DA-94F5-687DDEC8CF04} = {FDFBB91E-A33B-4E09-9F1F-DE8084F10DA2}
 		{37616CB2-8712-4767-B165-76F046CFC68B} = {FDFBB91E-A33B-4E09-9F1F-DE8084F10DA2}
 		{5AFDD4C5-434E-4B9F-A6E8-05C75DD95B59} = {80D31210-B240-46AB-8861-18BC30C0D217}
+		{B0D8BCD7-CE8F-41B9-9AD1-0D2B0BE7E45D} = {80D31210-B240-46AB-8861-18BC30C0D217}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E2352083-EE88-4EDB-BE3B-2FA8D4B955A7}
