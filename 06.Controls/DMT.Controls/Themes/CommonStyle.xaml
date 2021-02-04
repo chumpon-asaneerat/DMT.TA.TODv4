@@ -1,0 +1,273 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:PresentationOptions="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options"
+                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+                    mc:Ignorable="PresentationOptions">
+
+    <Thickness x:Key="CommonMargin">5</Thickness>
+    <GridLength x:Key="PageMargin">5</GridLength>
+
+    <!--  COMMON INPUT FONT SIZE  -->
+    <sys:Double x:Key="InputFontSize18" PresentationOptions:Freeze="True">18</sys:Double>
+    <!--  RADIO BUTTON RELATED SIZE  -->
+    <CornerRadius x:Key="CommonRadioButtonCornerRadius" PresentationOptions:Freeze="True">9</CornerRadius>
+
+    <!--  TEXT BOX COLORS  -->
+    <SolidColorBrush x:Key="TextBoxMouseOverBorderBrush"
+                     PresentationOptions:Freeze="True"
+                     Color="#7F2222FF" />
+    <SolidColorBrush x:Key="TextBoxFocusedBorderBrush"
+                     PresentationOptions:Freeze="True"
+                     Color="CornflowerBlue" />
+    <SolidColorBrush x:Key="TextBoxDisableForeground"
+                     PresentationOptions:Freeze="True"
+                     Color="Black" />
+    <SolidColorBrush x:Key="TextBoxDisableBackground"
+                     PresentationOptions:Freeze="True"
+                     Color="#7FFFFFFF" />
+
+    <!--  CHECK BOX COLORS  -->
+    <SolidColorBrush x:Key="CheckBoxFocusedBorderBrush"
+                     PresentationOptions:Freeze="True"
+                     Color="#990077FF" />
+    <SolidColorBrush x:Key="CheckBoxDisableBorderBrush"
+                     PresentationOptions:Freeze="True"
+                     Color="DimGray" />
+
+    <!--  CHECK BOX PATHS  -->
+    <Style x:Key="TickMarkPath"
+           PresentationOptions:Freeze="True"
+           TargetType="Path">
+        <Setter Property="Data" Value="F1 M 0.468732,4.66838L 3.03345,7.95443L 7.28127,0.420569" />
+    </Style>
+    <Style x:Key="CrossMarkPath"
+           PresentationOptions:Freeze="True"
+           TargetType="Path">
+        <Setter Property="Data" Value="M 0 0 L 8 8 M 0 8 L 8 0" />
+    </Style>
+    <Style x:Key="CheckedSymbolPath"
+           PresentationOptions:Freeze="True"
+           BasedOn="{StaticResource TickMarkPath}"
+           TargetType="Path" />
+
+    <!--  TEXT BOX STYLE  -->
+    <Style x:Key="CommonTextBox" TargetType="TextBox">
+        <Setter Property="FontSize" Value="{StaticResource InputFontSize18}" />
+        <Setter Property="TextAlignment" Value="Center" />
+        <!--  FOR ROUND CONNER AND BORDER COLOR  -->
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="AllowDrop" Value="true" />
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TextBox}">
+                    <Border x:Name="bg"
+                            Margin="0"
+                            Padding="1"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="3"
+                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+                        <ScrollViewer x:Name="PART_ContentHost"
+                                      Margin="0"
+                                      Padding="0"
+                                      Background="{TemplateBinding Background}"
+                                      SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="bg" Property="BorderBrush" Value="{StaticResource TextBoxMouseOverBorderBrush}" />
+                        </Trigger>
+
+                        <Trigger Property="IsFocused" Value="True">
+                            <Setter TargetName="bg" Property="BorderBrush" Value="{StaticResource TextBoxFocusedBorderBrush}" />
+                        </Trigger>
+
+                        <Trigger Property="IsReadOnly" Value="True">
+                            <Setter TargetName="bg" Property="Background" Value="{StaticResource TextBoxDisableBackground}" />
+                            <Setter Property="Foreground" Value="{StaticResource TextBoxDisableForeground}" />
+                            <Setter Property="Background" Value="{StaticResource TextBoxDisableBackground}" />
+                        </Trigger>
+
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="bg" Property="Background" Value="{StaticResource TextBoxDisableBackground}" />
+                            <Setter Property="Foreground" Value="{StaticResource TextBoxDisableForeground}" />
+                            <Setter Property="Background" Value="{StaticResource TextBoxDisableBackground}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--  PASSWORD BOX STYLE  -->
+    <Style x:Key="CommonPwdBox" TargetType="PasswordBox">
+        <Setter Property="FontSize" Value="{StaticResource InputFontSize18}" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <!--  FOR ROUND CONNER AND BORDER COLOR  -->
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="AllowDrop" Value="true" />
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type PasswordBox}">
+                    <Border x:Name="bg"
+                            Margin="0"
+                            Padding="1"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="3"
+                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+                        <ScrollViewer x:Name="PART_ContentHost"
+                                      Margin="0"
+                                      Padding="0"
+                                      Background="{TemplateBinding Background}"
+                                      SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="bg" Property="BorderBrush" Value="{StaticResource TextBoxMouseOverBorderBrush}" />
+                        </Trigger>
+
+                        <Trigger Property="IsFocused" Value="True">
+                            <Setter TargetName="bg" Property="BorderBrush" Value="{StaticResource TextBoxFocusedBorderBrush}" />
+                        </Trigger>
+
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="bg" Property="Background" Value="{StaticResource TextBoxDisableBackground}" />
+                            <Setter Property="Foreground" Value="{StaticResource TextBoxDisableForeground}" />
+                            <Setter Property="Background" Value="{StaticResource TextBoxDisableBackground}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--  COMBO BOX STYLE  -->
+    <Style x:Key="CommonComboBox" TargetType="ComboBox">
+        <Setter Property="FontSize" Value="{StaticResource InputFontSize18}" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+    </Style>
+
+    <!--  CHECK BOX STYLE  -->
+    <Style x:Key="CommonCheckBox" TargetType="{x:Type CheckBox}">
+        <Setter Property="SnapsToDevicePixels" Value="False" />
+        <Setter Property="OverridesDefaultStyle" Value="true" />
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <!--
+        <Setter Property="BorderBrush" Value="{Binding RelativeSource={RelativeSource AncestorType=CheckBox}, Path=Foreground}" />
+        -->
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type CheckBox}">
+                    <BulletDecorator Background="Transparent" Cursor="Hand">
+                        <BulletDecorator.Bullet>
+                            <Border x:Name="Border"
+                                    Width="{Binding RelativeSource={RelativeSource AncestorType=CheckBox}, Path=FontSize}"
+                                    Height="{Binding RelativeSource={RelativeSource AncestorType=CheckBox}, Path=FontSize}"
+                                    Margin="0,1"
+                                    Background="{Binding RelativeSource={RelativeSource AncestorType=CheckBox}, Path=Background}"
+                                    BorderBrush="{Binding RelativeSource={RelativeSource AncestorType=CheckBox}, Path=Foreground}"
+                                    BorderThickness="2"
+                                    ClipToBounds="True">
+                                <!--
+                                <Border.Effect>
+                                    <DropShadowEffect BlurRadius="5"
+                                                      ShadowDepth="1"
+                                                      Color="{Binding RelativeSource={RelativeSource AncestorType=CheckBox}, Path=Foreground}" />
+                                </Border.Effect>
+                                -->
+                                <Viewbox>
+                                    <Path x:Name="CheckMark"
+                                          Width="8"
+                                          Height="8"
+                                          Margin="1"
+                                          HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"
+                                          Stretch="Fill"
+                                          Stroke="{Binding RelativeSource={RelativeSource AncestorType=CheckBox}, Path=Foreground}"
+                                          StrokeEndLineCap="Round"
+                                          StrokeStartLineCap="Round"
+                                          StrokeThickness="2"
+                                          Style="{DynamicResource CheckedSymbolPath}" />
+                                </Viewbox>
+                            </Border>
+                        </BulletDecorator.Bullet>
+                        <ContentPresenter Margin="5,0"
+                                          HorizontalAlignment="Left"
+                                          VerticalAlignment="Center"
+                                          RecognizesAccessKey="True" />
+                    </BulletDecorator>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="false">
+                            <Setter TargetName="CheckMark" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+                        <Trigger Property="IsFocused" Value="true">
+                            <Setter Property="BorderBrush" Value="{DynamicResource CheckBoxFocusedBorderBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="BorderBrush" Value="{DynamicResource CheckBoxDisableBorderBrush}" />
+                            <Setter TargetName="CheckMark" Property="Stroke" Value="{DynamicResource CheckBoxDisableBorderBrush}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--  RADIO BUTTON STYLE  -->
+    <Style x:Key="CommonRadioButton" TargetType="{x:Type RadioButton}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type RadioButton}">
+                    <BulletDecorator VerticalAlignment="Center"
+                                     Background="Transparent"
+                                     Cursor="Hand">
+                        <BulletDecorator.Bullet>
+                            <Grid Width="{Binding RelativeSource={RelativeSource AncestorType=RadioButton}, Path=FontSize}"
+                                  Height="{Binding RelativeSource={RelativeSource AncestorType=RadioButton}, Path=FontSize}"
+                                  Margin="0,1">
+                                <!--  Define size of the Bullet  -->
+                                <!--  The two borders  -->
+                                <Border Name="RadioOuter"
+                                        Background="Transparent"
+                                        BorderBrush="{Binding RelativeSource={RelativeSource AncestorType=RadioButton}, Path=Foreground}"
+                                        BorderThickness="2"
+                                        CornerRadius="{DynamicResource CommonRadioButtonCornerRadius}" />
+                                <Border Name="RadioMark"
+                                        Margin="4"
+                                        Background="{Binding RelativeSource={RelativeSource AncestorType=RadioButton}, Path=Foreground}"
+                                        CornerRadius="{DynamicResource CommonRadioButtonCornerRadius}"
+                                        Visibility="Hidden" />
+                            </Grid>
+                        </BulletDecorator.Bullet>
+                        <!--  Content element  -->
+                        <ContentPresenter Margin="5,0"
+                                          HorizontalAlignment="Left"
+                                          VerticalAlignment="Center"
+                                          RecognizesAccessKey="True" />
+                    </BulletDecorator>
+                    <!--  If item is checked, trigger the visibility of the mark  -->
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="true">
+                            <!--  If item is checked, trigger the visibility of the mark and change the color of the selected bullet into a darker gray for better highlighting  -->
+                            <Setter TargetName="RadioMark" Property="Visibility" Value="Visible" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
