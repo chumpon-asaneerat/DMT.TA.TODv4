@@ -155,7 +155,7 @@
     <Compile Include="Routes\TOD\Shift\Actions\Common\Gets.cs" />
     <Compile Include="Routes\TOD\Shift\TOD.Shift.Controller.cs" />
     <Compile Include="Routes\TOD\TOD.Controller.cs" />
-    <Compile Include="Services\Cmd.cs" />
+    <Compile Include="Services\CommandLine.cs" />
     <Compile Include="Services\JsonMessageTransferService.cs" />
   </ItemGroup>
   <ItemGroup>
