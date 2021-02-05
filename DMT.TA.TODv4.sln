@@ -98,6 +98,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DMT.TOD.App", "09.App\DMT.T
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DMT.Plaza.Simulator.App", "09.App\DMT.Plaza.Simulator.App\DMT.Plaza.Simulator.App.csproj", "{FF8B1C83-92EA-47D8-B4D4-C4E646F1A20C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DMT.Plaza.Models", "02.Models\DMT.Plaza.Models\DMT.Plaza.Models.csproj", "{7517EB79-EACB-4F0C-A5D3-C78D9873635E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -196,6 +198,10 @@ Global
 		{FF8B1C83-92EA-47D8-B4D4-C4E646F1A20C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF8B1C83-92EA-47D8-B4D4-C4E646F1A20C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FF8B1C83-92EA-47D8-B4D4-C4E646F1A20C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7517EB79-EACB-4F0C-A5D3-C78D9873635E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7517EB79-EACB-4F0C-A5D3-C78D9873635E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7517EB79-EACB-4F0C-A5D3-C78D9873635E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7517EB79-EACB-4F0C-A5D3-C78D9873635E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -228,6 +234,7 @@ Global
 		{F23DE176-ECAA-4F92-898F-CF12091ED8C3} = {8EB55EC8-A0B8-4E70-A307-2A960E470F21}
 		{835688A1-A3A7-41BE-B85F-CCFA12D60A98} = {8EB55EC8-A0B8-4E70-A307-2A960E470F21}
 		{FF8B1C83-92EA-47D8-B4D4-C4E646F1A20C} = {8EB55EC8-A0B8-4E70-A307-2A960E470F21}
+		{7517EB79-EACB-4F0C-A5D3-C78D9873635E} = {DA7DCCEC-D111-408A-8D09-FC865E92EB30}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E2352083-EE88-4EDB-BE3B-2FA8D4B955A7}
