@@ -53,10 +53,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Configurations\ApplicationConfigs.cs" />
-    <Compile Include="Configurations\ApplicationInferfaces.cs" />
-    <Compile Include="Configurations\UIConfigs.cs" />
-    <Compile Include="Configurations\_BaseConfigs.cs" />
+    <Compile Include="Configurations\Configs\App\01.TAAppPlazaConfig.cs" />
+    <Compile Include="Configurations\Configs\App\02.TODAppPlazaConfig.cs" />
+    <Compile Include="Configurations\Configs\App\03.AccountAppPlazaConfig.cs" />
+    <Compile Include="Configurations\Configs\App\04.PlazaAppConfig.cs" />
+    <Compile Include="Configurations\Configs\UI\StatusBarConfig.cs" />
+    <Compile Include="Configurations\Manager\00.JsonConfigFileManger.cs" />
+    <Compile Include="Configurations\Manager\01.TAConfigManager.cs" />
+    <Compile Include="Configurations\Manager\02.TODConfigManager.cs" />
+    <Compile Include="Configurations\Manager\03.AccountConfigManager.cs" />
+    <Compile Include="Configurations\Manager\04.PlazaAppConfigManager.cs" />
+    <Compile Include="Configurations\_Base\01.DMTConfig.cs" />
+    <Compile Include="Configurations\_Base\02.WebServiceConfig.cs" />
+    <Compile Include="Configurations\_Base\03.RabbitMQServiceConfig.cs" />
+    <Compile Include="Configurations\_Base\04.TAxTODWebServiceConfig.cs" />
+    <Compile Include="Configurations\_Base\05.SCWWebServiceConfig.cs" />
+    <Compile Include="Configurations\_Base\06.TAAppWebServiceConfig.cs" />
+    <Compile Include="Configurations\_Base\07.TODAppWebServiceConfig.cs" />
+    <Compile Include="Configurations\_Interfaces\01.IDMTConfig.cs" />
+    <Compile Include="Configurations\_Interfaces\02.IRabbitMQConfig.cs" />
+    <Compile Include="Configurations\_Interfaces\03.ISCWConfig.cs" />
+    <Compile Include="Configurations\_Interfaces\04.ITAxTODConfig.cs" />
+    <Compile Include="Configurations\_Interfaces\05.ITAAppConfig.cs" />
+    <Compile Include="Configurations\_Interfaces\06.ITODAppConfig.cs" />
     <Compile Include="Consts\AppConsts.cs" />
     <Compile Include="Consts\ErrorConsts.cs" />
     <Compile Include="Consts\Routes\RouteConsts.cs" />
@@ -137,7 +156,6 @@
     <Compile Include="ExtensionMethods\RangeParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\Cmd.cs" />
-    <Compile Include="Configurations\ConfigManager.cs" />
     <Compile Include="Services\JsonMessageTransferService.cs" />
   </ItemGroup>
   <ItemGroup>
