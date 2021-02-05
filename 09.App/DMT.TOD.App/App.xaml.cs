@@ -109,6 +109,34 @@ namespace DMT
             // Start log manager
             LogManager.Instance.Start();
 
+            // Load Config service.
+            TODConfigManager.Instance.LoadConfig();
+            TODConfigManager.Instance.ConfigChanged += Service_ConfigChanged;
+            // Setup config reference to all rest client class.
+            Services.Operations.TA.Config = TODConfigManager.Instance;
+            Services.Operations.TA.DMT = TODConfigManager.Instance; // required for NetworkId
+
+            Services.Operations.SCW.Config = TODConfigManager.Instance;
+            Services.Operations.SCW.DMT = TODConfigManager.Instance; // required for NetworkId
+            TODConfigManager.Instance.Start(); // Start File Watcher.
+            /*
+            // Start App Notify Server.
+            appServ = new Services.TODWebServer();
+            appServ.Start();
+
+            // Load UI Config
+            TODUIConfigManager.Instance.LoadConfig();
+            TODUIConfigManager.Instance.Start(); // Start File Watcher.
+            */
+            // Set NotifyService
+            TODNotifyService.Instance.TSBChanged += TSBChanged;
+            TODNotifyService.Instance.TSBShiftChanged += TSBShiftChanged;
+            /*
+            // Register
+            TODApp.Config = TODConfigManager.Instance.TODApp; // Keep config.
+            var ret = taaOps.Notify.Register(TODConfigManager.Instance.TODApp);
+            TODApp.IsRegistered = (null != ret) ? ret.Ok : false;
+            */
             Window window = null;
             window = new MainWindow();
 
@@ -123,6 +151,25 @@ namespace DMT
         /// <param name="e"></param>
         protected override void OnExit(ExitEventArgs e)
         {
+            // Unregister
+            /*
+            TODApp.Config = null;
+            taaOps.Notify.Unregister(TODConfigManager.Instance.TODApp);
+            */
+            // Release NotifyService event.
+            TODNotifyService.Instance.TSBChanged -= TSBChanged;
+            TODNotifyService.Instance.TSBShiftChanged -= TSBShiftChanged;
+            /*
+            // Shutdown File Watcher.
+            TODUIConfigManager.Instance.Shutdown();
+            TODConfigManager.Instance.Shutdown();
+
+            if (null != appServ)
+            {
+                appServ.Shutdown();
+            }
+            appServ = null;
+            */
             // Shutdown log manager
             LogManager.Instance.Shutdown();
 
@@ -135,8 +182,17 @@ namespace DMT
             base.OnExit(e);
         }
 
+
         private void Service_ConfigChanged(object sender, EventArgs e)
         {
+            /*
+            if (null != TODApp.Config)
+            {
+                taaOps.Notify.Unregister(TODApp.Config);
+                TODApp.IsRegistered = false;
+            }
+            */
+
             // When Service Config file changed.
             // Update all related service operations.
             Services.Operations.TA.Config = TODConfigManager.Instance;
@@ -144,15 +200,23 @@ namespace DMT
 
             Services.Operations.SCW.Config = TODConfigManager.Instance;
             Services.Operations.SCW.DMT = TODConfigManager.Instance; // required for NetworkId
+
+            // Re-Register
+            /*
+            TODApp.Config = TODConfigManager.Instance.TODApp; // Keep config.
+            var ret = taaOps.Notify.Register(TODConfigManager.Instance.TODApp);
+            TODApp.IsRegistered = (null != ret) ? ret.Ok : false;
+            */
         }
 
         private void TSBChanged(object sender, EventArgs e)
         {
-
+            //RuntimeManager.Instance.RaiseTSBChanged();
         }
 
         private void TSBShiftChanged(object sender, EventArgs e)
         {
+            //RuntimeManager.Instance.RaiseTSBShiftChanged();
         }
     }
 }
