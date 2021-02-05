@@ -95,6 +95,39 @@ namespace DMT
             // Start log manager
             LogManager.Instance.Start();
 
+            // Load Config service.
+            TAConfigManager.Instance.LoadConfig();
+            TAConfigManager.Instance.ConfigChanged += Service_ConfigChanged;
+            // Setup config reference to all rest client class.
+            // TODO: Need Check TOD App Implements
+            /*
+            Services.Operations.TOD.Config = TAConfigManager.Instance;
+            Services.Operations.TOD.DMT = TAConfigManager.Instance; // required for NetworkId
+            */
+            Services.Operations.TAxTOD.Config = TAConfigManager.Instance;
+            Services.Operations.TAxTOD.DMT = TAConfigManager.Instance; // required for NetworkId
+
+            Services.Operations.SCW.Config = TAConfigManager.Instance;
+            Services.Operations.SCW.DMT = TAConfigManager.Instance; // required for NetworkId
+            TAConfigManager.Instance.Start(); // Start File Watcher.
+            /*
+            // Start App Notify Server.
+            appServ = new Services.TAWebServer();
+            appServ.Start();
+
+            // Load UI Config
+            TAUIConfigManager.Instance.LoadConfig();
+            TAUIConfigManager.Instance.Start(); // Start File Watcher.
+            */
+            // Init NotifyService event.
+            TANotifyService.Instance.TSBChanged += TSBChanged;
+            TANotifyService.Instance.TSBShiftChanged += TSBShiftChanged;
+            /*
+            // Start coupon sync service.
+#if ENABLE_COUPON_SYNC_SERVICE
+            CouponSyncService.Instance.Start();
+#endif
+            */
             Window window = null;
             window = new MainWindow();
 
@@ -109,6 +142,26 @@ namespace DMT
         /// <param name="e"></param>
         protected override void OnExit(ExitEventArgs e)
         {
+            // Shutdown coupon sync service.
+            /*
+#if ENABLE_COUPON_SYNC_SERVICE
+            CouponSyncService.Instance.Shutdown();
+#endif
+            */
+            // Release NotifyService event.
+            TANotifyService.Instance.TSBChanged -= TSBChanged;
+            TANotifyService.Instance.TSBShiftChanged -= TSBShiftChanged;
+            /*
+            // Shutdown File Watcher.
+            TAUIConfigManager.Instance.Shutdown();
+            TAConfigManager.Instance.Shutdown();
+
+            if (null != appServ)
+            {
+                appServ.Shutdown();
+            }
+            appServ = null;
+            */
             // Shutdown log manager
             LogManager.Instance.Shutdown();
 
@@ -135,6 +188,16 @@ namespace DMT
 
             Services.Operations.SCW.Config = TAConfigManager.Instance;
             Services.Operations.SCW.DMT = TAConfigManager.Instance; // required for NetworkId
+        }
+
+        private void TSBChanged(object sender, EventArgs e)
+        {
+            //RuntimeManager.Instance.RaiseTSBChanged();
+        }
+
+        private void TSBShiftChanged(object sender, EventArgs e)
+        {
+            //RuntimeManager.Instance.RaiseTSBShiftChanged();
         }
     }
 }
