@@ -91,7 +91,6 @@
     <Folder Include="Services\" />
     <Folder Include="Views\Scripts\Infrastructures\" />
     <Folder Include="Views\Scripts\Shifts\" />
-    <Folder Include="Views\Scripts\Users\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -109,6 +108,9 @@
       <Project>{7d584f0a-920f-4be1-8652-3527fd7a5c27}</Project>
       <Name>DMT.Models</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Scripts\Users\UserView.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

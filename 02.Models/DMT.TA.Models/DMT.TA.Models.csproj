@@ -116,7 +116,9 @@
     <Folder Include="Views\Scripts\Infrastructures\" />
     <Folder Include="Views\Scripts\Revenues\" />
     <Folder Include="Views\Scripts\Shifts\" />
-    <Folder Include="Views\Scripts\Users\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Scripts\Users\UserView.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
