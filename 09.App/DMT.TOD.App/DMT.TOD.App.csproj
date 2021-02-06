@@ -152,6 +152,27 @@
       <DependentUpon>PlazaHeader.xaml</DependentUpon>
     </Compile>
     <Compile Include="Services\TODApp.cs" />
+    <Compile Include="StatusBar\Elements\AppInfoStatus.xaml.cs">
+      <DependentUpon>AppInfoStatus.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StatusBar\Elements\ClientInfoStatus.xaml.cs">
+      <DependentUpon>ClientInfoStatus.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StatusBar\Elements\LocalDbStatus.xaml.cs">
+      <DependentUpon>LocalDbStatus.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StatusBar\Elements\RabbitMQStatus.xaml.cs">
+      <DependentUpon>RabbitMQStatus.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StatusBar\Elements\SCWStatus.xaml.cs">
+      <DependentUpon>SCWStatus.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StatusBar\Elements\TAAppStatus.xaml.cs">
+      <DependentUpon>TAAppStatus.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StatusBar\TODStatusBar.xaml.cs">
+      <DependentUpon>TODStatusBar.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TOD\Pages\Menu\ConfigurationMenu.xaml.cs">
       <DependentUpon>ConfigurationMenu.xaml</DependentUpon>
     </Compile>
@@ -197,6 +218,34 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="StatusBar\Elements\AppInfoStatus.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="StatusBar\Elements\ClientInfoStatus.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="StatusBar\Elements\LocalDbStatus.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="StatusBar\Elements\RabbitMQStatus.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="StatusBar\Elements\SCWStatus.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="StatusBar\Elements\TAAppStatus.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="StatusBar\TODStatusBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="TOD\Pages\Menu\ConfigurationMenu.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -297,7 +346,6 @@
   <ItemGroup>
     <Folder Include="Models\" />
     <Folder Include="SignIn\Windows\" />
-    <Folder Include="StatusBar\Elements\" />
     <Folder Include="TOD\Controls\Revenue\Elements\" />
     <Folder Include="TOD\Pages\Reports\" />
     <Folder Include="TOD\Pages\Revenue\" />
