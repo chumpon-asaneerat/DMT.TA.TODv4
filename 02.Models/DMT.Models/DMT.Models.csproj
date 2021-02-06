@@ -132,6 +132,8 @@
     <Compile Include="Models\SCW\SCWPasswordExpiresDays.cs" />
     <Compile Include="Models\SCW\SCWQRCodeTransactionList.cs" />
     <Compile Include="Models\SCW\SCWSaveChiefDuty.cs" />
+    <Compile Include="Models\TAxTOD\TACouponReveiced.cs" />
+    <Compile Include="Models\TAxTOD\TACouponTransaction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -156,7 +158,6 @@
     <Folder Include="Models\Plaza\Infrastructures\" />
     <Folder Include="Models\Plaza\Master\" />
     <Folder Include="Models\Plaza\Revenues\" />
-    <Folder Include="Models\TAxTOD\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
