@@ -136,6 +136,18 @@
     <Compile Include="Account\Pages\Menu\MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Header\AccountHeader.xaml.cs">
+      <DependentUpon>AccountHeader.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Header\Elements\HeaderDateTime.xaml.cs">
+      <DependentUpon>HeaderDateTime.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Header\Elements\HeaderLogo.xaml.cs">
+      <DependentUpon>HeaderLogo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Header\Elements\HeaderUser.xaml.cs">
+      <DependentUpon>HeaderUser.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Services\AccountApp.cs" />
     <Page Include="Account\Controls\TSBCreditTransactionEntry.xaml">
       <SubType>Designer</SubType>
@@ -144,6 +156,22 @@
     <Page Include="Account\Pages\Menu\MainMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Header\AccountHeader.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Header\Elements\HeaderDateTime.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Header\Elements\HeaderLogo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Header\Elements\HeaderUser.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -276,7 +304,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Account\Windows\" />
-    <Folder Include="Header\Elements\" />
     <Folder Include="SignIn\Pages\" />
     <Folder Include="SignIn\Windows\" />
     <Folder Include="StatusBar\Elements\" />
