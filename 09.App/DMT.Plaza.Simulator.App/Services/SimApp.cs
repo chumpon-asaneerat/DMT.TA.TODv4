@@ -24,7 +24,7 @@ namespace DMT
         public static class Pages
         {
             #region Lane Activity
-
+            /*
             private static Simulator.Pages.LaneActivityPage _LaneActivity;
 
             /// <summary>Gets Lane Activity Page.</summary>
@@ -42,11 +42,11 @@ namespace DMT
                     return _LaneActivity;
                 }
             }
-
+            */
             #endregion
 
             #region Bank Note Entry
-
+            /*
             private static Simulator.Pages.BankNoteEntryPage _BankNoteEntry;
 
             /// <summary>Gets Bank Note Entry Page.</summary>
@@ -64,11 +64,11 @@ namespace DMT
                     return _BankNoteEntry;
                 }
             }
-
+            */
             #endregion
 
             #region TA Server Get Coupon
-
+            /*
             private static Simulator.Pages.TAServerGetCoupon _TAServerGetCoupon;
 
             /// <summary>Gets TAServer Get Coupon Page.</summary>
@@ -86,11 +86,11 @@ namespace DMT
                     return _TAServerGetCoupon;
                 }
             }
-
+            */
             #endregion
 
             #region TA Server Sync Service
-
+            /*
             private static Simulator.Pages.TAServerCouponSyncPage _TAServerCouponSync;
 
             /// <summary>Gets TAS erver Sunc Coupon Page.</summary>
@@ -108,7 +108,7 @@ namespace DMT
                     return _TAServerCouponSync;
                 }
             }
-
+            */
             #endregion
         }
 
@@ -118,7 +118,7 @@ namespace DMT
         public static class Windows
         {
             #region User List
-
+            /*
             /// <summary>Gets User List Window.</summary>
             public static Simulator.Windows.UserListWindow UserList
             {
@@ -129,11 +129,11 @@ namespace DMT
                     return ret; 
                 }
             }
-
+            */
             #endregion
 
             #region Payment
-
+            /*
             /// <summary>Gets Payment Window.</summary>
             public static Simulator.Windows.PaymentWindow Payment
             {
@@ -144,7 +144,7 @@ namespace DMT
                     return ret;
                 }
             }
-
+            */
             #endregion
         }
     }
