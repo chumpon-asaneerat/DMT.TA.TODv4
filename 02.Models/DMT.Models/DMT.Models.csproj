@@ -112,6 +112,8 @@
     <Compile Include="Models\Common\NTables.cs" />
     <Compile Include="Models\Common\UICommands.cs" />
     <Compile Include="Models\Common\Utils.cs" />
+    <Compile Include="Models\Plaza\Configuration\UniqueCode.cs" />
+    <Compile Include="Models\Plaza\Configuration\ViewHistory.cs" />
     <Compile Include="Models\Plaza\Master\MActiveStatus.cs" />
     <Compile Include="Models\Plaza\Master\MCardAllow.cs" />
     <Compile Include="Models\Plaza\Master\MCoupon.cs" />
@@ -154,7 +156,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\Plaza\Common\" />
-    <Folder Include="Models\Plaza\Configuration\" />
     <Folder Include="Models\Plaza\Coupon\Common\" />
     <Folder Include="Models\Plaza\Coupon\TSB\" />
     <Folder Include="Models\Plaza\Coupon\User\" />
