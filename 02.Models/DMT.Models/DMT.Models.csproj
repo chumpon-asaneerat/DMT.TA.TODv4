@@ -115,6 +115,22 @@
     <Compile Include="Models\Plaza\Users\Role.cs" />
     <Compile Include="Models\Plaza\Users\User.cs" />
     <Compile Include="Models\Plaza\Users\UserAccess.cs" />
+    <Compile Include="Models\SCW\Common.cs" />
+    <Compile Include="Models\SCW\SCWCardAllowList.cs" />
+    <Compile Include="Models\SCW\SCWChangePassword.cs" />
+    <Compile Include="Models\SCW\SCWChiefOnDuty.cs" />
+    <Compile Include="Models\SCW\SCWCouponBookList.cs" />
+    <Compile Include="Models\SCW\SCWCouponList.cs" />
+    <Compile Include="Models\SCW\SCWCurrencyDemonList.cs" />
+    <Compile Include="Models\SCW\SCWDeclare.cs" />
+    <Compile Include="Models\SCW\SCWEmulators.cs" />
+    <Compile Include="Models\SCW\SCWEMVTransactionList.cs" />
+    <Compile Include="Models\SCW\SCWJobList.cs" />
+    <Compile Include="Models\SCW\SCWJobList2.cs" />
+    <Compile Include="Models\SCW\SCWLogInAudit.cs" />
+    <Compile Include="Models\SCW\SCWPasswordExpiresDays.cs" />
+    <Compile Include="Models\SCW\SCWQRCodeTransactionList.cs" />
+    <Compile Include="Models\SCW\SCWSaveChiefDuty.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -140,7 +156,6 @@
     <Folder Include="Models\Plaza\Master\" />
     <Folder Include="Models\Plaza\Revenues\" />
     <Folder Include="Models\RabbitMQ\" />
-    <Folder Include="Models\SCW\" />
     <Folder Include="Models\TAxTOD\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
