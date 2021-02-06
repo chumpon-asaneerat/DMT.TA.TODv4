@@ -133,6 +133,15 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Services\TAApp.cs" />
+    <Compile Include="TA\Pages\Menu\ConfigurationMenu.xaml.cs">
+      <DependentUpon>ConfigurationMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TA\Pages\Menu\MainMenu.xaml.cs">
+      <DependentUpon>MainMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TA\Pages\Menu\ReportMenu.xaml.cs">
+      <DependentUpon>ReportMenu.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -145,6 +154,18 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="TA\Pages\Menu\ConfigurationMenu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TA\Pages\Menu\MainMenu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TA\Pages\Menu\ReportMenu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -251,7 +272,6 @@
     <Folder Include="TA\Pages\Coupon\" />
     <Folder Include="TA\Pages\Credit\" />
     <Folder Include="TA\Pages\Exchange\" />
-    <Folder Include="TA\Pages\Menu\" />
     <Folder Include="TA\Windows\Coupon\" />
     <Folder Include="TA\Windows\Credit\" />
     <Folder Include="TA\Windows\Exchange\" />

@@ -62,7 +62,7 @@ namespace DMT
         public static class Pages
         {
             #region Main Menu
-            /*
+
             private static TA.Pages.Menu.MainMenu _MainMenu;
 
             /// <summary>Gets MainMenu Page.</summary>
@@ -80,7 +80,7 @@ namespace DMT
                     return _MainMenu;
                 }
             }
-            */
+
             #endregion
 
             #region SignIn
@@ -106,7 +106,7 @@ namespace DMT
             #endregion
 
             #region Report Menu
-            /*
+
             private static TA.Pages.Menu.ReportMenu _ReportMenu;
 
             /// <summary>Gets _ReportMenu Page.</summary>
@@ -124,11 +124,11 @@ namespace DMT
                     return _ReportMenu;
                 }
             }
-            */
+
             #endregion
 
             #region Configuration Menu
-            /*
+
             private static TA.Pages.Menu.ConfigurationMenu _ConfigurationMenu;
 
             /// <summary>Gets ConfigurationMenu Page.</summary>
@@ -146,7 +146,7 @@ namespace DMT
                     return _ConfigurationMenu;
                 }
             }
-            */
+
             #endregion
 
             #region Internal Exchange
