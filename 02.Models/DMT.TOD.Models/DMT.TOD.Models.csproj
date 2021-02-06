@@ -89,6 +89,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\TODDbServer.cs" />
     <Compile Include="Views\TODSqliteScriptManager.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -109,7 +110,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Services\" />
     <Folder Include="Views\Scripts\Infrastructures\" />
     <Folder Include="Views\Scripts\Revenues\" />
     <Folder Include="Views\Scripts\Shifts\" />

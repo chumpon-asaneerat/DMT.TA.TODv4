@@ -26,28 +26,28 @@ using DMT.Views;
 
 namespace DMT.Services
 {
-    #region PlazaDbServer
+    #region TALocalDbServer
 
     /// <summary>
-    /// Plaza Database Server.
+    /// Local Database Server.
     /// </summary>
-    public class PlazaDbServer
+    public class TALocalDbServer
     {
         #region Singelton
 
-        private static PlazaDbServer _instance = null;
+        private static TALocalDbServer _instance = null;
         /// <summary>
         /// Singelton Access.
         /// </summary>
-        public static PlazaDbServer Instance
+        public static TALocalDbServer Instance
         {
             get
             {
                 if (null == _instance)
                 {
-                    lock (typeof(PlazaDbServer))
+                    lock (typeof(TALocalDbServer))
                     {
-                        _instance = new PlazaDbServer();
+                        _instance = new TALocalDbServer();
                     }
                 }
                 return _instance;
@@ -61,14 +61,14 @@ namespace DMT.Services
         /// <summary>
         /// Constructor.
         /// </summary>
-        private PlazaDbServer() : base()
+        private TALocalDbServer() : base()
         {
-            this.FileName = "Plaza.db";
+            this.FileName = "TA.db";
         }
         /// <summary>
         /// Destructor.
         /// </summary>
-        ~PlazaDbServer()
+        ~TALocalDbServer()
         {
             Shutdown();
         }
@@ -106,6 +106,12 @@ namespace DMT.Services
         private void InitTables()
         {
             Db.CreateTable<ViewHistory>();
+            Db.CreateTable<UniqueCode>();
+
+            Db.CreateTable<MCurrency>();
+            Db.CreateTable<MCoupon>();
+            Db.CreateTable<MCouponBook>();
+            Db.CreateTable<MCardAllow>();
 
             Db.CreateTable<Shift>();
 
@@ -117,12 +123,259 @@ namespace DMT.Services
             Db.CreateTable<PlazaGroup>();
             Db.CreateTable<Plaza>();
             Db.CreateTable<Lane>();
+
+            //Db.CreateTable<TSBShift>();
+
+            //Db.CreateTable<RevenueEntry>(); // Collect all revenue entry from various TOD client (by plaza id).
+
+            //Db.CreateTable<TSBCreditTransaction>();
+
+            //Db.CreateTable<UserCreditBalance>();
+            //Db.CreateTable<UserCreditTransaction>();
+
+            //Db.CreateTable<TSBExchangeGroup>();
+            //Db.CreateTable<TSBExchangeTransaction>();
+
+            //Db.CreateTable<TSBCouponTransaction>();
+
+            ////Db.CreateTable<UserCouponBalance>();
+            //Db.CreateTable<UserCouponTransaction>();
         }
 
         private void InitDefaults()
         {
+            InitMCurrency();
+            InitMCoupon();
+            InitMCouponBook();
+            InitMCardAllow();
+
             InitShifts();
             InitRoleAndUsers();
+        }
+
+        private void InitMCurrency()
+        {
+            if (null == Db) return;
+
+            if (Db.Table<MCurrency>().Count() > 0) return; // already exists.
+
+            MCurrency item;
+            item = new MCurrency()
+            {
+                currencyDenomId = 1,
+                abbreviation = "Satang25",
+                description = "25 Satang",
+                denomValue = (decimal)0.25,
+                currencyId = 1,
+                denomTypeId = 2 // coin
+            };
+            if (!MCurrency.Exists(item)) MCurrency.Save(item);
+            item = new MCurrency()
+            {
+                currencyDenomId = 2,
+                abbreviation = "Satang50",
+                description = "50 Satang",
+                denomValue = (decimal)0.5,
+                currencyId = 1,
+                denomTypeId = 2 // coin
+            };
+            if (!MCurrency.Exists(item)) MCurrency.Save(item);
+            item = new MCurrency()
+            {
+                currencyDenomId = 3,
+                abbreviation = "Baht1",
+                description = "1 Baht",
+                denomValue = 1,
+                currencyId = 1,
+                denomTypeId = 2 // coin
+            };
+            if (!MCurrency.Exists(item)) MCurrency.Save(item);
+            item = new MCurrency()
+            {
+                currencyDenomId = 4,
+                abbreviation = "Baht2",
+                description = "2 Baht",
+                denomValue = 2,
+                currencyId = 1,
+                denomTypeId = 2 // coin
+            };
+            if (!MCurrency.Exists(item)) MCurrency.Save(item);
+            item = new MCurrency()
+            {
+                currencyDenomId = 5,
+                abbreviation = "Baht5",
+                description = "5 Baht",
+                denomValue = 5,
+                currencyId = 1,
+                denomTypeId = 2 // coin
+            };
+            if (!MCurrency.Exists(item)) MCurrency.Save(item);
+            item = new MCurrency()
+            {
+                currencyDenomId = 6,
+                abbreviation = "CBaht10",
+                description = "10 Baht",
+                denomValue = 10,
+                currencyId = 1,
+                denomTypeId = 2 // coin
+            };
+            if (!MCurrency.Exists(item)) MCurrency.Save(item);
+            item = new MCurrency()
+            {
+                currencyDenomId = 7,
+                abbreviation = "NBaht10",
+                description = "10 Baht",
+                denomValue = 10,
+                currencyId = 1,
+                denomTypeId = 1 // Note
+            };
+            if (!MCurrency.Exists(item)) MCurrency.Save(item);
+            item = new MCurrency()
+            {
+                currencyDenomId = 8,
+                abbreviation = "NBaht20",
+                description = "20 Baht",
+                denomValue = 20,
+                currencyId = 1,
+                denomTypeId = 1 // Note
+            };
+            if (!MCurrency.Exists(item)) MCurrency.Save(item);
+            item = new MCurrency()
+            {
+                currencyDenomId = 9,
+                abbreviation = "NBaht50",
+                description = "50 Baht",
+                denomValue = 50,
+                currencyId = 1,
+                denomTypeId = 1 // Note
+            };
+            if (!MCurrency.Exists(item)) MCurrency.Save(item);
+            item = new MCurrency()
+            {
+                currencyDenomId = 10,
+                abbreviation = "NBaht100",
+                description = "100 Baht",
+                denomValue = 100,
+                currencyId = 1,
+                denomTypeId = 1 // Note
+            };
+            if (!MCurrency.Exists(item)) MCurrency.Save(item);
+            item = new MCurrency()
+            {
+                currencyDenomId = 11,
+                abbreviation = "NBaht500",
+                description = "500 Baht",
+                denomValue = 500,
+                currencyId = 1,
+                denomTypeId = 1 // Note
+            };
+            if (!MCurrency.Exists(item)) MCurrency.Save(item);
+            item = new MCurrency()
+            {
+                currencyDenomId = 12,
+                abbreviation = "NBaht1000",
+                description = "1000 Baht",
+                denomValue = 1000,
+                currencyId = 1,
+                denomTypeId = 1 // Note
+            };
+            if (!MCurrency.Exists(item)) MCurrency.Save(item);
+        }
+
+        private void InitMCoupon()
+        {
+            if (null == Db) return;
+
+            if (Db.Table<MCoupon>().Count() > 0) return; // already exists.
+
+            MCoupon item;
+            item = new MCoupon()
+            {
+                couponId = 1,
+                couponValue = 30,
+                abbreviation = "30",
+                description = "30 บาท"
+            };
+            if (!MCoupon.Exists(item)) MCoupon.Save(item);
+            item = new MCoupon()
+            {
+                couponId = 2,
+                couponValue = 35,
+                abbreviation = "35",
+                description = "35 บาท"
+            };
+            if (!MCoupon.Exists(item)) MCoupon.Save(item);
+            item = new MCoupon()
+            {
+                couponId = 3,
+                couponValue = 60,
+                abbreviation = "60",
+                description = "60 บาท"
+            };
+            if (!MCoupon.Exists(item)) MCoupon.Save(item);
+            item = new MCoupon()
+            {
+                couponId = 4,
+                couponValue = 70,
+                abbreviation = "70",
+                description = "70 บาท"
+            };
+            if (!MCoupon.Exists(item)) MCoupon.Save(item);
+            item = new MCoupon()
+            {
+                couponId = 5,
+                couponValue = 80,
+                abbreviation = "80",
+                description = "80 บาท"
+            };
+            if (!MCoupon.Exists(item)) MCoupon.Save(item);
+        }
+
+        private void InitMCouponBook()
+        {
+            if (null == Db) return;
+
+            if (Db.Table<MCouponBook>().Count() > 0) return; // already exists.
+            MCouponBook item;
+            item = new MCouponBook()
+            {
+                couponBookId = 1,
+                couponBookValue = 665,
+                abbreviation = "35",
+                description = "35 บาท"
+            };
+            if (!MCouponBook.Exists(item)) MCouponBook.Save(item);
+            item = new MCouponBook()
+            {
+                couponBookId = 2,
+                couponBookValue = 1520,
+                abbreviation = "80",
+                description = "80 บาท"
+            };
+            if (!MCouponBook.Exists(item)) MCouponBook.Save(item);
+        }
+
+        private void InitMCardAllow()
+        {
+            if (null == Db) return;
+
+            if (Db.Table<MCardAllow>().Count() > 0) return; // already exists.
+
+            MCardAllow item;
+            item = new MCardAllow()
+            {
+                cardAllowId = 1,
+                abbreviation = "Card DMT P1",
+                description = "บัตร DMT (ป 1)"
+            };
+            if (!MCardAllow.Exists(item)) MCardAllow.Save(item);
+            item = new MCardAllow()
+            {
+                cardAllowId = 2,
+                abbreviation = "Card DMT P2",
+                description = "บัตร DMT (ป 2)"
+            };
+            if (!MCardAllow.Exists(item)) MCardAllow.Save(item);
         }
 
         private void InitShifts()
@@ -399,6 +652,67 @@ namespace DMT.Services
             // Users - Embeded resource used . instead / to access sub contents.
             prefix = @"Users";
             InitView("UserView", 1, prefix);
+
+            // Shifts - Embeded resource used . instead / to access sub contents.
+            prefix = @"Shifts";
+            //InitView("TSBShiftView", 1, prefix);
+
+            // Revenues - Embeded resource used . instead / to access sub contents.
+            prefix = @"Revenues";
+            //InitView("RevenueEntryView", 1, prefix);
+
+            // Credits - Embeded resource used . instead / to access sub contents.
+            /*
+            prefix = @"Credits";
+            InitView("UserCreditTransactionView", 1, prefix);
+            InitView("UserCreditBorrowSummaryView", 1, prefix);
+            InitView("UserCreditReturnSummaryView", 1, prefix);
+            // !!! Required UserCreditBorrowSummaryView and UserCreditBorrowSummaryView
+            InitView("UserCreditSummaryView", 1, prefix);
+
+            InitView("TSBCreditTransactionView", 1, prefix);
+            // User Total.
+            InitView("TSBCreditUserBHTTotalSummaryView", 1, prefix);
+            // TSB Amount(s).
+            InitView("TSBCreditST25SummaryView", 1, prefix);
+            InitView("TSBCreditST50SummaryView", 1, prefix);
+            InitView("TSBCreditBHT1SummaryView", 1, prefix);
+            InitView("TSBCreditBHT2SummaryView", 1, prefix);
+            InitView("TSBCreditBHT5SummaryView", 1, prefix);
+            InitView("TSBCreditBHT10SummaryView", 1, prefix);
+            InitView("TSBCreditBHT20SummaryView", 1, prefix);
+            InitView("TSBCreditBHT50SummaryView", 1, prefix);
+            InitView("TSBCreditBHT100SummaryView", 1, prefix);
+            InitView("TSBCreditBHT500SummaryView", 1, prefix);
+            InitView("TSBCreditBHT1000SummaryView", 1, prefix);
+            // !!! Required Above views
+            InitView("TSBCreditSummaryView", 1, prefix);
+
+            // Coupons - Embeded resource used . instead / to access sub contents.
+            prefix = @"Coupons";
+            InitView("TSBCouponTransactionView", 1, prefix);
+
+            //InitView("TSBCouponSoldByTSBTransactionView", 1, prefix);
+            //InitView("TSBCouponSoldByLaneTransactionView", 1, prefix);
+
+            InitView("TSBCouponSummarryView", 1, prefix);
+            InitView("TSBCouponStockBalanceView", 1, prefix);
+            InitView("TSBCouponLaneBalanceView", 1, prefix);
+            InitView("TSBCouponSoldByLaneBalanceView", 1, prefix);
+            InitView("TSBCouponSoldByTSBBalanceView", 1, prefix);
+            // !!! Required 
+            // - TSBCouponSummarryView
+            // - TSBCouponStockBalanceView
+            // - TSBCouponLaneBalanceView
+            // - TSBCouponSoldByLaneBalanceView
+            // - TSBCouponSoldByTSBBalanceView
+            InitView("TSBCouponBalanceView", 1, prefix);
+
+            // Exchanges - Embeded resource used . instead / to access sub contents.
+            prefix = @"Exchanges";
+            InitView("TSBExchangeGroupView", 1, prefix);
+            InitView("TSBExchangeTransactionView", 1, prefix);
+            */
         }
 
         class ViewInfo
@@ -462,7 +776,7 @@ namespace DMT.Services
                         embededResourceName = @"DMT.Views.Scripts." + resourceName;
                     }
 
-                    script = PlazaSqliteScriptManager.GetScript(embededResourceName);
+                    script = TASqliteScriptManager.GetScript(embededResourceName);
 
                     if (!string.IsNullOrEmpty(script))
                     {
@@ -505,7 +819,7 @@ namespace DMT.Services
             MethodBase med = MethodBase.GetCurrentMethod();
             if (null == Db)
             {
-                lock (typeof(PlazaDbServer))
+                lock (typeof(TALocalDbServer))
                 {
                     try
                     {

@@ -119,10 +119,10 @@ namespace DMT.Services
             Db.CreateTable<User>();
             Db.CreateTable<UserAccess>();
 
-            //Db.CreateTable<TSB>();
-            //Db.CreateTable<PlazaGroup>();
-            //Db.CreateTable<Plaza>();
-            //Db.CreateTable<Lane>();
+            Db.CreateTable<TSB>();
+            Db.CreateTable<PlazaGroup>();
+            Db.CreateTable<Plaza>();
+            Db.CreateTable<Lane>();
 
             //Db.CreateTable<TSBShift>();
         }
@@ -133,6 +133,7 @@ namespace DMT.Services
             InitMCoupon();
             InitMCouponBook();
             InitMCardAllow();
+
             InitShifts();
             InitRoleAndUsers();
         }
@@ -432,6 +433,7 @@ namespace DMT.Services
                 MiddleNameTH = mName,
                 LastNameTH = lName,
                 Password = Utils.MD5.Encrypt("123456"),
+                PasswordDate = DateTime.Now,
                 CardId = "",
                 AccountStatus = User.AccountFlags.Avaliable,
                 IsDummy = true,
@@ -481,6 +483,7 @@ namespace DMT.Services
                 MiddleNameTH = mName,
                 LastNameTH = lName,
                 Password = Utils.MD5.Encrypt("123456"),
+                PasswordDate = DateTime.Now,
                 CardId = "",
                 AccountStatus = User.AccountFlags.Avaliable,
                 IsDummy = true,
@@ -517,6 +520,7 @@ namespace DMT.Services
                 MiddleNameTH = mName,
                 LastNameTH = lName,
                 Password = Utils.MD5.Encrypt("123456"),
+                PasswordDate = DateTime.Now,
                 CardId = "",
                 AccountStatus = User.AccountFlags.Avaliable,
                 IsDummy = true,

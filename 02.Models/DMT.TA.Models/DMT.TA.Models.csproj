@@ -89,6 +89,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\TADbServer.cs" />
     <Compile Include="Views\TASqliteScriptManager.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -109,7 +110,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Services\" />
     <Folder Include="Views\Scripts\Coupons\" />
     <Folder Include="Views\Scripts\Credits\" />
     <Folder Include="Views\Scripts\Exchanges\" />
