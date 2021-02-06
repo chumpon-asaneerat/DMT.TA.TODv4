@@ -1,6 +1,7 @@
 ﻿<Window x:Class="DMT.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:ctrl="clr-namespace:DMT.Controls"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         Title="DMT - Tour of Duty"
@@ -14,6 +15,8 @@
         mc:Ignorable="d">
     <Grid Background="DimGray">
         <DockPanel LastChildFill="True">
+            <ctrl:PlazaHeader Height="100" DockPanel.Dock="Top" />
+            <ctrl:TODStatusBar Height="20" DockPanel.Dock="Bottom" />
             <ContentPresenter x:Name="container" />
         </DockPanel>
     </Grid>
