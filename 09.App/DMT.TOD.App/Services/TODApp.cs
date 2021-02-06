@@ -62,7 +62,7 @@ namespace DMT
         public static class Pages
         {
             #region Main Menu
-            /*
+
             private static TOD.Pages.Menu.MainMenu _MainMenu;
 
             /// <summary>Gets Main Menu Page.</summary>
@@ -80,11 +80,11 @@ namespace DMT
                     return _MainMenu;
                 }
             }
-            */
+
             #endregion
 
             #region Report Menu
-            /*
+
             private static TOD.Pages.Menu.ReportMenu _ReportMenu;
 
             /// <summary>Gets Report Menu Page.</summary>
@@ -102,11 +102,11 @@ namespace DMT
                     return _ReportMenu;
                 }
             }
-            */
+
             #endregion
 
             #region Configuration Menu
-            /*
+
             private static TOD.Pages.Menu.ConfigurationMenu _ConfigurationMenu;
 
             /// <summary>Gets _Configuration Menu Page.</summary>
@@ -124,7 +124,7 @@ namespace DMT
                     return _ConfigurationMenu;
                 }
             }
-            */
+
             #endregion
 
             #region Revenue (Chief)

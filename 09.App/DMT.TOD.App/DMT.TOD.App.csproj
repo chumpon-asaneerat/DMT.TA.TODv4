@@ -134,6 +134,15 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Services\TODApp.cs" />
+    <Compile Include="TOD\Pages\Menu\ConfigurationMenu.xaml.cs">
+      <DependentUpon>ConfigurationMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TOD\Pages\Menu\MainMenu.xaml.cs">
+      <DependentUpon>MainMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TOD\Pages\Menu\ReportMenu.xaml.cs">
+      <DependentUpon>ReportMenu.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -146,6 +155,18 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="TOD\Pages\Menu\ConfigurationMenu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TOD\Pages\Menu\MainMenu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TOD\Pages\Menu\ReportMenu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -237,7 +258,6 @@
     <Folder Include="SignIn\Windows\" />
     <Folder Include="StatusBar\Elements\" />
     <Folder Include="TOD\Controls\Revenue\Elements\" />
-    <Folder Include="TOD\Pages\Menu\" />
     <Folder Include="TOD\Pages\Reports\" />
     <Folder Include="TOD\Pages\Revenue\" />
     <Folder Include="TOD\Pages\TollAdmin\" />
