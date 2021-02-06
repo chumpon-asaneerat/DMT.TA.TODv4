@@ -85,10 +85,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AccountDbServer.cs" />
     <Compile Include="Views\AccountSqlScriptManager.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Services\" />
     <Folder Include="Views\Scripts\Infrastructures\" />
     <Folder Include="Views\Scripts\Shifts\" />
   </ItemGroup>
