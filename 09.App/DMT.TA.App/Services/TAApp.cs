@@ -51,7 +51,9 @@ namespace DMT
         /// </summary>
         public static class User
         {
+            /*
             public static Models.User Current { get; set; }
+            */
         }
 
         /// <summary>
@@ -60,7 +62,7 @@ namespace DMT
         public static class Pages
         {
             #region Main Menu
-
+            /*
             private static TA.Pages.Menu.MainMenu _MainMenu;
 
             /// <summary>Gets MainMenu Page.</summary>
@@ -78,11 +80,11 @@ namespace DMT
                     return _MainMenu;
                 }
             }
-
+            */
             #endregion
 
             #region SignIn
-
+            /*
             private static DMT.Pages.SignInPage _SignIn;
 
             /// <summary>Gets SignIn Page.</summary>
@@ -100,11 +102,11 @@ namespace DMT
                     return _SignIn;
                 }
             }
-
+            */
             #endregion
 
             #region Report Menu
-
+            /*
             private static TA.Pages.Menu.ReportMenu _ReportMenu;
 
             /// <summary>Gets _ReportMenu Page.</summary>
@@ -122,11 +124,11 @@ namespace DMT
                     return _ReportMenu;
                 }
             }
-
+            */
             #endregion
 
             #region Configuration Menu
-
+            /*
             private static TA.Pages.Menu.ConfigurationMenu _ConfigurationMenu;
 
             /// <summary>Gets ConfigurationMenu Page.</summary>
@@ -144,11 +146,11 @@ namespace DMT
                     return _ConfigurationMenu;
                 }
             }
-
+            */
             #endregion
 
             #region Internal Exchange
-
+            /*
             private static TA.Pages.Exchange.InternalExchangePage _InternalExchange;
 
             /// <summary>Gets Internal Exchange Page.</summary>
@@ -166,11 +168,11 @@ namespace DMT
                     return _InternalExchange;
                 }
             }
-
+            */
             #endregion
 
             #region Manage Exchange
-
+            /*
             private static TA.Pages.Exchange.ManageExchangePage _ManageExchange;
 
             /// <summary>Gets Manage Exchange Page.</summary>
@@ -188,11 +190,11 @@ namespace DMT
                     return _ManageExchange;
                 }
             }
-
+            */
             #endregion
 
             #region Request Exchange
-
+            /*
             private static TA.Pages.Exchange.RequestExchangePage _RequestExchange;
 
             /// <summary>Gets Request Exchange Page.</summary>
@@ -210,11 +212,11 @@ namespace DMT
                     return _RequestExchange;
                 }
             }
-
+            */
             #endregion
 
             #region Collector Credit Manage
-
+            /*
             private static TA.Pages.Credit.CollectorCreditManagePage _CollectorCreditManage;
 
             /// <summary>Gets Collector Credit Manage Page.</summary>
@@ -232,11 +234,11 @@ namespace DMT
                     return _CollectorCreditManage;
                 }
             }
-
+            */
             #endregion
 
             #region Credit History View
-
+            /*
             private static TA.Pages.Credit.CreditHistoryViewPage _CreditHistoryView;
 
             /// <summary>Gets Credit History View Page.</summary>
@@ -254,11 +256,11 @@ namespace DMT
                     return _CreditHistoryView;
                 }
             }
-
+            */
             #endregion
 
             #region Coupon History View
-
+            /*
             private static TA.Pages.Coupon.CouponHistoryViewPage _CouponHistoryView;
 
             /// <summary>Gets Coupon History View Page.</summary>
@@ -276,11 +278,11 @@ namespace DMT
                     return _CouponHistoryView;
                 }
             }
-
+            */
             #endregion
 
             #region Coupon TSB Sale
-
+            /*
             private static TA.Pages.Coupon.CouponTSBSalePage _CouponTSBSale;
 
             /// <summary>Gets Coupon TSB Sale Page.</summary>
@@ -298,11 +300,11 @@ namespace DMT
                     return _CouponTSBSale;
                 }
             }
-
+            */
             #endregion
 
             #region Receive Coupon
-
+            /*
             private static TA.Pages.Coupon.ReceiveCouponPage _ReceiveCoupon;
 
             /// <summary>Gets Receive Coupon Page.</summary>
@@ -320,11 +322,11 @@ namespace DMT
                     return _ReceiveCoupon;
                 }
             }
-
+            */
             #endregion
 
             #region Return Coupon
-
+            /*
             private static TA.Pages.Coupon.ReturnCouponPage _ReturnCoupon;
 
             /// <summary>Gets Return Coupon Page.</summary>
@@ -342,7 +344,7 @@ namespace DMT
                     return _ReturnCoupon;
                 }
             }
-
+            */
             #endregion
         }
 
@@ -353,6 +355,7 @@ namespace DMT
         {
             #region Credit
 
+            /*
             /// <summary>Gets Collector Credit Borrow Window.</summary>
             public static TA.Windows.Credit.CollectorCreditBorrowWindow CollectorCreditBorrow
             {
@@ -363,7 +366,9 @@ namespace DMT
                     return ret;
                 }
             }
+            */
 
+            /*
             /// <summary>Gets Collector Credit Return Window.</summary>
             public static TA.Windows.Credit.CollectorCreditReturnWindow CollectorCreditReturn
             {
@@ -374,7 +379,9 @@ namespace DMT
                     return ret;
                 }
             }
+            */
 
+            /*
             /// <summary>Gets Collector Received Bag Window.</summary>
             public static TA.Windows.Credit.CollectorReceivedBagWindow CollectorReceivedBag
             {
@@ -385,11 +392,12 @@ namespace DMT
                     return ret;
                 }
             }
-
+            */
             #endregion
 
             #region Coupon
 
+            /*
             /// <summary>Gets Collector Coupon Borrow Window.</summary>
             public static TA.Windows.Coupon.CollectorCouponBorrowWindow CollectorCouponBorrow
             {
@@ -400,7 +408,9 @@ namespace DMT
                     return ret;
                 }
             }
+            */
 
+            /*
             /// <summary>Gets Collector Coupon Return Window.</summary>
             public static TA.Windows.Coupon.CollectorCouponReturnWindow CollectorCouponReturn
             {
@@ -411,11 +421,13 @@ namespace DMT
                     return ret;
                 }
             }
+            */
 
             #endregion
 
             #region Internal Exchange
 
+            /*
             /// <summary>Gets Internal Exchange Window.</summary>
             public static TA.Windows.Exchange.InternalExchangeWindow InternalExchange
             {
@@ -426,11 +438,13 @@ namespace DMT
                     return ret; 
                 }
             }
+            */
 
             #endregion
 
             #region Receive Exchange
 
+            /*
             /// <summary>Gets Receive Exchange Window.</summary>
             public static TA.Windows.Exchange.ReceiveExchangeWindow ReceiveExchange
             {
@@ -441,11 +455,13 @@ namespace DMT
                     return ret;
                 }
             }
+            */
 
             #endregion
 
             #region Plaza Balance Summary
 
+            /*
             /// <summary>Gets Plaza Balance Summary Window.</summary>
             public static TA.Windows.Plaza.PlazaBalanceSummaryWindow PlazaBalanceSummary
             {
@@ -456,11 +472,13 @@ namespace DMT
                     return ret;
                 }
             }
+            */
 
             #endregion
 
             #region User Search
 
+            /*
             /// <summary>Gets User Search Window.</summary>
             public static DMT.Windows.UserSearchWindow UserSearch
             {
@@ -471,6 +489,7 @@ namespace DMT
                     return ret;
                 }
             }
+            */
 
             #endregion
 
