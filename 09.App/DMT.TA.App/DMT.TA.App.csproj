@@ -151,6 +151,33 @@
       <DependentUpon>TAHeader.xaml</DependentUpon>
     </Compile>
     <Compile Include="Services\TAApp.cs" />
+    <Compile Include="StatusBar\Elements\AppInfoStatus.xaml.cs">
+      <DependentUpon>AppInfoStatus.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StatusBar\Elements\ClientInfoStatus.xaml.cs">
+      <DependentUpon>ClientInfoStatus.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StatusBar\Elements\LocalDbStatus.xaml.cs">
+      <DependentUpon>LocalDbStatus.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StatusBar\Elements\RabbitMQStatus.xaml.cs">
+      <DependentUpon>RabbitMQStatus.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StatusBar\Elements\SCWStatus.xaml.cs">
+      <DependentUpon>SCWStatus.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StatusBar\Elements\TAServerStatus.xaml.cs">
+      <DependentUpon>TAServerStatus.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StatusBar\Elements\TODAppStatus.xaml.cs">
+      <DependentUpon>TODAppStatus.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StatusBar\Elements\TSBCouponSyncStatus.xaml.cs">
+      <DependentUpon>TSBCouponSyncStatus.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StatusBar\TAStatusBar.xaml.cs">
+      <DependentUpon>TAStatusBar.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TA\Pages\Menu\ConfigurationMenu.xaml.cs">
       <DependentUpon>ConfigurationMenu.xaml</DependentUpon>
     </Compile>
@@ -196,6 +223,42 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="StatusBar\Elements\AppInfoStatus.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="StatusBar\Elements\ClientInfoStatus.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="StatusBar\Elements\LocalDbStatus.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="StatusBar\Elements\RabbitMQStatus.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="StatusBar\Elements\SCWStatus.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="StatusBar\Elements\TAServerStatus.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="StatusBar\Elements\TODAppStatus.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="StatusBar\Elements\TSBCouponSyncStatus.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="StatusBar\TAStatusBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="TA\Pages\Menu\ConfigurationMenu.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -307,7 +370,6 @@
   <ItemGroup>
     <Folder Include="SignIn\Pages\" />
     <Folder Include="SignIn\Windows\" />
-    <Folder Include="StatusBar\Elements\" />
     <Folder Include="TA\Controls\Elements\TSBBalance\" />
     <Folder Include="TA\Controls\Elements\UserBalance\" />
     <Folder Include="TA\Pages\Coupon\" />
