@@ -112,6 +112,7 @@
     <Compile Include="Models\Common\UICommands.cs" />
     <Compile Include="Models\Common\Utils.cs" />
     <Compile Include="Models\Plaza\Shifts\Shift.cs" />
+    <Compile Include="Models\Plaza\Users\Role.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -136,7 +137,6 @@
     <Folder Include="Models\Plaza\Infrastructures\" />
     <Folder Include="Models\Plaza\Master\" />
     <Folder Include="Models\Plaza\Revenues\" />
-    <Folder Include="Models\Plaza\Users\" />
     <Folder Include="Models\RabbitMQ\" />
     <Folder Include="Models\SCW\" />
     <Folder Include="Models\TAxTOD\" />
