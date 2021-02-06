@@ -112,6 +112,11 @@
     <Compile Include="Models\Common\NTables.cs" />
     <Compile Include="Models\Common\UICommands.cs" />
     <Compile Include="Models\Common\Utils.cs" />
+    <Compile Include="Models\Plaza\Master\MActiveStatus.cs" />
+    <Compile Include="Models\Plaza\Master\MCardAllow.cs" />
+    <Compile Include="Models\Plaza\Master\MCoupon.cs" />
+    <Compile Include="Models\Plaza\Master\MCouponBook.cs" />
+    <Compile Include="Models\Plaza\Master\MCurrency.cs" />
     <Compile Include="Models\Plaza\Shifts\Shift.cs" />
     <Compile Include="Models\Plaza\Users\Role.cs" />
     <Compile Include="Models\Plaza\Users\User.cs" />
@@ -157,7 +162,6 @@
     <Folder Include="Models\Plaza\Credit\User\" />
     <Folder Include="Models\Plaza\Exchange\" />
     <Folder Include="Models\Plaza\Infrastructures\" />
-    <Folder Include="Models\Plaza\Master\" />
     <Folder Include="Models\Plaza\Revenues\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
