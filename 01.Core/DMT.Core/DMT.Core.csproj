@@ -157,6 +157,7 @@
     <Compile Include="Routes\TOD\TOD.Controller.cs" />
     <Compile Include="Services\CommandLine.cs" />
     <Compile Include="Services\JsonMessageTransferService.cs" />
+    <None Include="Services\JsonZZZ.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\00.NLib\NLib\NLib.csproj">
