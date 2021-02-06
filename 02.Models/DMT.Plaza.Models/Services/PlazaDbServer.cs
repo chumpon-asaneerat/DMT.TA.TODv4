@@ -105,12 +105,280 @@ namespace DMT.Services
 
         private void InitTables()
         {
+            Db.CreateTable<ViewHistory>();
 
+            Db.CreateTable<Shift>();
+
+            Db.CreateTable<Role>();
+            Db.CreateTable<User>();
+            Db.CreateTable<UserAccess>();
+
+            //Db.CreateTable<TSB>();
+            //Db.CreateTable<PlazaGroup>();
+            //Db.CreateTable<Plaza>();
+            //Db.CreateTable<Lane>();
         }
 
         private void InitDefaults()
         {
+            InitShifts();
+            InitRoleAndUsers();
+        }
 
+        private void InitShifts()
+        {
+            if (null == Db) return;
+
+            if (Db.Table<Shift>().Count() > 0) return; // already exists.
+
+            Shift item;
+            item = new Shift()
+            {
+                ShiftId = 1,
+                ShiftNameEN = "Morning",
+                ShiftNameTH = "เช้า"
+            };
+            if (!Shift.Exists(item)) Shift.Save(item);
+            item = new Shift()
+            {
+                ShiftId = 2,
+                ShiftNameEN = "Afternoon",
+                ShiftNameTH = "บ่าย"
+            };
+            if (!Shift.Exists(item)) Shift.Save(item);
+            item = new Shift()
+            {
+                ShiftId = 3,
+                ShiftNameEN = "Midnight",
+                ShiftNameTH = "ดึก"
+            };
+            if (!Shift.Exists(item)) Shift.Save(item);
+        }
+
+        private void InitRoleAndUsers()
+        {
+            if (null == Db) return;
+
+            if (Db.Table<User>().Count() > 0) return; // has user data so not insert dummy.
+
+            Role item;
+            User user;
+            string prefix;
+            string fName;
+            string mName;
+            string lName;
+
+            #region ADMINS
+
+            item = new Role()
+            {
+                RoleId = "ADMINS",
+                RoleNameEN = "Administrator",
+                RoleNameTH = "ผู้ดูแลระบบ",
+                GroupId = 10
+            };
+            if (!Role.Exists(item)) Role.Save(item);
+
+            prefix = "Mr.";
+            fName = "killer1115";
+            mName = "";
+            lName = "killer1115";
+            user = new User()
+            {
+                UserId = "00112",
+                PrefixEN = prefix,
+                FirstNameEN = fName,
+                MiddleNameEN = mName,
+                LastNameEN = lName,
+                PrefixTH = prefix,
+                FirstNameTH = fName,
+                MiddleNameTH = mName,
+                LastNameTH = lName,
+                Password = Utils.MD5.Encrypt("123456"),
+                CardId = "",
+                AccountStatus = User.AccountFlags.Avaliable,
+                IsDummy = true,
+                RoleId = item.RoleId
+            };
+            if (!User.Exists(user)) User.Save(user);
+
+            #endregion
+
+            #region ACCOUNT
+
+            item = new Role()
+            {
+                RoleId = "ACCOUNT",
+                RoleNameEN = "Account",
+                RoleNameTH = "บัญชี",
+                GroupId = 63
+            };
+            if (!Role.Exists(item)) Role.Save(item);
+
+            #endregion
+
+            #region CTC
+
+            item = new Role()
+            {
+                RoleId = "CTC",
+                RoleNameEN = "Chief Toll Collector",
+                RoleNameTH = "หัวหน้าพนักงานจัดเก็บค่าผ่านทาง",
+                GroupId = 40
+            };
+            if (!Role.Exists(item)) Role.Save(item);
+
+            prefix = "Mr.";
+            fName = "CTC";
+            mName = "";
+            lName = "Test";
+            user = new User()
+            {
+                UserId = "00444",
+                PrefixEN = prefix,
+                FirstNameEN = fName,
+                MiddleNameEN = mName,
+                LastNameEN = lName,
+                PrefixTH = prefix,
+                FirstNameTH = fName,
+                MiddleNameTH = mName,
+                LastNameTH = lName,
+                Password = Utils.MD5.Encrypt("123456"),
+                CardId = "",
+                AccountStatus = User.AccountFlags.Avaliable,
+                IsDummy = true,
+                RoleId = item.RoleId
+            };
+            if (!User.Exists(user)) User.Save(user);
+
+            #endregion
+
+            #region TC
+
+            item = new Role()
+            {
+                RoleId = "TC",
+                RoleNameEN = "Toll Collector",
+                RoleNameTH = "พนักงาน",
+                GroupId = 20
+            };
+            if (!Role.Exists(item)) Role.Save(item);
+
+            prefix = "Mr.";
+            fName = "Hussakorn";
+            mName = "";
+            lName = "VRS";
+            user = new User()
+            {
+                UserId = "20001",
+                PrefixEN = prefix,
+                FirstNameEN = fName,
+                MiddleNameEN = mName,
+                LastNameEN = lName,
+                PrefixTH = prefix,
+                FirstNameTH = fName,
+                MiddleNameTH = mName,
+                LastNameTH = lName,
+                Password = Utils.MD5.Encrypt("123456"),
+                CardId = "",
+                AccountStatus = User.AccountFlags.Avaliable,
+                IsDummy = true,
+                RoleId = item.RoleId
+            };
+            if (!User.Exists(user)) User.Save(user);
+
+            #endregion
+
+            #region MT_ADMIN
+
+            item = new Role()
+            {
+                RoleId = "MT_ADMIN",
+                RoleNameEN = "Maintenance Administrator",
+                RoleNameTH = "ทีมซ่อมบำรุง กลุ่ม Admin",
+                GroupId = 10
+            };
+            if (!Role.Exists(item)) Role.Save(item);
+
+            #endregion
+
+            #region MT_TECH
+
+            item = new Role()
+            {
+                RoleId = "MT_TECH",
+                RoleNameEN = "Maintenance Technical",
+                RoleNameTH = "ทีมซ่อมบำรุง กลุ่มช่าง",
+                GroupId = 51
+            };
+            if (!Role.Exists(item)) Role.Save(item);
+
+            #endregion
+
+            #region CTC_MGR
+
+            item = new Role()
+            {
+                RoleId = "CTC_MGR",
+                RoleNameEN = "Chief Toll Manager",
+                RoleNameTH = "หัวหน้าแผนก",
+                GroupId = 49
+            };
+            if (!Role.Exists(item)) Role.Save(item);
+
+            #endregion
+
+            #region FINANCE
+
+            item = new Role()
+            {
+                RoleId = "FINANCE",
+                RoleNameEN = "Finance",
+                RoleNameTH = "การเงิน",
+                GroupId = 64
+            };
+            if (!Role.Exists(item)) Role.Save(item);
+
+            #endregion
+
+            #region SV
+
+            item = new Role()
+            {
+                RoleId = "SV",
+                RoleNameEN = "Supervisor",
+                RoleNameTH = "พนักงานควบคุม",
+                GroupId = 30
+            };
+            if (!Role.Exists(item)) Role.Save(item);
+
+            #endregion
+
+            #region RAD_MGR
+
+            item = new Role()
+            {
+                RoleId = "RAD_MGR",
+                RoleNameEN = "Revenue Audit Division (Manager)",
+                RoleNameTH = "แผนกตรวจสอบรายได้ค่าผ่านทาง (Manager)",
+                GroupId = 60
+            };
+            if (!Role.Exists(item)) Role.Save(item);
+
+            #endregion
+
+            #region RAD_SUP
+
+            item = new Role()
+            {
+                RoleId = "RAD_SUP",
+                RoleNameEN = "Revenue Audit Division (Supervisor)",
+                RoleNameTH = "แผนกตรวจสอบรายได้ค่าผ่านทาง (Supervisor)",
+                GroupId = 61
+            };
+            if (!Role.Exists(item)) Role.Save(item);
+
+            #endregion
         }
 
         private void InitViews()
@@ -127,11 +395,7 @@ namespace DMT.Services
 
             // Users - Embeded resource used . instead / to access sub contents.
             prefix = @"Users";
-            //InitView("UserView", 1, prefix);
-
-            // Shifts - Embeded resource used . instead / to access sub contents.
-            prefix = @"Shifts";
-            //InitView("TSBShiftView", 1, prefix);
+            InitView("UserView", 1, prefix);
         }
 
         class ViewInfo
@@ -143,7 +407,6 @@ namespace DMT.Services
         {
             if (null == Db) return;
 
-            /*
             var hist = ViewHistory.GetWithChildren(viewName, false).Value();
 
             string checkViewCmd = "SELECT Name FROM sqlite_master WHERE Type = 'view' AND Name = ?";
@@ -225,7 +488,6 @@ namespace DMT.Services
                     //Console.WriteLine(script);
                 }
             }
-            */
         }
 
         #endregion
