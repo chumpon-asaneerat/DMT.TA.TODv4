@@ -115,6 +115,7 @@
     <Compile Include="Models\Plaza\Users\Role.cs" />
     <Compile Include="Models\Plaza\Users\User.cs" />
     <Compile Include="Models\Plaza\Users\UserAccess.cs" />
+    <Compile Include="Models\RabbitMQ\RabbitMQ.cs" />
     <Compile Include="Models\SCW\Common.cs" />
     <Compile Include="Models\SCW\SCWCardAllowList.cs" />
     <Compile Include="Models\SCW\SCWChangePassword.cs" />
@@ -155,7 +156,6 @@
     <Folder Include="Models\Plaza\Infrastructures\" />
     <Folder Include="Models\Plaza\Master\" />
     <Folder Include="Models\Plaza\Revenues\" />
-    <Folder Include="Models\RabbitMQ\" />
     <Folder Include="Models\TAxTOD\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
