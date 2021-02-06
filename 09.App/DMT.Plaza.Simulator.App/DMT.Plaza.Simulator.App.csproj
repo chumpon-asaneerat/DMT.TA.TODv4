@@ -95,6 +95,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Services\SimApp.cs" />
     <Compile Include="Simulator\Controls\Utils\AttachProperties.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -253,7 +254,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
-    <Folder Include="Services\" />
     <Folder Include="Simulator\Controls\Credit\Entry\" />
     <Folder Include="Simulator\Pages\" />
     <Folder Include="Simulator\Windows\" />

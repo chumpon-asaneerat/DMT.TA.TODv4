@@ -132,6 +132,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Services\TAApp.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -242,7 +243,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Header\Elements\" />
-    <Folder Include="Services\" />
     <Folder Include="SignIn\Pages\" />
     <Folder Include="SignIn\Windows\" />
     <Folder Include="StatusBar\Elements\" />
