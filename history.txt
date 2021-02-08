@@ -58,7 +58,7 @@ Ported DMTv2 to DMT.TA.TODv1, DMT.TA.TODv2 #1441
 
 [commited]
 Ported DMTv2 to DMT.TA.TODv1, DMT.TA.TODv2 #1440
-- Prepare history.txt
+- Prepare history.txt.
 
 [commited]
 Ported DMTv2 to DMT.TA.TODv1, DMT.TA.TODv2 #1439
