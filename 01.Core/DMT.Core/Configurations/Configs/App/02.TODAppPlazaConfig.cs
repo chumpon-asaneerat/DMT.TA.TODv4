@@ -1,6 +1,7 @@
 ﻿#region Using
 
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using System.Threading;
@@ -139,6 +140,38 @@ namespace DMT.Configurations
 
     #endregion
 
+    #region TODPlazaConfig (Need for TOD App Plaza Config class)
+
+    /// <summary>
+    /// The TODPlazaConfig class.
+    /// </summary>
+    [JsonObject(MemberSerialization.OptOut)]
+    public class TODPlazaConfig
+    {
+        #region Constructor
+
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        public TODPlazaConfig() : base()
+        {
+            this.PlazaId = 0;
+        }
+
+        #endregion
+
+        #region Public Properties
+
+        /// <summary>
+        /// Gets or sets Plaza Id.
+        /// </summary>
+        public int PlazaId { get; set; }
+
+        #endregion
+    }
+
+    #endregion
+
     #region TODHeaderBars
 
     /// <summary>
@@ -269,6 +302,11 @@ namespace DMT.Configurations
         public TODAppPlazaConfig() : base()
         {
             this.Services = new TODAppServiceConfig();
+            
+            this.Plazas = new List<TODPlazaConfig>();
+            this.Plazas.Add(new TODPlazaConfig() { PlazaId = 15 });
+            this.Plazas.Add(new TODPlazaConfig() { PlazaId = 16 });
+
             this.UIConfig = new TODUIConfig();
         }
 
@@ -281,6 +319,11 @@ namespace DMT.Configurations
         /// Gets or sets TOD App Service Config.
         /// </summary>
         public TODAppServiceConfig Services { get; set; }
+        /// <summary>
+        /// Gets or sets Plazas.
+        /// </summary>
+        [JsonProperty(ObjectCreationHandling = ObjectCreationHandling.Replace)]
+        public List<TODPlazaConfig> Plazas { get; set; }
         /// <summary>
         /// Gets or sets TOD UI Config.
         /// </summary>

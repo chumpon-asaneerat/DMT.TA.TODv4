@@ -1,6 +1,7 @@
 ﻿#region Using
 
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using System.Threading;
@@ -33,6 +34,31 @@ namespace DMT.Configurations
             this.RabbitMQ = new RabbitMQServiceConfig();
             this.TAxTOD = new TAxTODWebServiceConfig();
             this.TAApp = new TAAppWebServiceConfig();
+
+            this.TODApps = new List<TODAppWebServiceConfig>();
+
+            this.TODApps.Add(new TODAppWebServiceConfig()
+            {
+                Service = new WebServiceConfig() 
+                { 
+                    Protocol = "http", 
+                    HostName = "localhost", 
+                    PortNumber = 9002, 
+                    UserName = "DMTUSER",
+                    Password = "DMTPASS"
+                }
+            });
+            this.TODApps.Add(new TODAppWebServiceConfig() 
+            {
+                Service = new WebServiceConfig()
+                {
+                    Protocol = "http",
+                    HostName = "localhost",
+                    PortNumber = 9003,
+                    UserName = "DMTUSER",
+                    Password = "DMTPASS"
+                }
+            });
         }
 
         #endregion
@@ -133,6 +159,12 @@ namespace DMT.Configurations
         /// Gets or sets TA App Service Config (local server).
         /// </summary>
         public TAAppWebServiceConfig TAApp { get; set; }
+
+        /// <summary>
+        /// Gets or sets TODApps.
+        /// </summary>
+        [JsonProperty(ObjectCreationHandling = ObjectCreationHandling.Replace)]
+        public List<TODAppWebServiceConfig> TODApps { get; set; }
 
         #endregion
     }
