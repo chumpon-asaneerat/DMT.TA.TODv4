@@ -13,8 +13,6 @@ using NLib.Controls.Design;
 
 namespace DMT.Configurations
 {
-    // TODO: Need TOD List for call back web service.
-
     #region TAConfigManager
 
     /// <summary>
