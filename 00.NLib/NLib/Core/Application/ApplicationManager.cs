@@ -145,6 +145,7 @@ using System.ComponentModel;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Reflection;
 
 using NLib.Reflection; // For delegate invoker
@@ -302,7 +303,7 @@ namespace NLib
         /// </summary>
         /// <param name="autokill">True for autokill</param>
         /// <param name="exitCode">The exit code.</param>
-        void Shutdown(bool autokill, int exitCode = 0)
+        public void Shutdown(bool autokill, int exitCode = 0)
         {
 #if USE_LOG_MANAGER
             Logs.LogManager.Instance.Shutdown();
