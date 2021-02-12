@@ -30,45 +30,42 @@ namespace DMT.Controls.StatusBar
 
         #endregion
 
+        #region Internal Variables
+
+        private StatusBarService service = StatusBarService.Instance;
+
+        private DateTime _lastUpdate = DateTime.MinValue;
+
+        #endregion
+
         #region Loaded
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             UpdateUI();
-            /*
-            AccountConfigManager.Instance.ConfigChanged += ConfigChanged;
-            AccountUIConfigManager.Instance.ConfigChanged += UI_ConfigChanged;
-            */
+            if (null != service) service.Register(this.UpdateUI);
         }
 
         private void UserControl_Unloaded(object sender, RoutedEventArgs e)
         {
-            /*
-            AccountUIConfigManager.Instance.ConfigChanged -= UI_ConfigChanged;
-            AccountConfigManager.Instance.ConfigChanged -= ConfigChanged;
-            */
+            if (null != service) service.Unregister(this.UpdateUI);
         }
 
         #endregion
 
-        #region Config Watcher Handlers
-
-        private void ConfigChanged(object sender, EventArgs e)
+        private int Interval
         {
-            UpdateUI();
+            get
+            {
+                int interval = (null != service && null != service.ClientInfo) ? service.ClientInfo.IntervalSeconds : 5;
+                if (interval < 0) interval = 5;
+                return interval;
+            }
         }
-
-        private void UI_ConfigChanged(object sender, EventArgs e)
-        {
-            UpdateUI();
-        }
-
-        #endregion
 
         private void UpdateUI()
         {
-            /*
-            var statusCfg = AccountUIConfigManager.Instance.ClientInfo;
+            var statusCfg = (null != service) ? service.ClientInfo : null;
             if (null == statusCfg || !statusCfg.Visible)
             {
                 // Hide Control.
@@ -79,7 +76,6 @@ namespace DMT.Controls.StatusBar
                 // Show Control.
                 if (this.Visibility != Visibility.Visible) this.Visibility = Visibility.Visible;
             }
-            */
 
             var ipaddr = NetworkUtils.GetLocalIPAddress();
             txtStatus.Text = (null != ipaddr) ? ipaddr.ToString() : "0.0.0.0";

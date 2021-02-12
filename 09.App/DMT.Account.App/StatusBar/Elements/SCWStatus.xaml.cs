@@ -8,12 +8,13 @@ using System.Windows.Threading;
 
 using DMT.Configurations;
 using DMT.Services;
+using NLib;
 
 #endregion
 
 namespace DMT.Controls.StatusBar
 {
-    //using wsOps = Services.Operations.SCW.Security;
+    using wsOps = Services.Operations.SCW.Security;
 
     /// <summary>
     /// Interaction logic for SCWStatus.xaml
@@ -32,53 +33,33 @@ namespace DMT.Controls.StatusBar
 
         #endregion
 
+        #region Internal Variables
+
+        private StatusBarService service = StatusBarService.Instance;
+
+        private DateTime _lastUpdate = DateTime.MinValue;
         private DispatcherTimer timer = null;
-        private NLib.Components.PingManager ping = null;
         private bool isOnline = false;
+
+        #endregion
 
         #region Loaded/Unloaded
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            /*
-            string host = (null != AccountConfigManager.Instance.SCW && null != AccountConfigManager.Instance.SCW.Service) ?
-                AccountConfigManager.Instance.SCW.Service.HostName : "unknown";
-            int interval = (null != AccountUIConfigManager.Instance.SCW) ?
-                AccountUIConfigManager.Instance.SCW.IntervalSeconds : 5;
-            if (interval < 0) interval = 5;
-
-            ping = new NLib.Components.PingManager();
-            ping.OnReply += Ping_OnReply;
-            ping.Add(host);
-            ping.Interval = interval * 1000;
-            ping.Start();
-
-            CallWS();
             UpdateUI();
+
+            if (null != service) service.Register(this.UpdateUI);
 
             timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromSeconds(1);
             timer.Tick += timer_Tick;
             timer.Start();
-
-            AccountConfigManager.Instance.ConfigChanged += ConfigChanged;
-            AccountUIConfigManager.Instance.ConfigChanged += UI_ConfigChanged;
-            */
         }
 
         private void UserControl_Unloaded(object sender, RoutedEventArgs e)
         {
-            /*
-            AccountUIConfigManager.Instance.ConfigChanged -= UI_ConfigChanged;
-            AccountConfigManager.Instance.ConfigChanged -= ConfigChanged;
-
-            if (null != ping)
-            {
-                ping.OnReply -= Ping_OnReply;
-                ping.Stop();
-                ping.Dispose();
-            }
-            ping = null;
+            if (null != service) service.Unregister(this.UpdateUI);
 
             if (null != timer)
             {
@@ -86,25 +67,6 @@ namespace DMT.Controls.StatusBar
                 timer.Stop();
             }
             timer = null;
-            */
-        }
-
-        #endregion
-
-        #region Ping Reply Handler
-
-        private void Ping_OnReply(object sender, NLib.Networks.PingResponseEventArgs e)
-        {
-            if (null != e.Reply &&
-                e.Reply.Status == System.Net.NetworkInformation.IPStatus.Success)
-            {
-                // Call WS
-                CallWS();
-            }
-            else
-            {
-                isOnline = false;
-            }
         }
 
         #endregion
@@ -113,59 +75,36 @@ namespace DMT.Controls.StatusBar
 
         void timer_Tick(object sender, EventArgs e)
         {
-            UpdateUI();
-        }
-
-        #endregion
-
-        #region Config Watcher Handlers
-
-        private void ConfigChanged(object sender, EventArgs e)
-        {
-            /*
-            if (null != ping)
+            TimeSpan ts = DateTime.Now - _lastUpdate;
+            if (ts.TotalSeconds > this.Interval)
             {
-                string host = (null != AccountConfigManager.Instance.SCW && null != AccountConfigManager.Instance.SCW.Service) ?
-                    AccountConfigManager.Instance.SCW.Service.HostName : "unknown";
-                int interval = (null != AccountUIConfigManager.Instance.SCW) ?
-                    AccountUIConfigManager.Instance.SCW.IntervalSeconds : 5;
-                if (interval < 0) interval = 5;
-
-                // Stop ping service.
-                ping.Stop();
-                ping.Interval = interval * 1000;
-                // Clear and add new host.
-                ping.Clear();
-                ping.Add(host);
-                // Restart ping service.
-                ping.Start();
+                UpdateUI();
+                _lastUpdate = DateTime.Now;
             }
-            CallWS();
-            UpdateUI();
-            */
-        }
-
-        private void UI_ConfigChanged(object sender, EventArgs e)
-        {
-            CallWS();
-            UpdateUI();
         }
 
         #endregion
+
+        private int Interval
+        {
+            get
+            {
+                int interval = (null != service && null != service.SCW) ? service.SCW.IntervalSeconds : 5;
+                if (interval < 0) interval = 5;
+                return interval;
+            }
+        }
 
         private void CallWS()
         {
-            /*
             var ret = wsOps.passwordExpiresDays();
             isOnline = (null != ret && null != ret.status && 
                 !string.IsNullOrEmpty(ret.status.code) && ret.status.code == "S200");
-            */
         }
 
         private void UpdateUI()
         {
-            /*
-            var statusCfg = AccountUIConfigManager.Instance.SCW;
+            var statusCfg = (null != service) ? service.SCW : null;
             if (null == statusCfg || !statusCfg.Visible)
             {
                 // Hide Control.
@@ -176,7 +115,8 @@ namespace DMT.Controls.StatusBar
                 // Show Control.
                 if (this.Visibility != Visibility.Visible) this.Visibility = Visibility.Visible;
             }
-            */
+
+            CallWS();
 
             if (isOnline)
             {

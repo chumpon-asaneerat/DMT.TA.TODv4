@@ -57,6 +57,12 @@ namespace DMT.Account.Pages.Menu
         private void cndExit_Click(object sender, RoutedEventArgs e)
         {
             // Exit
+            // When enter Sign In Screen reset current user.
+            AccountApp.User.Current = null;
+
+            var page = AccountApp.Pages.SignIn;
+            page.Setup(AccountApp.Permissions.Account);
+            PageContentManager.Instance.Current = page;
         }
 
         #endregion

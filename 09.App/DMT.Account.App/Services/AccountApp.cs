@@ -40,10 +40,8 @@ namespace DMT
         /// </summary>
         public static class User
         {
-            /*
             /// <summary>Gets or sets current User.</summary>
             public static Models.User Current { get; set; }
-            */
         }
 
         /// <summary>
@@ -74,7 +72,7 @@ namespace DMT
             #endregion
 
             #region SignIn
-            /*
+
             private static DMT.Pages.SignInPage _SignIn;
 
             /// <summary>Gets SignIn Page.</summary>
@@ -92,7 +90,7 @@ namespace DMT
                     return _SignIn;
                 }
             }
-            */
+
             #endregion
         }
 
@@ -102,7 +100,7 @@ namespace DMT
         public static class Windows
         {
             #region User Search
-            /*
+
             /// <summary>Gets User Search Window.</summary>
             public static DMT.Windows.UserSearchWindow UserSearch
             {
@@ -113,7 +111,7 @@ namespace DMT
                     return ret;
                 }
             }
-            */
+
             #endregion
 
             #region MessageBox(s)

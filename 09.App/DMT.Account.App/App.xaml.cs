@@ -92,6 +92,25 @@ namespace DMT
             // Start log manager
             LogManager.Instance.Start();
 
+            // Start local database (account).
+            Services.AccountDbServer.Instance.Start();
+
+            // Load Config service.
+            AccountConfigManager.Instance.LoadConfig();
+            AccountConfigManager.Instance.ConfigChanged += Service_ConfigChanged;
+            Services.Operations.TAxTOD.Config = AccountConfigManager.Instance;
+            Services.Operations.TAxTOD.DMT = AccountConfigManager.Instance; // required for NetworkId
+            Services.Operations.SCW.Config = AccountConfigManager.Instance;
+            Services.Operations.SCW.DMT = AccountConfigManager.Instance; // required for NetworkId
+            AccountConfigManager.Instance.Start(); // Start File Watcher.
+
+            // Start SCWMQ
+            Services.SCWMQService.Instance.Start();
+
+            // Start RabbitMQ
+            Services.RabbitMQService.Instance.RabbitMQ = AccountConfigManager.Instance.RabbitMQ;
+            Services.RabbitMQService.Instance.Start();
+
             Window window = null;
             window = new MainWindow();
 
@@ -106,6 +125,17 @@ namespace DMT
         /// <param name="e"></param>
         protected override void OnExit(ExitEventArgs e)
         {
+            AccountConfigManager.Instance.Shutdown();
+
+            // Shutdown RabbitMQ.
+            Services.RabbitMQService.Instance.Shutdown();
+
+            // Shutdown SCWMQ
+            Services.SCWMQService.Instance.Shutdown();
+
+            // Shutdown local database (account).
+            Services.AccountDbServer.Instance.Shutdown();
+
             // Shutdown log manager
             LogManager.Instance.Shutdown();
 
@@ -127,6 +157,12 @@ namespace DMT
             Services.Operations.TAxTOD.DMT = AccountConfigManager.Instance; // required for NetworkId
             Services.Operations.SCW.Config = AccountConfigManager.Instance;
             Services.Operations.SCW.DMT = AccountConfigManager.Instance; // required for NetworkId
+
+            // RabbitMQ
+            Services.RabbitMQService.Instance.Shutdown(); // Shutdown
+            // Reload config.
+            Services.RabbitMQService.Instance.RabbitMQ = AccountConfigManager.Instance.RabbitMQ;
+            Services.RabbitMQService.Instance.Start(); // Start
         }
     }
 }
