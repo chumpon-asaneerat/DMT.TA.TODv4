@@ -39,16 +39,16 @@ namespace DMT.Configurations
 
             this.TODApps.Add(new TODAppWebServiceConfig()
             {
-                Service = new WebServiceConfig() 
-                { 
-                    Protocol = "http", 
-                    HostName = "localhost", 
-                    PortNumber = 9002, 
+                Service = new WebServiceConfig()
+                {
+                    Protocol = "http",
+                    HostName = "localhost",
+                    PortNumber = 9002,
                     UserName = "DMTUSER",
                     Password = "DMTPASS"
                 }
             });
-            this.TODApps.Add(new TODAppWebServiceConfig() 
+            this.TODApps.Add(new TODAppWebServiceConfig()
             {
                 Service = new WebServiceConfig()
                 {
@@ -186,12 +186,12 @@ namespace DMT.Configurations
         /// </summary>
         public TAHeaderBars()
         {
-            this.PlazaInfo = new PlazaInfoConfig() 
+            this.PlazaInfo = new PlazaInfoConfig()
             {
                 TSBId = "09",
                 PlazaId = "091",
-                PlazaNameEN = "ANUSORN SATHAN", 
-                PlazaNameTH = "อนุสรน์สถาน" 
+                PlazaNameEN = "ANUSORN SATHAN",
+                PlazaNameTH = "อนุสรณ์สถาน"
             };
         }
 

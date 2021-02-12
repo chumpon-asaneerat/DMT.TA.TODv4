@@ -187,12 +187,12 @@ namespace DMT.Configurations
         /// </summary>
         public TODHeaderBars()
         {
-            this.PlazaInfo = new PlazaInfoConfig() 
+            this.PlazaInfo = new PlazaInfoConfig()
             {
                 TSBId = "09",
                 PlazaId = "091",
                 PlazaNameEN = "ANUSORN SATHAN",
-                PlazaNameTH = "อนุสรน์สถาน"
+                PlazaNameTH = "อนุสรณ์สถาน"
             };
         }
 
@@ -302,7 +302,7 @@ namespace DMT.Configurations
         public TODAppPlazaConfig() : base()
         {
             this.Services = new TODAppServiceConfig();
-            
+
             this.Plazas = new List<TODPlazaConfig>();
             this.Plazas.Add(new TODPlazaConfig() { PlazaId = 15 });
             this.Plazas.Add(new TODPlazaConfig() { PlazaId = 16 });
