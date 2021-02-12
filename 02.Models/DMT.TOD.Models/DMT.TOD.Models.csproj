@@ -111,7 +111,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Scripts\Revenues\" />
-    <Folder Include="Views\Scripts\Shifts\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\Scripts\Users\UserView.sql" />
@@ -120,6 +119,11 @@
     <EmbeddedResource Include="Views\Scripts\Infrastructures\LaneView.sql" />
     <EmbeddedResource Include="Views\Scripts\Infrastructures\PlazaGroupView.sql" />
     <EmbeddedResource Include="Views\Scripts\Infrastructures\PlazaView.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Scripts\Shifts\TSBShiftView.sql" />
+    <EmbeddedResource Include="Views\Scripts\Shifts\UserShiftRevenueView.sql" />
+    <EmbeddedResource Include="Views\Scripts\Shifts\UserShiftView.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
