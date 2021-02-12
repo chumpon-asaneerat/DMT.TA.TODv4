@@ -29,6 +29,7 @@ namespace DMT.TA.Pages.Menu
 
         #region Button Handlers
 
+        // OK - ยืม/แลก เงินยืมทอนฝ่ายบัญชี
         private void cmdRequestExchange_Click(object sender, RoutedEventArgs e)
         {
             // ยืม/แลก เงินยืมทอนฝ่ายบัญชี
@@ -39,6 +40,7 @@ namespace DMT.TA.Pages.Menu
             */
         }
 
+        // OK - คืนเงินยืมทอนฝ่ายบัญชี
         private void cmdReturnExchange_Click(object sender, RoutedEventArgs e)
         {
             // คืนเงินยืมทอนฝ่ายบัญชี
@@ -49,6 +51,7 @@ namespace DMT.TA.Pages.Menu
             */
         }
 
+        // OK - แลกเงินหมุนเวียนในด่าน
         private void cmdInHouseExchange_Click(object sender, RoutedEventArgs e)
         {
             // แลกเงินหมุนเวียนในด่าน
@@ -59,12 +62,13 @@ namespace DMT.TA.Pages.Menu
             */
         }
 
+        // OK - หัวหน่าขายคูปอง
         private void cmdCouponSoldByPlaza_Click(object sender, RoutedEventArgs e)
         {
             // หัวหน่าขายคูปอง
             /*
             var page = TAApp.Pages.CouponTSBSale;
-            //page.Setup(TAApp.User.Current);
+            page.Setup(TAApp.User.Current);
             PageContentManager.Instance.Current = page;
             */
         }
@@ -100,6 +104,7 @@ namespace DMT.TA.Pages.Menu
             */
         }
 
+        // OK - รับคูปอง (collector)
         private void cmdUserBorrowCoupon_Click(object sender, RoutedEventArgs e)
         {
             // รับคูปอง (collector)
@@ -110,6 +115,7 @@ namespace DMT.TA.Pages.Menu
             */
         }
 
+        // OK - คืนคูปอง (collector)
         private void cmdUserReturnCoupon_Click(object sender, RoutedEventArgs e)
         {
             // คืนคูปอง (collector)
@@ -130,6 +136,7 @@ namespace DMT.TA.Pages.Menu
             */
         }
 
+        // TEST - PASSED.
         private void cmdCheckBalance_Click(object sender, RoutedEventArgs e)
         {
             // เช็คยอดด่าน
@@ -143,12 +150,10 @@ namespace DMT.TA.Pages.Menu
         private void cmdExit_Click(object sender, RoutedEventArgs e)
         {
             // ออกจากระบบ
-            /*
             TAApp.User.Current = null; // When enter Sign In Screen reset current user.
             var page = TAApp.Pages.SignIn;
             page.Setup(TAApp.Permissions.CTC);
             PageContentManager.Instance.Current = page;
-            */
         }
 
         private void cmdSetting_Click(object sender, RoutedEventArgs e)

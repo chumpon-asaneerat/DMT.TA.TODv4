@@ -36,7 +36,10 @@ namespace DMT
             // Initial Page Content Manager
             PageContentManager.Instance.ContentChanged += new EventHandler(Instance_ContentChanged);
             PageContentManager.Instance.Start();
-
+            // Init Sign In
+            var page = AccountApp.Pages.SignIn;
+            page.Setup(AccountApp.Permissions.Account);
+            PageContentManager.Instance.Current = page;
         }
 
         private void Window_Unloaded(object sender, RoutedEventArgs e)
