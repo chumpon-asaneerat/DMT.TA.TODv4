@@ -38,6 +38,9 @@ namespace DMT
             // Initial Page Content Manager
             PageContentManager.Instance.ContentChanged += new EventHandler(Instance_ContentChanged);
             PageContentManager.Instance.Start();
+            // Init Main Menu
+            var page = TODApp.Pages.MainMenu;
+            PageContentManager.Instance.Current = page;
         }
 
         private void Window_Unloaded(object sender, RoutedEventArgs e)
