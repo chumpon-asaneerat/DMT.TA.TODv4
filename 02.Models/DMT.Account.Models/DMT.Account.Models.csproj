@@ -88,9 +88,7 @@
     <Compile Include="Services\AccountDbServer.cs" />
     <Compile Include="Views\AccountSqlScriptManager.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\Scripts\Shifts\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
@@ -115,6 +113,9 @@
     <EmbeddedResource Include="Views\Scripts\Infrastructures\LaneView.sql" />
     <EmbeddedResource Include="Views\Scripts\Infrastructures\PlazaGroupView.sql" />
     <EmbeddedResource Include="Views\Scripts\Infrastructures\PlazaView.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Scripts\Shifts\TSBShiftView.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -124,7 +124,7 @@ namespace DMT.Services
             Db.CreateTable<Plaza>();
             Db.CreateTable<Lane>();
 
-            //Db.CreateTable<TSBShift>();
+            Db.CreateTable<TSBShift>();
         }
 
         private void InitDefaults()
@@ -136,6 +136,8 @@ namespace DMT.Services
 
             InitShifts();
             InitRoleAndUsers();
+
+            InitTSBAndPlazaAndLanes();
         }
 
         private void InitMCurrency()
@@ -622,6 +624,1333 @@ namespace DMT.Services
             #endregion
         }
 
+        private void InitTSBAndPlazaAndLanes()
+        {
+            if (null == Db) return;
+
+            if (Db.Table<TSB>().Count() > 0) return; // already exists.
+
+            TSB item;
+            PlazaGroup plazaGroup;
+            Plaza plaza;
+            Lane lane;
+
+            #region DIN DAENG
+
+            #region TSB
+
+            item = new TSB();
+            item.NetworkId = "31";
+            item.TSBId = "01";
+            item.TSBNameEN = "DIN DAENG";
+            item.TSBNameTH = "ดินแดง";
+            item.Active = false;
+            if (!TSB.Exists(item)) TSB.Save(item);
+            // init default credit value.
+            InitTSBCreditInitializeTransaction(item);
+
+            #endregion
+
+            #region PlazaGroup DIN DAENG
+
+            plazaGroup = new PlazaGroup()
+            {
+                PlazaGroupId = "DD",
+                PlazaGroupNameEN = "DIN DAENG",
+                PlazaGroupNameTH = "ดินแดง",
+                Direction = "?",
+                TSBId = item.TSBId
+            };
+            if (!PlazaGroup.Exists(plazaGroup)) PlazaGroup.Save(plazaGroup);
+
+            #region Plaza DIN DAENG 1
+
+            plaza = new Plaza()
+            {
+                PlazaId = "011",
+                SCWPlazaId = 1,
+                PlazaNameEN = "DIN DAENG 1",
+                PlazaNameTH = "ดินแดง 1",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId
+            };
+            if (!Plaza.Exists(plaza)) Plaza.Save(plaza);
+
+            #region Lanes
+
+            lane = new Lane()
+            {
+                LaneNo = 11,
+                LaneId = "DD11",
+                LaneType = "?",
+                LaneAbbr = "DD11",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId,
+                PlazaId = plaza.PlazaId
+            };
+            if (!Lane.Exists(lane)) Lane.Save(lane);
+            lane = new Lane()
+            {
+                LaneNo = 12,
+                LaneId = "DD12",
+                LaneType = "?",
+                LaneAbbr = "DD12",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId,
+                PlazaId = plaza.PlazaId
+            };
+            if (!Lane.Exists(lane)) Lane.Save(lane);
+            lane = new Lane()
+            {
+                LaneNo = 13,
+                LaneId = "DD13",
+                LaneType = "?",
+                LaneAbbr = "DD13",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId,
+                PlazaId = plaza.PlazaId
+            };
+            if (!Lane.Exists(lane)) Lane.Save(lane);
+            lane = new Lane()
+            {
+                LaneNo = 14,
+                LaneId = "DD14",
+                LaneType = "?",
+                LaneAbbr = "DD14",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId,
+                PlazaId = plaza.PlazaId
+            };
+            if (!Lane.Exists(lane)) Lane.Save(lane);
+            lane = new Lane()
+            {
+                LaneNo = 15,
+                LaneId = "DD15",
+                LaneType = "?",
+                LaneAbbr = "DD15",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId,
+                PlazaId = plaza.PlazaId
+            };
+            if (!Lane.Exists(lane)) Lane.Save(lane);
+            lane = new Lane()
+            {
+                LaneNo = 16,
+                LaneId = "DD16",
+                LaneType = "?",
+                LaneAbbr = "DD16",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId,
+                PlazaId = plaza.PlazaId
+            };
+            if (!Lane.Exists(lane)) Lane.Save(lane);
+
+            #endregion
+
+            #endregion
+
+            #region Plaza DIN DAENG 2
+
+            plaza = new Plaza()
+            {
+                PlazaId = "012",
+                SCWPlazaId = 2,
+                PlazaNameEN = "DIN DAENG 2",
+                PlazaNameTH = "ดินแดง 2",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId
+            };
+            if (!Plaza.Exists(plaza)) Plaza.Save(plaza);
+
+            #region Lanes
+
+            lane = new Lane()
+            {
+                LaneNo = 1,
+                LaneId = "DD01",
+                LaneType = "MTC",
+                LaneAbbr = "DD01",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId,
+                PlazaId = plaza.PlazaId
+            };
+            if (!Lane.Exists(lane)) Lane.Save(lane);
+            lane = new Lane()
+            {
+                LaneNo = 2,
+                LaneId = "DD02",
+                LaneType = "MTC",
+                LaneAbbr = "DD02",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId,
+                PlazaId = plaza.PlazaId
+            };
+            if (!Lane.Exists(lane)) Lane.Save(lane);
+            lane = new Lane()
+            {
+                LaneNo = 3,
+                LaneId = "DD03",
+                LaneType = "A/M",
+                LaneAbbr = "DD03",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId,
+                PlazaId = plaza.PlazaId
+            };
+            if (!Lane.Exists(lane)) Lane.Save(lane);
+            lane = new Lane()
+            {
+                LaneNo = 4,
+                LaneId = "DD04",
+                LaneType = "ETC",
+                LaneAbbr = "DD04",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId,
+                PlazaId = plaza.PlazaId
+            };
+            if (!Lane.Exists(lane)) Lane.Save(lane);
+            lane = new Lane()
+            {
+                LaneNo = 5,
+                LaneId = "DD05",
+                LaneType = "MTC",
+                LaneAbbr = "DD05",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId,
+                PlazaId = plaza.PlazaId
+            };
+            if (!Lane.Exists(lane)) Lane.Save(lane);
+            lane = new Lane()
+            {
+                LaneNo = 6,
+                LaneId = "DD06",
+                LaneType = "MTC",
+                LaneAbbr = "DD06",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId,
+                PlazaId = plaza.PlazaId
+            };
+            if (!Lane.Exists(lane)) Lane.Save(lane);
+
+            #endregion
+
+            #endregion
+
+            #endregion
+
+            #endregion
+
+            #region SUTHISARN
+
+            #region TSB
+
+            item = new TSB();
+            item.NetworkId = "31";
+            item.TSBId = "02";
+            item.TSBNameEN = "SUTHISARN";
+            item.TSBNameTH = "สุทธิสาร";
+            item.Active = false;
+            if (!TSB.Exists(item)) TSB.Save(item);
+            // init default credit value.
+            InitTSBCreditInitializeTransaction(item);
+
+            #endregion
+
+            #region PlazaGroup SUTHISARN
+
+            plazaGroup = new PlazaGroup()
+            {
+                PlazaGroupId = "SS",
+                PlazaGroupNameEN = "SUTHISARN",
+                PlazaGroupNameTH = "สุทธิสาร",
+                Direction = "?",
+                TSBId = item.TSBId
+            };
+            if (!PlazaGroup.Exists(plazaGroup)) PlazaGroup.Save(plazaGroup);
+
+            #region Plaza SUTHISARN
+
+            plaza = new Plaza()
+            {
+                PlazaId = "021",
+                SCWPlazaId = 3,
+                PlazaNameEN = "SUTHISARN",
+                PlazaNameTH = "สุทธิสาร",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId
+            };
+            if (!Plaza.Exists(plaza)) Plaza.Save(plaza);
+
+            #region Lanes
+
+            lane = new Lane()
+            {
+                LaneNo = 1,
+                LaneId = "SS01",
+                LaneType = "?",
+                LaneAbbr = "SS01",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId,
+                PlazaId = plaza.PlazaId
+            };
+            if (!Lane.Exists(lane)) Lane.Save(lane);
+            lane = new Lane()
+            {
+                LaneNo = 2,
+                LaneId = "SS02",
+                LaneType = "?",
+                LaneAbbr = "SS02",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId,
+                PlazaId = plaza.PlazaId
+            };
+            if (!Lane.Exists(lane)) Lane.Save(lane);
+            lane = new Lane()
+            {
+                LaneNo = 3,
+                LaneId = "SS03",
+                LaneType = "?",
+                LaneAbbr = "SS03",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId,
+                PlazaId = plaza.PlazaId
+            };
+            if (!Lane.Exists(lane)) Lane.Save(lane);
+
+
+            #endregion
+
+            #endregion
+
+            #endregion
+
+            #endregion
+
+            #region LAD PRAO
+
+            #region TSB
+
+            item = new TSB();
+            item.NetworkId = "31";
+            item.TSBId = "03";
+            item.TSBNameEN = "LAD PRAO";
+            item.TSBNameTH = "ลาดพร้าว";
+            item.Active = false;
+            if (!TSB.Exists(item)) TSB.Save(item);
+            // init default credit value.
+            InitTSBCreditInitializeTransaction(item);
+
+            #endregion
+
+            #region PlazaGroup LAD PRAO INBOUND
+
+            plazaGroup = new PlazaGroup()
+            {
+                PlazaGroupId = "LPS",
+                PlazaGroupNameEN = "LAD PRAO INBOUND",
+                PlazaGroupNameTH = "ลาดพร้าว ขาเข้า",
+                Direction = "IN",
+                TSBId = item.TSBId
+            };
+            if (!PlazaGroup.Exists(plazaGroup)) PlazaGroup.Save(plazaGroup);
+
+            #region Plaza LAD PRAO INBOUND
+
+            plaza = new Plaza()
+            {
+                PlazaId = "031",
+                SCWPlazaId = 4,
+                PlazaNameEN = "LAD PRAO INBOUND",
+                PlazaNameTH = "ลาดพร้าว ขาเข้า",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId
+            };
+            if (!Plaza.Exists(plaza)) Plaza.Save(plaza);
+
+            #region Lanes
+
+            lane = new Lane()
+            {
+                LaneNo = 21,
+                LaneId = "LP21",
+                LaneType = "?",
+                LaneAbbr = "LP21",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId,
+                PlazaId = plaza.PlazaId
+            };
+            if (!Lane.Exists(lane)) Lane.Save(lane);
+
+            lane = new Lane()
+            {
+                LaneNo = 22,
+                LaneId = "LP22",
+                LaneType = "?",
+                LaneAbbr = "LP22",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId,
+                PlazaId = plaza.PlazaId
+            };
+            if (!Lane.Exists(lane)) Lane.Save(lane);
+
+            lane = new Lane()
+            {
+                LaneNo = 23,
+                LaneId = "LP23",
+                LaneType = "?",
+                LaneAbbr = "LP23",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId,
+                PlazaId = plaza.PlazaId
+            };
+            if (!Lane.Exists(lane)) Lane.Save(lane);
+
+            #endregion
+
+            #endregion
+
+            #endregion
+
+            #region PlazaGroup LAD PRAO OUTBOUND
+
+            plazaGroup = new PlazaGroup()
+            {
+                PlazaGroupId = "LPN",
+                PlazaGroupNameEN = "LAD PRAO OUTBOUND",
+                PlazaGroupNameTH = "ลาดพร้าว ขาออก",
+                Direction = "OUT",
+                TSBId = item.TSBId
+            };
+            if (!PlazaGroup.Exists(plazaGroup)) PlazaGroup.Save(plazaGroup);
+
+            #region Plaza LAD PRAO OUTBOUND
+
+            plaza = new Plaza()
+            {
+                PlazaId = "032",
+                SCWPlazaId = 5,
+                PlazaNameEN = "LAD PRAO OUTBOUND",
+                PlazaNameTH = "ลาดพร้าว ขาออก",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId
+            };
+            if (!Plaza.Exists(plaza)) Plaza.Save(plaza);
+
+            #region Lanes
+
+            lane = new Lane()
+            {
+                LaneNo = 1,
+                LaneId = "LP01",
+                LaneType = "?",
+                LaneAbbr = "LP01",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId,
+                PlazaId = plaza.PlazaId
+            };
+            if (!Lane.Exists(lane)) Lane.Save(lane);
+            lane = new Lane()
+            {
+                LaneNo = 2,
+                LaneId = "LP02",
+                LaneType = "?",
+                LaneAbbr = "LP02",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId,
+                PlazaId = plaza.PlazaId
+            };
+            if (!Lane.Exists(lane)) Lane.Save(lane);
+            lane = new Lane()
+            {
+                LaneNo = 3,
+                LaneId = "LP03",
+                LaneType = "?",
+                LaneAbbr = "LP03",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId,
+                PlazaId = plaza.PlazaId
+            };
+            if (!Lane.Exists(lane)) Lane.Save(lane);
+            lane = new Lane()
+            {
+                LaneNo = 4,
+                LaneId = "LP04",
+                LaneType = "?",
+                LaneAbbr = "LP04",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId,
+                PlazaId = plaza.PlazaId
+            };
+            if (!Lane.Exists(lane)) Lane.Save(lane);
+
+            #endregion
+
+            #endregion
+
+            #endregion
+
+            #endregion
+
+            #region RATCHADA PHISEK
+
+            #region TSB
+
+            item = new TSB();
+            item.NetworkId = "31";
+            item.TSBId = "04";
+            item.TSBNameEN = "RATCHADA PHISEK";
+            item.TSBNameTH = "รัชดาภิเษก";
+            item.Active = false;
+            if (!TSB.Exists(item)) TSB.Save(item);
+            // init default credit value.
+            InitTSBCreditInitializeTransaction(item);
+
+            #endregion
+
+            #region PlazaGroup RATCHADA PHISEK
+
+            plazaGroup = new PlazaGroup()
+            {
+                PlazaGroupId = "RP",
+                PlazaGroupNameEN = "RATCHADA PHISEK",
+                PlazaGroupNameTH = "รัชดาภิเษก",
+                Direction = "?",
+                TSBId = item.TSBId
+            };
+            if (!PlazaGroup.Exists(plazaGroup)) PlazaGroup.Save(plazaGroup);
+
+            #region Plaza RATCHADA PHISEK 1
+
+            plaza = new Plaza()
+            {
+                PlazaId = "041",
+                SCWPlazaId = 6,
+                PlazaNameEN = "RATCHADA PHISEK 1",
+                PlazaNameTH = "รัชดาภิเษก 1",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId
+            };
+            if (!Plaza.Exists(plaza)) Plaza.Save(plaza);
+
+            #region Lanes
+
+            lane = new Lane()
+            {
+                LaneNo = 1,
+                LaneId = "RP01",
+                LaneType = "?",
+                LaneAbbr = "RP01",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId,
+                PlazaId = plaza.PlazaId
+            };
+            if (!Lane.Exists(lane)) Lane.Save(lane);
+            lane = new Lane()
+            {
+                LaneNo = 2,
+                LaneId = "RP02",
+                LaneType = "?",
+                LaneAbbr = "RP02",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId,
+                PlazaId = plaza.PlazaId
+            };
+            if (!Lane.Exists(lane)) Lane.Save(lane);
+            lane = new Lane()
+            {
+                LaneNo = 3,
+                LaneId = "RP03",
+                LaneType = "?",
+                LaneAbbr = "RP03",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId,
+                PlazaId = plaza.PlazaId
+            };
+            if (!Lane.Exists(lane)) Lane.Save(lane);
+
+            #endregion
+
+            #endregion
+
+            #region Plaza RATCHADA PHISEK 2
+
+            plaza = new Plaza()
+            {
+                PlazaId = "042",
+                SCWPlazaId = 7,
+                PlazaNameEN = "RATCHADA PHISEK 2",
+                PlazaNameTH = "รัชดาภิเษก 2",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId
+            };
+            if (!Plaza.Exists(plaza)) Plaza.Save(plaza);
+
+            #region Lanes
+
+            lane = new Lane()
+            {
+                LaneNo = 11,
+                LaneId = "RP11",
+                LaneType = "?",
+                LaneAbbr = "RP11",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId,
+                PlazaId = plaza.PlazaId
+            };
+            if (!Lane.Exists(lane)) Lane.Save(lane);
+            lane = new Lane()
+            {
+                LaneNo = 12,
+                LaneId = "RP12",
+                LaneType = "?",
+                LaneAbbr = "RP12",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId,
+                PlazaId = plaza.PlazaId
+            };
+            if (!Lane.Exists(lane)) Lane.Save(lane);
+            lane = new Lane()
+            {
+                LaneNo = 13,
+                LaneId = "RP13",
+                LaneType = "?",
+                LaneAbbr = "RP13",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId,
+                PlazaId = plaza.PlazaId
+            };
+            if (!Lane.Exists(lane)) Lane.Save(lane);
+
+            #endregion
+
+            #endregion
+
+            #endregion
+
+            #endregion
+
+            #region BANGKHEN
+
+            #region TSB
+
+            item = new TSB();
+            item.NetworkId = "31";
+            item.TSBId = "05";
+            item.TSBNameEN = "BANGKHEN";
+            item.TSBNameTH = "บางเขน";
+            item.Active = false;
+            if (!TSB.Exists(item)) TSB.Save(item);
+            // init default credit value.
+            InitTSBCreditInitializeTransaction(item);
+
+            #endregion
+
+            #region PlazaGroup BANGKHEN
+
+            plazaGroup = new PlazaGroup()
+            {
+                PlazaGroupId = "BK",
+                PlazaGroupNameEN = "BANGKHEN",
+                PlazaGroupNameTH = "บางเขน",
+                Direction = "?",
+                TSBId = item.TSBId
+            };
+            if (!PlazaGroup.Exists(plazaGroup)) PlazaGroup.Save(plazaGroup);
+
+            #region Plaza BANGKHEN
+
+            plaza = new Plaza()
+            {
+                PlazaId = "051",
+                SCWPlazaId = 8,
+                PlazaNameEN = "BANGKHEN",
+                PlazaNameTH = "บางเขน",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId
+            };
+            if (!Plaza.Exists(plaza)) Plaza.Save(plaza);
+
+            #endregion
+
+            #region Lanes
+
+            lane = new Lane()
+            {
+                LaneNo = 1,
+                LaneId = "BK01",
+                LaneType = "?",
+                LaneAbbr = "BK01",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId,
+                PlazaId = plaza.PlazaId
+            };
+            if (!Lane.Exists(lane)) Lane.Save(lane);
+            lane = new Lane()
+            {
+                LaneNo = 2,
+                LaneId = "BK02",
+                LaneType = "?",
+                LaneAbbr = "BK02",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId,
+                PlazaId = plaza.PlazaId
+            };
+            if (!Lane.Exists(lane)) Lane.Save(lane);
+
+            #endregion
+
+            #endregion
+
+            #endregion
+
+            #region CHANGEWATTANA
+
+            #region TSB
+
+            item = new TSB();
+            item.NetworkId = "31";
+            item.TSBId = "06";
+            item.TSBNameEN = "CHANGEWATTANA";
+            item.TSBNameTH = "แจ้งวัฒนะ";
+            item.Active = false;
+            if (!TSB.Exists(item)) TSB.Save(item);
+            // init default credit value.
+            InitTSBCreditInitializeTransaction(item);
+
+            #endregion
+
+            #region PlazaGroup CHANGEWATTANA
+
+            plazaGroup = new PlazaGroup()
+            {
+                PlazaGroupId = "CW",
+                PlazaGroupNameEN = "CHANGEWATTANA",
+                PlazaGroupNameTH = "แจ้งวัฒนะ",
+                Direction = "?",
+                TSBId = item.TSBId
+            };
+            if (!PlazaGroup.Exists(plazaGroup)) PlazaGroup.Save(plazaGroup);
+
+            #region Plaza CHANGEWATTANA 1
+
+            plaza = new Plaza()
+            {
+                PlazaId = "061",
+                SCWPlazaId = 9,
+                PlazaNameEN = "CHANGEWATTANA 1",
+                PlazaNameTH = "แจ้งวัฒนะ 1",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId
+            };
+            if (!Plaza.Exists(plaza)) Plaza.Save(plaza);
+
+            #region Lanes
+
+            lane = new Lane()
+            {
+                LaneNo = 21,
+                LaneId = "CW21",
+                LaneType = "?",
+                LaneAbbr = "CW21",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId,
+                PlazaId = plaza.PlazaId
+            };
+            if (!Lane.Exists(lane)) Lane.Save(lane);
+            lane = new Lane()
+            {
+                LaneNo = 22,
+                LaneId = "CW22",
+                LaneType = "?",
+                LaneAbbr = "CW22",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId,
+                PlazaId = plaza.PlazaId
+            };
+            if (!Lane.Exists(lane)) Lane.Save(lane);
+            lane = new Lane()
+            {
+                LaneNo = 23,
+                LaneId = "CW23",
+                LaneType = "?",
+                LaneAbbr = "CW23",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId,
+                PlazaId = plaza.PlazaId
+            };
+            if (!Lane.Exists(lane)) Lane.Save(lane);
+
+            #endregion
+
+            #endregion
+
+            #region Plaza CHANGEWATTANA 2
+
+            plaza = new Plaza()
+            {
+                PlazaId = "062",
+                SCWPlazaId = 10,
+                PlazaNameEN = "CHANGEWATTANA 2",
+                PlazaNameTH = "แจ้งวัฒนะ 2",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId
+            };
+            if (!Plaza.Exists(plaza)) Plaza.Save(plaza);
+
+            #region Lanes
+
+            lane = new Lane()
+            {
+                LaneNo = 31,
+                LaneId = "CW31",
+                LaneType = "?",
+                LaneAbbr = "CW31",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId,
+                PlazaId = plaza.PlazaId
+            };
+            if (!Lane.Exists(lane)) Lane.Save(lane);
+            lane = new Lane()
+            {
+                LaneNo = 32,
+                LaneId = "CW32",
+                LaneType = "?",
+                LaneAbbr = "CW32",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId,
+                PlazaId = plaza.PlazaId
+            };
+            if (!Lane.Exists(lane)) Lane.Save(lane);
+
+            #endregion
+
+            #endregion
+
+            #endregion
+
+            #endregion
+
+            #region LAKSI
+
+            #region TSB
+
+            item = new TSB();
+            item.NetworkId = "31";
+            item.TSBId = "07";
+            item.TSBNameEN = "LAKSI";
+            item.TSBNameTH = "หลักสี่";
+            item.Active = false;
+            if (!TSB.Exists(item)) TSB.Save(item);
+            // init default credit value.
+            InitTSBCreditInitializeTransaction(item);
+
+            #endregion
+
+            #region PlazaGroup LAKSI INBOUND
+
+            plazaGroup = new PlazaGroup()
+            {
+                PlazaGroupId = "LKS",
+                PlazaGroupNameEN = "LAKSI INBOUND",
+                PlazaGroupNameTH = "หลักสี่ ขาเข้า",
+                Direction = "IN",
+                TSBId = item.TSBId
+            };
+            if (!PlazaGroup.Exists(plazaGroup)) PlazaGroup.Save(plazaGroup);
+
+            #region Plaza LAKSI INBOUND
+
+            plaza = new Plaza()
+            {
+                PlazaId = "071",
+                SCWPlazaId = 11,
+                PlazaNameEN = "LAKSI INBOUND",
+                PlazaNameTH = "หลักสี่ ขาเข้า",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId
+            };
+            if (!Plaza.Exists(plaza)) Plaza.Save(plaza);
+
+            #region Lanes
+
+            lane = new Lane()
+            {
+                LaneNo = 21,
+                LaneId = "LK21",
+                LaneType = "?",
+                LaneAbbr = "LK21",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId,
+                PlazaId = plaza.PlazaId
+            };
+            if (!Lane.Exists(lane)) Lane.Save(lane);
+            lane = new Lane()
+            {
+                LaneNo = 22,
+                LaneId = "LK22",
+                LaneType = "?",
+                LaneAbbr = "LK22",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId,
+                PlazaId = plaza.PlazaId
+            };
+            if (!Lane.Exists(lane)) Lane.Save(lane);
+            lane = new Lane()
+            {
+                LaneNo = 23,
+                LaneId = "LK23",
+                LaneType = "?",
+                LaneAbbr = "LK23",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId,
+                PlazaId = plaza.PlazaId
+            };
+            if (!Lane.Exists(lane)) Lane.Save(lane);
+            lane = new Lane()
+            {
+                LaneNo = 24,
+                LaneId = "LK24",
+                LaneType = "?",
+                LaneAbbr = "LK24",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId,
+                PlazaId = plaza.PlazaId
+            };
+            if (!Lane.Exists(lane)) Lane.Save(lane);
+
+            #endregion
+
+            #endregion
+
+            #endregion
+
+            #region PlazaGroup LAKSI OUTBOUND
+
+            plazaGroup = new PlazaGroup()
+            {
+                PlazaGroupId = "LKN",
+                PlazaGroupNameEN = "LAKSI OUTBOUND",
+                PlazaGroupNameTH = "หลักสี่ ขาออก",
+                Direction = "OUT",
+                TSBId = item.TSBId
+            };
+            if (!PlazaGroup.Exists(plazaGroup)) PlazaGroup.Save(plazaGroup);
+
+            #region Plaza LAKSI OUTBOUND
+
+            plaza = new Plaza()
+            {
+                PlazaId = "072",
+                SCWPlazaId = 12,
+                PlazaNameEN = "LAKSI OUTBOUND",
+                PlazaNameTH = "หลักสี่ ขาออก",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId
+            };
+            if (!Plaza.Exists(plaza)) Plaza.Save(plaza);
+
+            #region Lanes
+
+            lane = new Lane()
+            {
+                LaneNo = 1,
+                LaneId = "LK01",
+                LaneType = "?",
+                LaneAbbr = "LK01",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId,
+                PlazaId = plaza.PlazaId
+            };
+            if (!Lane.Exists(lane)) Lane.Save(lane);
+            lane = new Lane()
+            {
+                LaneNo = 2,
+                LaneId = "LK02",
+                LaneType = "?",
+                LaneAbbr = "LK02",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId,
+                PlazaId = plaza.PlazaId
+            };
+            if (!Lane.Exists(lane)) Lane.Save(lane);
+
+            #endregion
+
+            #endregion
+
+            #endregion
+
+            #endregion
+
+            #region DON MUANG
+
+            #region TSB
+
+            item = new TSB();
+            item.NetworkId = "31";
+            item.TSBId = "08";
+            item.TSBNameEN = "DON MUANG";
+            item.TSBNameTH = "ดอนเมือง";
+            item.Active = false;
+            if (!TSB.Exists(item)) TSB.Save(item);
+            // init default credit value.
+            InitTSBCreditInitializeTransaction(item);
+
+            #endregion
+
+            #region PlazaGroup DON MUANG
+
+            plazaGroup = new PlazaGroup()
+            {
+                PlazaGroupId = "DM",
+                PlazaGroupNameEN = "DON MUANG",
+                PlazaGroupNameTH = "ดอนเมือง",
+                Direction = "?",
+                TSBId = item.TSBId
+            };
+            if (!PlazaGroup.Exists(plazaGroup)) PlazaGroup.Save(plazaGroup);
+
+            #region Plaza DON MUANG 1
+
+            plaza = new Plaza()
+            {
+                PlazaId = "081",
+                SCWPlazaId = 13,
+                PlazaNameEN = "DON MUANG 1",
+                PlazaNameTH = "ดอนเมือง 1",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId
+            };
+            if (!Plaza.Exists(plaza)) Plaza.Save(plaza);
+
+            #region Lanes
+
+            lane = new Lane()
+            {
+                LaneNo = 31,
+                LaneId = "DM31",
+                LaneType = "?",
+                LaneAbbr = "DM31",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId,
+                PlazaId = plaza.PlazaId
+            };
+            if (!Lane.Exists(lane)) Lane.Save(lane);
+            lane = new Lane()
+            {
+                LaneNo = 32,
+                LaneId = "DM32",
+                LaneType = "?",
+                LaneAbbr = "DM32",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId,
+                PlazaId = plaza.PlazaId
+            };
+            if (!Lane.Exists(lane)) Lane.Save(lane);
+            lane = new Lane()
+            {
+                LaneNo = 33,
+                LaneId = "DM33",
+                LaneType = "?",
+                LaneAbbr = "DM33",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId,
+                PlazaId = plaza.PlazaId
+            };
+            if (!Lane.Exists(lane)) Lane.Save(lane);
+            lane = new Lane()
+            {
+                LaneNo = 34,
+                LaneId = "DM34",
+                LaneType = "?",
+                LaneAbbr = "DM34",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId,
+                PlazaId = plaza.PlazaId
+            };
+            if (!Lane.Exists(lane)) Lane.Save(lane);
+            lane = new Lane()
+            {
+                LaneNo = 35,
+                LaneId = "DM35",
+                LaneType = "?",
+                LaneAbbr = "DM35",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId,
+                PlazaId = plaza.PlazaId
+            };
+            if (!Lane.Exists(lane)) Lane.Save(lane);
+
+            #endregion
+
+            #endregion
+
+            #region Plaza DON MUANG 2
+
+            plaza = new Plaza()
+            {
+                PlazaId = "082",
+                SCWPlazaId = 14,
+                PlazaNameEN = "DON MUANG 2",
+                PlazaNameTH = "ดอนเมือง 2",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId
+            };
+            if (!Plaza.Exists(plaza)) Plaza.Save(plaza);
+
+            #region Lanes
+
+            lane = new Lane()
+            {
+                LaneNo = 21,
+                LaneId = "DM21",
+                LaneType = "?",
+                LaneAbbr = "DM21",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId,
+                PlazaId = plaza.PlazaId
+            };
+            if (!Lane.Exists(lane)) Lane.Save(lane);
+            lane = new Lane()
+            {
+                LaneNo = 22,
+                LaneId = "DM22",
+                LaneType = "?",
+                LaneAbbr = "DM22",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId,
+                PlazaId = plaza.PlazaId
+            };
+            if (!Lane.Exists(lane)) Lane.Save(lane);
+            lane = new Lane()
+            {
+                LaneNo = 23,
+                LaneId = "DM23",
+                LaneType = "?",
+                LaneAbbr = "DM23",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId,
+                PlazaId = plaza.PlazaId
+            };
+            if (!Lane.Exists(lane)) Lane.Save(lane);
+            lane = new Lane()
+            {
+                LaneNo = 24,
+                LaneId = "DM24",
+                LaneType = "?",
+                LaneAbbr = "DM24",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId,
+                PlazaId = plaza.PlazaId
+            };
+            if (!Lane.Exists(lane)) Lane.Save(lane);
+            lane = new Lane()
+            {
+                LaneNo = 25,
+                LaneId = "DM25",
+                LaneType = "?",
+                LaneAbbr = "DM25",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId,
+                PlazaId = plaza.PlazaId
+            };
+            if (!Lane.Exists(lane)) Lane.Save(lane);
+
+            #endregion
+
+            #endregion
+
+            #endregion
+
+            #endregion
+
+            #region ANUSORN SATHAN
+
+            #region TSB
+
+            item = new TSB();
+            item.NetworkId = "31";
+            item.TSBId = "09";
+            item.TSBNameEN = "ANUSORN SATHAN";
+            item.TSBNameTH = "อนุสรณ์สถาน";
+            item.Active = true;
+            if (!TSB.Exists(item)) TSB.Save(item);
+            // init default credit value.
+            InitTSBCreditInitializeTransaction(item);
+
+            #endregion
+
+            #region PlazaGroup ANUSORN SATHAN
+
+            plazaGroup = new PlazaGroup()
+            {
+                PlazaGroupId = "AS",
+                PlazaGroupNameEN = "ANUSORN SATHAN",
+                PlazaGroupNameTH = "อนุสรณ์สถาน",
+                Direction = "?",
+                TSBId = item.TSBId
+            };
+            if (!PlazaGroup.Exists(plazaGroup)) PlazaGroup.Save(plazaGroup);
+
+            #region Plaza ANUSORN SATHAN 1
+
+            plaza = new Plaza()
+            {
+                PlazaId = "091",
+                SCWPlazaId = 15,
+                PlazaNameEN = "ANUSORN SATHAN 1",
+                PlazaNameTH = "อนุสรณ์สถาน 1",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId
+            };
+            if (!Plaza.Exists(plaza)) Plaza.Save(plaza);
+
+            #region Lanes
+
+            lane = new Lane()
+            {
+                LaneNo = 1,
+                LaneId = "AN01",
+                LaneType = "?",
+                LaneAbbr = "AN01",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId,
+                PlazaId = plaza.PlazaId
+            };
+            if (!Lane.Exists(lane)) Lane.Save(lane);
+            lane = new Lane()
+            {
+                LaneNo = 2,
+                LaneId = "AN02",
+                LaneType = "?",
+                LaneAbbr = "AN02",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId,
+                PlazaId = plaza.PlazaId
+            };
+            if (!Lane.Exists(lane)) Lane.Save(lane);
+            lane = new Lane()
+            {
+                LaneNo = 3,
+                LaneId = "AN03",
+                LaneType = "?",
+                LaneAbbr = "AN03",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId,
+                PlazaId = plaza.PlazaId
+            };
+            if (!Lane.Exists(lane)) Lane.Save(lane);
+            lane = new Lane()
+            {
+                LaneNo = 4,
+                LaneId = "AN04",
+                LaneType = "?",
+                LaneAbbr = "AN04",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId,
+                PlazaId = plaza.PlazaId
+            };
+            if (!Lane.Exists(lane)) Lane.Save(lane);
+            lane = new Lane()
+            {
+                LaneNo = 5,
+                LaneId = "AN05",
+                LaneType = "?",
+                LaneAbbr = "AN05",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId,
+                PlazaId = plaza.PlazaId
+            };
+            if (!Lane.Exists(lane)) Lane.Save(lane);
+
+            #endregion
+
+            #endregion
+
+            #region Plaza ANUSORN SATHAN 2
+
+            plaza = new Plaza()
+            {
+                PlazaId = "092",
+                SCWPlazaId = 16,
+                PlazaNameEN = "ANUSORN SATHAN 2",
+                PlazaNameTH = "อนุสรณ์สถาน 2",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId
+            };
+            if (!Plaza.Exists(plaza)) Plaza.Save(plaza);
+
+            #region Lanes
+
+            lane = new Lane()
+            {
+                LaneNo = 11,
+                LaneId = "AN11",
+                LaneType = "?",
+                LaneAbbr = "AN11",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId,
+                PlazaId = plaza.PlazaId
+            };
+            if (!Lane.Exists(lane)) Lane.Save(lane);
+            lane = new Lane()
+            {
+                LaneNo = 12,
+                LaneId = "AN12",
+                LaneType = "?",
+                LaneAbbr = "AN12",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId,
+                PlazaId = plaza.PlazaId
+            };
+            if (!Lane.Exists(lane)) Lane.Save(lane);
+            lane = new Lane()
+            {
+                LaneNo = 13,
+                LaneId = "AN13",
+                LaneType = "?",
+                LaneAbbr = "AN13",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId,
+                PlazaId = plaza.PlazaId
+            };
+            if (!Lane.Exists(lane)) Lane.Save(lane);
+            lane = new Lane()
+            {
+                LaneNo = 14,
+                LaneId = "AN14",
+                LaneType = "?",
+                LaneAbbr = "AN14",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId,
+                PlazaId = plaza.PlazaId
+            };
+            if (!Lane.Exists(lane)) Lane.Save(lane);
+            lane = new Lane()
+            {
+                LaneNo = 15,
+                LaneId = "AN15",
+                LaneType = "?",
+                LaneAbbr = "AN15",
+                TSBId = item.TSBId,
+                PlazaGroupId = plazaGroup.PlazaGroupId,
+                PlazaId = plaza.PlazaId
+            };
+            if (!Lane.Exists(lane)) Lane.Save(lane);
+
+            #endregion
+
+            #endregion
+
+            #endregion
+
+            #endregion
+        }
+
+        private void InitTSBCreditInitializeTransaction(TSB value)
+        {
+            // Do nothing.
+        }
+
         private void InitViews()
         {
             if (null == Db) return;
@@ -640,7 +1969,7 @@ namespace DMT.Services
 
             // Shifts - Embeded resource used . instead / to access sub contents.
             prefix = @"Shifts";
-            //InitView("TSBShiftView", 1, prefix);
+            InitView("TSBShiftView", 1, prefix);
         }
 
         class ViewInfo
