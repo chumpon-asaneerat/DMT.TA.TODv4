@@ -69,7 +69,6 @@ namespace DMT.Models
 
     #region Search (Credit)
 
-    /*
     static partial class Search
     {
         /// <summary>Credit Searchs.</summary>
@@ -168,16 +167,34 @@ namespace DMT.Models
                 }
 
                 #endregion
+
+                #region Comment out
+
+                /*
+                public class GetActiveById : NSearch<GetActive>
+                {
+                    public string UserId { get; set; }
+                    public string PlazaGroupId { get; set; }
+
+                    public static GetActiveById Create(string userId, string plazGroupId)
+                    {
+                        var ret = new GetActiveById();
+                        ret.UserId = userId;
+                        ret.PlazaGroupId = plazGroupId;
+                        return ret;
+                    }
+                }
+                */
+
+                #endregion
             }
         }
     }
-    */
 
     #endregion
 
     #region Search (Coupon)
 
-    /*
     static partial class Search
     {
         /// <summary>Coupon Searchs.</summary>
@@ -240,7 +257,7 @@ namespace DMT.Models
             }
         }
     }
-    */
+
 
     #endregion
 
