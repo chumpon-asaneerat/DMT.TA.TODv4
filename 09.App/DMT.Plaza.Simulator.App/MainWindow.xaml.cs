@@ -63,17 +63,19 @@ namespace DMT
 
         private void cmdLaneActivity_Click(object sender, RoutedEventArgs e)
         {
-
+            var page = SimApp.Pages.LaneActivity;
+            page.Setup();
+            PageContentManager.Instance.Current = page;
         }
 
         private void cmdUserView_Click(object sender, RoutedEventArgs e)
         {
-
+            //PageContentManager.Instance.Current = new Simulator.Pages.UserViewPage();
         }
 
         private void cmdSupervisorView_Click(object sender, RoutedEventArgs e)
         {
-
+            //PageContentManager.Instance.Current = new Simulator.Pages.SupervisorTaskPage();
         }
 
         private void cmdTSBCouponView_Click(object sender, RoutedEventArgs e)

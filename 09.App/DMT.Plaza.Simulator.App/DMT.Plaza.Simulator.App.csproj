@@ -95,8 +95,26 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Models\Lane.Models.cs" />
+    <Compile Include="Services\CouponSyncService.cs" />
     <Compile Include="Services\SimApp.cs" />
+    <Compile Include="Services\TaskOperations.cs" />
+    <Compile Include="Simulator\Controls\Credit\Entry\CreditAmountEntry.xaml.cs">
+      <DependentUpon>CreditAmountEntry.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Simulator\Controls\Utils\AttachProperties.cs" />
+    <Compile Include="Simulator\Pages\LaneActivityPage.xaml.cs">
+      <DependentUpon>LaneActivityPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Simulator\Pages\TSBLaneSoldCouponPage.xaml.cs">
+      <DependentUpon>TSBLaneSoldCouponPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Simulator\Windows\PaymentWindow.xaml.cs">
+      <DependentUpon>PaymentWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Simulator\Windows\UserListWindow.xaml.cs">
+      <DependentUpon>UserListWindow.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainWindow.xaml.cs">
@@ -132,6 +150,26 @@
     <Page Include="MainWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Simulator\Controls\Credit\Entry\CreditAmountEntry.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Simulator\Pages\LaneActivityPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Simulator\Pages\TSBLaneSoldCouponPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Simulator\Windows\PaymentWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Simulator\Windows\UserListWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Themes\CommonEntryStyle.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -252,11 +290,6 @@
   <ItemGroup>
     <Resource Include="Images\States\unchecked.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-    <Folder Include="Simulator\Controls\Credit\Entry\" />
-    <Folder Include="Simulator\Pages\" />
-    <Folder Include="Simulator\Windows\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
