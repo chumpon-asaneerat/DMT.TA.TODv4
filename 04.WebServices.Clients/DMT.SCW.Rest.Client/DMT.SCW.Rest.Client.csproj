@@ -57,6 +57,7 @@
     <Compile Include="Services\Emu\Emulator.Operations.cs" />
     <Compile Include="Services\Master\Master.Operations.cs" />
     <Compile Include="Services\SCW.cs" />
+    <Compile Include="Services\SCWMQService.cs" />
     <Compile Include="Services\Security\Security.Operations.cs" />
     <Compile Include="Services\TOD\TOD.Operations.cs" />
   </ItemGroup>
