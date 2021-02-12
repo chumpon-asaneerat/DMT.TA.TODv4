@@ -32,12 +32,13 @@ namespace DMT.TOD.Pages.Menu
 
         #region Interna Variables
 
-        //private User _user = null;
+        private User _user = null;
 
         #endregion
 
         #region Button Handlers
 
+        // TEST - PASSED.
         private void cmdRevenueSlipReport_Click(object sender, RoutedEventArgs e)
         {
             /*
@@ -58,6 +59,7 @@ namespace DMT.TOD.Pages.Menu
             */
         }
 
+        // TEST - PASSED.
         private void cmdRevenueSummaryReport_Click(object sender, RoutedEventArgs e)
         {
             /*
@@ -78,6 +80,7 @@ namespace DMT.TOD.Pages.Menu
             */
         }
 
+        // TEST - PASSED.
         private void cmdEmptySlipReport_Click(object sender, RoutedEventArgs e)
         {
             /*
@@ -107,7 +110,7 @@ namespace DMT.TOD.Pages.Menu
         #endregion
 
         #region Public Methods
-        /*
+
         /// <summary>
         /// Setup.
         /// </summary>
@@ -116,7 +119,7 @@ namespace DMT.TOD.Pages.Menu
         {
             _user = user;
         }
-        */
+
         #endregion
     }
 }

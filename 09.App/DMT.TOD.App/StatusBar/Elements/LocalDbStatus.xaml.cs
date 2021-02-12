@@ -30,30 +30,33 @@ namespace DMT.Controls.StatusBar
 
         #endregion
 
+        #region Internal Variables
+
+        private StatusBarService service = StatusBarService.Instance;
+
+        private DateTime _lastUpdate = DateTime.MinValue;
         private DispatcherTimer timer = null;
         private bool isOnline = false;
+
+        #endregion
 
         #region Loaded/Unloaded
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             UpdateUI();
-            /*
+
+            if (null != service) service.Register(this.UpdateUI);
+
             timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromSeconds(1);
             timer.Tick += timer_Tick;
             timer.Start();
-
-            TODConfigManager.Instance.ConfigChanged += ConfigChanged;
-            TODUIConfigManager.Instance.ConfigChanged += UI_ConfigChanged;
-            */
         }
 
         private void UserControl_Unloaded(object sender, RoutedEventArgs e)
         {
-            /*
-            TODUIConfigManager.Instance.ConfigChanged -= UI_ConfigChanged;
-            TODConfigManager.Instance.ConfigChanged -= ConfigChanged;
+            if (null != service) service.Unregister(this.UpdateUI);
 
             if (null != timer)
             {
@@ -61,7 +64,6 @@ namespace DMT.Controls.StatusBar
                 timer.Stop();
             }
             timer = null;
-            */
         }
 
         #endregion
@@ -70,29 +72,29 @@ namespace DMT.Controls.StatusBar
 
         void timer_Tick(object sender, EventArgs e)
         {
-            UpdateUI();
+            TimeSpan ts = DateTime.Now - _lastUpdate;
+            if (ts.TotalSeconds > this.Interval)
+            {
+                UpdateUI();
+                _lastUpdate = DateTime.Now;
+            }
         }
 
         #endregion
 
-        #region Config Watcher Handlers
-
-        private void ConfigChanged(object sender, EventArgs e)
+        private int Interval
         {
-            UpdateUI();
+            get
+            {
+                int interval = (null != service && null != service.LocalDb) ? service.LocalDb.IntervalSeconds : 5;
+                if (interval < 0) interval = 5;
+                return interval;
+            }
         }
-
-        private void UI_ConfigChanged(object sender, EventArgs e)
-        {
-            UpdateUI();
-        }
-
-        #endregion
 
         private void UpdateUI()
         {
-            /*
-            var statusCfg = TODUIConfigManager.Instance.LocalDb;
+            var statusCfg = (null != service) ? service.LocalDb : null;
             if (null == statusCfg || !statusCfg.Visible)
             {
                 // Hide Control.
@@ -115,7 +117,6 @@ namespace DMT.Controls.StatusBar
                 borderStatus.Background = new SolidColorBrush(Colors.Maroon);
                 txtStatus.Text = "Disconnected";
             }
-            */
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿#define SINGELTON_APP
+﻿//#define SINGELTON_APP
 
 #region Using
 
@@ -9,6 +9,8 @@ using NLib;
 using NLib.Logs;
 
 using DMT.Configurations;
+using DMT.Models;
+using DMT.Models.ExtensionMethods;
 using DMT.Services;
 
 #endregion
@@ -22,6 +24,8 @@ namespace DMT
     /// </summary>
     public partial class App : Application
     {
+        private Services.TODWebServer appServ = null;
+
         /// <summary>
         /// OnStartup.
         /// </summary>
@@ -119,24 +123,18 @@ namespace DMT
             Services.Operations.SCW.Config = TODConfigManager.Instance;
             Services.Operations.SCW.DMT = TODConfigManager.Instance; // required for NetworkId
             TODConfigManager.Instance.Start(); // Start File Watcher.
-            /*
+
             // Start App Notify Server.
             appServ = new Services.TODWebServer();
             appServ.Start();
 
-            // Load UI Config
-            TODUIConfigManager.Instance.LoadConfig();
-            TODUIConfigManager.Instance.Start(); // Start File Watcher.
-            */
             // Set NotifyService
             TODNotifyService.Instance.TSBChanged += TSBChanged;
             TODNotifyService.Instance.TSBShiftChanged += TSBShiftChanged;
-            /*
-            // Register
-            TODApp.Config = TODConfigManager.Instance.TODApp; // Keep config.
-            var ret = taaOps.Notify.Register(TODConfigManager.Instance.TODApp);
-            TODApp.IsRegistered = (null != ret) ? ret.Ok : false;
-            */
+
+            // Sync data.
+            SyncTSBShift();
+
             Window window = null;
             window = new MainWindow();
 
@@ -151,17 +149,11 @@ namespace DMT
         /// <param name="e"></param>
         protected override void OnExit(ExitEventArgs e)
         {
-            // Unregister
-            /*
-            TODApp.Config = null;
-            taaOps.Notify.Unregister(TODConfigManager.Instance.TODApp);
-            */
             // Release NotifyService event.
             TODNotifyService.Instance.TSBChanged -= TSBChanged;
             TODNotifyService.Instance.TSBShiftChanged -= TSBShiftChanged;
-            /*
+
             // Shutdown File Watcher.
-            TODUIConfigManager.Instance.Shutdown();
             TODConfigManager.Instance.Shutdown();
 
             if (null != appServ)
@@ -169,7 +161,7 @@ namespace DMT
                 appServ.Shutdown();
             }
             appServ = null;
-            */
+
             // Shutdown log manager
             LogManager.Instance.Shutdown();
 
@@ -182,17 +174,8 @@ namespace DMT
             base.OnExit(e);
         }
 
-
         private void Service_ConfigChanged(object sender, EventArgs e)
         {
-            /*
-            if (null != TODApp.Config)
-            {
-                taaOps.Notify.Unregister(TODApp.Config);
-                TODApp.IsRegistered = false;
-            }
-            */
-
             // When Service Config file changed.
             // Update all related service operations.
             Services.Operations.TA.Config = TODConfigManager.Instance;
@@ -200,23 +183,30 @@ namespace DMT
 
             Services.Operations.SCW.Config = TODConfigManager.Instance;
             Services.Operations.SCW.DMT = TODConfigManager.Instance; // required for NetworkId
-
-            // Re-Register
-            /*
-            TODApp.Config = TODConfigManager.Instance.TODApp; // Keep config.
-            var ret = taaOps.Notify.Register(TODConfigManager.Instance.TODApp);
-            TODApp.IsRegistered = (null != ret) ? ret.Ok : false;
-            */
         }
 
         private void TSBChanged(object sender, EventArgs e)
         {
-            //RuntimeManager.Instance.RaiseTSBChanged();
+            RuntimeManager.Instance.RaiseTSBChanged();
         }
 
         private void TSBShiftChanged(object sender, EventArgs e)
         {
-            //RuntimeManager.Instance.RaiseTSBShiftChanged();
+            SyncTSBShift();
+            RuntimeManager.Instance.RaiseTSBShiftChanged();
+        }
+
+        private void SyncTSBShift()
+        {
+            var curr = Models.TSBShift.GetTSBShift().Value();
+            var taShift = taaOps.Shift.TSB.Current().Value();
+            if (null != taShift)
+            {
+                if (null != curr && curr.TSBShiftId != taShift.TSBShiftId)
+                {
+                    Models.TSBShift.ChangeShift(taShift);
+                }
+            }
         }
     }
 }

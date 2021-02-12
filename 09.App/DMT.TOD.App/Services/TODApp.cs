@@ -172,7 +172,7 @@ namespace DMT
             #endregion
 
             #region Change Shift
-            /*
+
             private static TOD.Pages.TollAdmin.ChangeShiftPage _ChangeShift;
 
             /// <summary>Gets Change Shift Page.</summary>
@@ -190,11 +190,11 @@ namespace DMT
                     return _ChangeShift;
                 }
             }
-            */
+
             #endregion
 
             #region EMV/QRCode
-            /*
+
             private static TOD.Pages.TollAdmin.EMVQRCodeListPage _EMVQRCode;
 
             /// <summary>Gets EMV/QRCode Page.</summary>
@@ -212,11 +212,11 @@ namespace DMT
                     return _EMVQRCode;
                 }
             }
-            */
+
             #endregion
 
             #region Job List
-            /*
+
             private static TOD.Pages.TollAdmin.JobListPage _JobList;
 
             /// <summary>Gets Job List Page.</summary>
@@ -234,11 +234,10 @@ namespace DMT
                     return _JobList;
                 }
             }
-            */
+
             #endregion
 
             #region Report Revenue Slip (Empty)
-
             /*
             private static TOD.Pages.Reports.EmpytRevenueSlipPage _EmptyRevenueSlip;
 
@@ -257,9 +256,8 @@ namespace DMT
                     return _EmptyRevenueSlip;
                 }
             }
-            */
 
-            /*
+
             private static TOD.Pages.Reports.RevenueSlipPreviewPage _RevenueSlipPreview;
 
             /// <summary>Gets Report Revenue Slip Page.</summary>
@@ -277,9 +275,7 @@ namespace DMT
                     return _RevenueSlipPreview;
                 }
             }
-            */
 
-            /*
             private static TOD.Pages.Reports.DailyRevenueSummaryPreviewPage _DailyRevenueSummaryPreview;
 
             /// <summary>Gets Report Daily Revenue Summary Page.</summary>
@@ -298,7 +294,6 @@ namespace DMT
                 }
             }
             */
-
             #endregion
         }
 
@@ -308,7 +303,7 @@ namespace DMT
         public static class Windows
         {
             #region SignIn
-            /*
+
             /// <summary>Gets SignIn Window.</summary>
             public static DMT.Windows.SignInWindow SignIn
             {
@@ -319,11 +314,11 @@ namespace DMT
                     return ret; 
                 }
             }
-            */
+
             #endregion
 
             #region BOS (Begin Of Shift)
-            /*
+
             /// <summary>Gets BOS (Begin Of Shift Window.</summary>
             public static TOD.Windows.UserShifts.BOSWindow BOS
             {
@@ -334,11 +329,11 @@ namespace DMT
                     return ret; 
                 }
             }
-            */
+
             #endregion
 
             #region User Search
-            /*
+
             /// <summary>Gets User Search Window.</summary>
             public static DMT.Windows.UserSearchWindow UserSearch
             {
@@ -349,11 +344,10 @@ namespace DMT
                     return ret;
                 }
             }
-            */
+
             #endregion
 
             #region Reports
-
             /*
             /// <summary>Gets Revenue Slip Search Window.</summary>
             public static DMT.TOD.Windows.Reports.RevenueSlipSearchWindow RevenueSlipSearch
@@ -365,9 +359,7 @@ namespace DMT
                     return ret;
                 }
             }
-            */
 
-            /*
             /// <summary>Gets Revenue Summary Search Window.</summary>
             public static DMT.TOD.Windows.Reports.RevenueSummarySearchWindow RevenueSummarySearch
             {

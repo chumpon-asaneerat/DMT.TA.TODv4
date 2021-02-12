@@ -34,18 +34,14 @@ namespace DMT.Controls.Header
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             UpdateUI();
-            /*
             RuntimeManager.Instance.TSBChanged += Instance_TSBChanged;
             RuntimeManager.Instance.TSBShiftChanged += Instance_TSBShiftChanged;
-            */
         }
 
         private void UserControl_Unloaded(object sender, RoutedEventArgs e)
         {
-            /*
             RuntimeManager.Instance.TSBShiftChanged -= Instance_TSBShiftChanged;
             RuntimeManager.Instance.TSBChanged -= Instance_TSBChanged;
-            */
         }
 
         #endregion
@@ -66,7 +62,6 @@ namespace DMT.Controls.Header
 
         private void UpdateUI()
         {
-            /*
             var shift = TSBShift.GetTSBShift().Value();
             if (null != shift)
             {
@@ -80,7 +75,6 @@ namespace DMT.Controls.Header
                 txtShiftTime.Text = string.Empty;
                 txtShiftId.Text = string.Empty;
             }
-            */
         }
     }
 }

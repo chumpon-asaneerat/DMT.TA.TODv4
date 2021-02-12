@@ -34,10 +34,10 @@ namespace DMT.TOD.Pages.Menu
 
         #region Button Handlers
 
+        // TEST - PASSED.
         private void cmdCollectorBOJ_Click(object sender, RoutedEventArgs e)
         {
             // เปิดกะ
-            /*
             var signinWin = TODApp.Windows.SignIn;
             signinWin.Setup(TODApp.Permissions.TC);
             if (signinWin.ShowDialog() == false) return;
@@ -64,9 +64,9 @@ namespace DMT.TOD.Pages.Menu
             {
                 return;
             }
-            */
         }
 
+        // TEST - PASSED.
         private void cmdCollectorRevenueEntry_Click(object sender, RoutedEventArgs e)
         {
             // ป้อนรายได้
@@ -97,7 +97,7 @@ namespace DMT.TOD.Pages.Menu
             */
         }
 
-
+        // TEST - PASSED.
         private void cmdChiefRevenueEntry_Click(object sender, RoutedEventArgs e)
         {
             // ป้อนรายได้ย้อนหลัง
@@ -110,15 +110,15 @@ namespace DMT.TOD.Pages.Menu
 
             // Chief Revenue Entry Page
             var page = TODApp.Pages.ChiefRevenueEntry;
-            page.Setup(user);
+            page.Setup(user, true);
             PageContentManager.Instance.Current = page;
             */
         }
 
+        // TEST - PASSED.
         private void cmdChiefChangeShift_Click(object sender, RoutedEventArgs e)
         {
             // หัวหน้าเปลี่ยนกะ
-            /*
             var signinWin = TODApp.Windows.SignIn;
             signinWin.Setup(TODApp.Permissions.CTC);
             if (signinWin.ShowDialog() == false) return;
@@ -129,13 +129,12 @@ namespace DMT.TOD.Pages.Menu
             var page = TODApp.Pages.ChangeShift;
             page.Setup(user);
             PageContentManager.Instance.Current = page;
-            */
         }
 
+        // TEST - PASSED.
         private void cmdReportMenu_Click(object sender, RoutedEventArgs e)
         {
             // รายงานต่าง ๆ
-            /*
             var signinWin = TODApp.Windows.SignIn;
             signinWin.Setup(TODApp.Permissions.CTC);
             if (signinWin.ShowDialog() == false) return;
@@ -147,13 +146,12 @@ namespace DMT.TOD.Pages.Menu
             // setup
             page.Setup(user);
             PageContentManager.Instance.Current = page;
-            */
         }
 
+        // TEST - PASSED.
         private void cmdEMVQRCode_Click(object sender, RoutedEventArgs e)
         {
             // EMV/QR Code
-            /*
             var signinWin = TODApp.Windows.SignIn;
             signinWin.Setup(TODApp.Permissions.CTC);
             if (signinWin.ShowDialog() == false) return;
@@ -164,13 +162,12 @@ namespace DMT.TOD.Pages.Menu
             var page = TODApp.Pages.EMVQRCode;
             page.Setup(user);
             PageContentManager.Instance.Current = page;
-            */
         }
 
+        // TEST - PASSED.
         private void cmdStaffJobs_Click(object sender, RoutedEventArgs e)
         {
             // รายชื่อพนักงานเข้ากะ
-            /*
             var signinWin = TODApp.Windows.SignIn;
             signinWin.Setup(TODApp.Permissions.CTC);
             if (signinWin.ShowDialog() == false) return;
@@ -181,7 +178,6 @@ namespace DMT.TOD.Pages.Menu
             var page = TODApp.Pages.JobList;
             page.Setup(user);
             PageContentManager.Instance.Current = page;
-            */
         }
 
         #endregion
