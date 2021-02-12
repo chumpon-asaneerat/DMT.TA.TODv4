@@ -74,6 +74,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\RabbitMQClient.cs" />
+    <Compile Include="Services\RabbitMQService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
