@@ -79,7 +79,7 @@ namespace DMT.Models
 		/// <summary>
 		/// Constructor.
 		/// </summary>
-		public MCoupon() : base() 
+		public MCoupon() : base()
 		{
 			ActiveStatus = MActiveStatus.Active;
 		}

@@ -145,7 +145,7 @@ namespace DMT.Models
 		/// <summary>
 		/// Constructor.
 		/// </summary>
-		public MCurrency() : base() 
+		public MCurrency() : base()
 		{
 			ActiveStatus = MActiveStatus.Active;
 		}

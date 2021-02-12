@@ -59,7 +59,7 @@ namespace DMT.Models
 		/// <summary>
 		/// Constructor.
 		/// </summary>
-		public MCardAllow() : base() 
+		public MCardAllow() : base()
 		{
 			ActiveStatus = MActiveStatus.Active;
 		}
@@ -168,7 +168,7 @@ namespace DMT.Models
 				try
 				{
 					db.BeginTransaction();
-					values.ForEach(value => 
+					values.ForEach(value =>
 					{
 						var match = originals.Find(item => { return item.cardAllowId == value.cardAllowId; });
 						if (null != match) value.ActiveStatus = match.ActiveStatus; // Keep original status.

@@ -61,7 +61,7 @@ namespace DMT.Models
 		/// <summary>
 		/// Constructor.
 		/// </summary>
-		public MCouponBook() : base() 
+		public MCouponBook() : base()
 		{
 			ActiveStatus = MActiveStatus.Active;
 		}

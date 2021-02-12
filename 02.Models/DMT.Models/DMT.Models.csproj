@@ -112,6 +112,7 @@
     <Compile Include="Models\Common\NTables.cs" />
     <Compile Include="Models\Common\UICommands.cs" />
     <Compile Include="Models\Common\Utils.cs" />
+    <Compile Include="Models\Plaza\Common\IsAliveResult.cs" />
     <Compile Include="Models\Plaza\Configuration\UniqueCode.cs" />
     <Compile Include="Models\Plaza\Configuration\ViewHistory.cs" />
     <Compile Include="Models\Plaza\Infrastructures\Lane.cs" />
@@ -125,6 +126,9 @@
     <Compile Include="Models\Plaza\Master\MCouponBook.cs" />
     <Compile Include="Models\Plaza\Master\MCurrency.cs" />
     <Compile Include="Models\Plaza\Shifts\Shift.cs" />
+    <Compile Include="Models\Plaza\Shifts\TSBShift.cs" />
+    <Compile Include="Models\Plaza\Shifts\UserShift.cs" />
+    <Compile Include="Models\Plaza\Shifts\UserShiftRevenue.cs" />
     <Compile Include="Models\Plaza\Users\Role.cs" />
     <Compile Include="Models\Plaza\Users\User.cs" />
     <Compile Include="Models\Plaza\Users\UserAccess.cs" />
@@ -160,7 +164,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\Plaza\Common\" />
     <Folder Include="Models\Plaza\Coupon\Common\" />
     <Folder Include="Models\Plaza\Coupon\TSB\" />
     <Folder Include="Models\Plaza\Coupon\User\" />

@@ -310,7 +310,7 @@ namespace DMT.Models
             }
         }
 
-        #region Credit Limit
+        #region Credit
 
         /// <summary>
         /// Gets or sets Low Limit for ST25.
