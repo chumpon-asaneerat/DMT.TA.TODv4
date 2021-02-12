@@ -32,7 +32,8 @@ namespace DMT.Models
       "TollWayId": 9,
       "SAPItemName": "Coupon 35 Baht",
       "sendtaflag": "0"
-    }    */
+    }
+    */
 
     /// <summary>The TAServerCouponTransaction class.</summary>
     public class TAServerCouponTransaction
