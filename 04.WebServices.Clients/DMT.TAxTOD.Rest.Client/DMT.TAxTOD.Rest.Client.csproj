@@ -55,7 +55,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\Coupon\Coupon.Operations.cs" />
+    <Compile Include="Services\TAA\TAA.Operations.cs" />
     <Compile Include="Services\TAxTOD.cs" />
+    <Compile Include="Services\TAxTODMQService.cs" />
+    <Compile Include="Services\TCT\TCT.Operations.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -78,10 +82,6 @@
       <Name>DMT.Rest.Client</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Services\Coupon\" />
-    <Folder Include="Services\TAA\" />
-    <Folder Include="Services\TCT\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
