@@ -60,13 +60,15 @@ namespace DMT.Models
         /// <returns></returns>
         public bool CheckIsCurrent()
         {
+            MethodBase med = MethodBase.GetCurrentMethod();
+
             DateTime now = DateTime.Now;
+            DateTime dt = new DateTime(now.Year, now.Month, now.Day, now.Hour, now.Minute, now.Second, now.Millisecond);
 
             // Test 2021-02-12 01:xx:xx
             //DateTime dt = new DateTime(now.Year, now.Month, 12, 01, now.Minute, now.Second, now.Millisecond);
             // Test 2021-02-12 22:xx:xx
             //DateTime dt = new DateTime(now.Year, now.Month, 12, 22, now.Minute, now.Second, now.Millisecond);
-            DateTime dt = new DateTime(now.Year, now.Month, now.Day, now.Hour, now.Minute, now.Second, now.Millisecond);
 
             if (!TimeStart.HasValue || !TimeEnd.HasValue)
             {
@@ -106,8 +108,11 @@ namespace DMT.Models
 
             if (ret)
             {
-                Console.WriteLine("Start: {0:dd/MM/yyyy HH:mm} - End: {1:dd/MM/yyyy HH:mm}, Curr: {2:dd/MM/yyyy HH:mm}",
-                    start, end, dt);
+                string msg = string.Format(
+                    "Match Shift {0}, Start: {1:dd/MM/yyyy HH:mm} - End: {2:dd/MM/yyyy HH:mm}, Curr: {3:dd/MM/yyyy HH:mm}",
+                    ShiftId, start, end, dt);
+                Console.WriteLine(msg);
+                med.Info(msg);
             }
             return ret;
         }
