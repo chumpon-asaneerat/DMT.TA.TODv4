@@ -30,57 +30,33 @@ namespace DMT.Controls.StatusBar
 
         #endregion
 
+        #region Internal Variables
+
+        private StatusBarService service = StatusBarService.Instance;
+
+        private DateTime _lastUpdate = DateTime.MinValue;
         private DispatcherTimer timer = null;
-        private NLib.Components.PingManager ping = null;
         private bool isOnline = false;
+
+        #endregion
 
         #region Loaded/Unloaded
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            // TODO: Need Check TOD App Implements
-            /*
-            string host = (null != TAConfigManager.Instance.TODApp && null != TAConfigManager.Instance.TODApp.Service) ?
-                TAConfigManager.Instance.TODApp.Service.HostName : "unknown";
-            */
-
-            /*
-            string host = "127.0.0.1";
-            int interval = (null != TAUIConfigManager.Instance.TODApp) ?
-                TAUIConfigManager.Instance.TODApp.IntervalSeconds : 5;
-            if (interval < 0) interval = 5;
-
-            ping = new NLib.Components.PingManager();
-            ping.OnReply += Ping_OnReply;
-            ping.Add(host);
-            ping.Interval = interval * 1000;
-            ping.Start();
-
             UpdateUI();
+
+            if (null != service) service.Register(this.UpdateUI);
 
             timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromSeconds(1);
             timer.Tick += timer_Tick;
             timer.Start();
-
-            TAConfigManager.Instance.ConfigChanged += ConfigChanged;
-            TAUIConfigManager.Instance.ConfigChanged += UI_ConfigChanged;
-            */
         }
 
         private void UserControl_Unloaded(object sender, RoutedEventArgs e)
         {
-            /*
-            TAUIConfigManager.Instance.ConfigChanged -= UI_ConfigChanged;
-            TAConfigManager.Instance.ConfigChanged -= ConfigChanged;
-
-            if (null != ping)
-            {
-                ping.OnReply -= Ping_OnReply;
-                ping.Stop();
-                ping.Dispose();
-            }
-            ping = null;
+            if (null != service) service.Unregister(this.UpdateUI);
 
             if (null != timer)
             {
@@ -88,24 +64,6 @@ namespace DMT.Controls.StatusBar
                 timer.Stop();
             }
             timer = null;
-            */
-        }
-
-        #endregion
-
-        #region Ping Reply Handler
-
-        private void Ping_OnReply(object sender, NLib.Networks.PingResponseEventArgs e)
-        {
-            if (null != e.Reply &&
-                e.Reply.Status == System.Net.NetworkInformation.IPStatus.Success)
-            {
-                isOnline = true;
-            }
-            else
-            {
-                isOnline = false;
-            }
         }
 
         #endregion
@@ -114,50 +72,29 @@ namespace DMT.Controls.StatusBar
 
         void timer_Tick(object sender, EventArgs e)
         {
-            UpdateUI();
-        }
-
-        #endregion
-
-        #region Config Watcher Handlers
-
-        private void ConfigChanged(object sender, EventArgs e)
-        {
-            /*
-            if (null != ping)
+            TimeSpan ts = DateTime.Now - _lastUpdate;
+            if (ts.TotalSeconds > this.Interval)
             {
-                // TODO: Need Check TOD App Implements
-                //string host = (null != TAConfigManager.Instance.TODApp && null != TAConfigManager.Instance.TODApp.Service) ?
-                //    TAConfigManager.Instance.TODApp.Service.HostName : "unknown";
-                string host = "127.0.0.1";
-                int interval = (null != TAUIConfigManager.Instance.TODApp) ?
-                    TAUIConfigManager.Instance.TODApp.IntervalSeconds : 5;
-                if (interval < 0) interval = 5;
-
-                // Stop ping service.
-                ping.Stop();
-                ping.Interval = interval * 1000;
-                // Clear and add new host.
-                ping.Clear();
-                ping.Add(host);
-                // Restart ping service.
-                ping.Start();
+                UpdateUI();
+                _lastUpdate = DateTime.Now;
             }
-            */
-            UpdateUI();
-        }
-
-        private void UI_ConfigChanged(object sender, EventArgs e)
-        {
-            UpdateUI();
         }
 
         #endregion
+
+        private int Interval
+        {
+            get
+            {
+                int interval = (null != service && null != service.TODApp) ? service.TODApp.IntervalSeconds : 5;
+                if (interval < 0) interval = 5;
+                return interval;
+            }
+        }
 
         private void UpdateUI()
         {
-            /*
-            var statusCfg = TAUIConfigManager.Instance.TODApp;
+            var statusCfg = (null != service) ? service.TODApp : null;
             if (null == statusCfg || !statusCfg.Visible)
             {
                 // Hide Control.
@@ -168,7 +105,6 @@ namespace DMT.Controls.StatusBar
                 // Show Control.
                 if (this.Visibility != Visibility.Visible) this.Visibility = Visibility.Visible;
             }
-            */
 
             if (isOnline)
             {

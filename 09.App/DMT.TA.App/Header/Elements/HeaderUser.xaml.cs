@@ -66,7 +66,6 @@ namespace DMT.Controls.Header
 
         private void UpdateUI()
         {
-            /*
             if (null != TAApp.User.Current)
             {
                 txtUserId.Text = "รหัสผู้ใช้งาน: " + TAApp.User.Current.UserId;
@@ -77,7 +76,6 @@ namespace DMT.Controls.Header
                 txtUserId.Text = "รหัสผู้ใช้งาน: ";
                 txtUserame.Text = "ชื่อผู้ใช้งาน: ";
             }
-            */
         }
     }
 }

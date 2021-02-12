@@ -35,22 +35,16 @@ namespace DMT.Controls.StatusBar
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             UpdateUI();
-            /*
             TAConfigManager.Instance.ConfigChanged += ConfigChanged;
-            TAUIConfigManager.Instance.ConfigChanged += UI_ConfigChanged;
 
             CouponSyncService.Instance.OnProgress += Instance_OnProgress;
-            */
         }
 
         private void UserControl_Unloaded(object sender, RoutedEventArgs e)
         {
-            /*
             CouponSyncService.Instance.OnProgress -= Instance_OnProgress;
 
-            TAUIConfigManager.Instance.ConfigChanged -= UI_ConfigChanged;
             TAConfigManager.Instance.ConfigChanged -= ConfigChanged;
-            */
         }
 
         #endregion
@@ -70,7 +64,7 @@ namespace DMT.Controls.StatusBar
         #endregion
 
         #region Sync Handlers
-        /*
+
         private void Instance_OnProgress(object sender, ProgressEventArgs e)
         {
             // Focus on search textbox.
@@ -80,7 +74,7 @@ namespace DMT.Controls.StatusBar
                 progress.Value = e.Current;
             }));
         }
-        */
+
         #endregion
 
         private void UpdateUI()

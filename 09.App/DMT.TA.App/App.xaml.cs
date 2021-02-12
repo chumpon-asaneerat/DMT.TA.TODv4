@@ -20,6 +20,8 @@ namespace DMT
     /// </summary>
     public partial class App : Application
     {
+        private Services.TAWebServer appServ = null;
+
         /// <summary>
         /// OnStartup.
         /// </summary>
@@ -110,24 +112,23 @@ namespace DMT
             Services.Operations.SCW.Config = TAConfigManager.Instance;
             Services.Operations.SCW.DMT = TAConfigManager.Instance; // required for NetworkId
             TAConfigManager.Instance.Start(); // Start File Watcher.
-            /*
+
             // Start App Notify Server.
             appServ = new Services.TAWebServer();
             appServ.Start();
 
-            // Load UI Config
-            TAUIConfigManager.Instance.LoadConfig();
-            TAUIConfigManager.Instance.Start(); // Start File Watcher.
-            */
             // Init NotifyService event.
             TANotifyService.Instance.TSBChanged += TSBChanged;
             TANotifyService.Instance.TSBShiftChanged += TSBShiftChanged;
-            /*
+
             // Start coupon sync service.
 #if ENABLE_COUPON_SYNC_SERVICE
             CouponSyncService.Instance.Start();
 #endif
-            */
+
+            // Notify all TOD Apps that TSB Shift is changed.
+            TODClientManager.Instance.TODTSBShiftChanged();
+
             Window window = null;
             window = new MainWindow();
 
@@ -143,17 +144,15 @@ namespace DMT
         protected override void OnExit(ExitEventArgs e)
         {
             // Shutdown coupon sync service.
-            /*
 #if ENABLE_COUPON_SYNC_SERVICE
             CouponSyncService.Instance.Shutdown();
 #endif
-            */
+
             // Release NotifyService event.
             TANotifyService.Instance.TSBChanged -= TSBChanged;
             TANotifyService.Instance.TSBShiftChanged -= TSBShiftChanged;
-            /*
+
             // Shutdown File Watcher.
-            TAUIConfigManager.Instance.Shutdown();
             TAConfigManager.Instance.Shutdown();
 
             if (null != appServ)
@@ -161,7 +160,7 @@ namespace DMT
                 appServ.Shutdown();
             }
             appServ = null;
-            */
+
             // Shutdown log manager
             LogManager.Instance.Shutdown();
 
@@ -192,12 +191,15 @@ namespace DMT
 
         private void TSBChanged(object sender, EventArgs e)
         {
-            //RuntimeManager.Instance.RaiseTSBChanged();
+            RuntimeManager.Instance.RaiseTSBChanged();
         }
 
         private void TSBShiftChanged(object sender, EventArgs e)
         {
-            //RuntimeManager.Instance.RaiseTSBShiftChanged();
+            // Notify all TOD Apps that TSB Shift is changed.
+            TODClientManager.Instance.TODTSBShiftChanged();
+
+            RuntimeManager.Instance.RaiseTSBShiftChanged();
         }
     }
 }
