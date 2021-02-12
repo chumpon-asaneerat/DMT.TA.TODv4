@@ -117,6 +117,7 @@
     <Compile Include="Routes\TA\Notify\Actions\IsAlive.cs" />
     <Compile Include="Routes\TA\Notify\Actions\Register.cs" />
     <Compile Include="Routes\TA\Notify\Actions\TSBChanged.cs" />
+    <Compile Include="Routes\TA\Notify\Actions\TSBShiftChanged.cs" />
     <Compile Include="Routes\TA\Notify\Actions\Unregister.cs" />
     <Compile Include="Routes\TA\Notify\TA.Notify.Controller.cs" />
     <Compile Include="Routes\TA\Security\Actions\Role\Gets.cs" />
@@ -126,6 +127,7 @@
     <Compile Include="Routes\TA\Security\Actions\User\Searchs.cs" />
     <Compile Include="Routes\TA\Security\TA.Security.Controller.cs" />
     <Compile Include="Routes\TA\Shift\Actions\Common\Gets.cs" />
+    <Compile Include="Routes\TA\Shift\Actions\TSB\Change.cs" />
     <Compile Include="Routes\TA\Shift\Actions\TSB\Current.cs" />
     <Compile Include="Routes\TA\Shift\TA.Shift.Controller.cs" />
     <Compile Include="Routes\TA\TA.Controller.cs" />
