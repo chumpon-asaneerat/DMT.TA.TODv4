@@ -100,6 +100,18 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DMT.Plaza.Simulator.App", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DMT.Plaza.Models", "02.Models\DMT.Plaza.Models\DMT.Plaza.Models.csproj", "{7517EB79-EACB-4F0C-A5D3-C78D9873635E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Todo_v4", "Todo_v4", "{4A04BE3B-FA43-43C0-9D26-A49D06AD91F6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Notes", "Notes", "{272B9AA5-1897-4EA6-95A3-F2A23598F554}"
+	ProjectSection(SolutionItems) = preProject
+		Todo_v4\Notes\note.todo = Todo_v4\Notes\note.todo
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Refactor", "Refactor", "{304E0B73-6167-4CFB-9C59-0B2685E28FDB}"
+	ProjectSection(SolutionItems) = preProject
+		Todo_v4\Refactor\refactor.todo = Todo_v4\Refactor\refactor.todo
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -235,6 +247,9 @@ Global
 		{835688A1-A3A7-41BE-B85F-CCFA12D60A98} = {8EB55EC8-A0B8-4E70-A307-2A960E470F21}
 		{FF8B1C83-92EA-47D8-B4D4-C4E646F1A20C} = {8EB55EC8-A0B8-4E70-A307-2A960E470F21}
 		{7517EB79-EACB-4F0C-A5D3-C78D9873635E} = {DA7DCCEC-D111-408A-8D09-FC865E92EB30}
+		{4A04BE3B-FA43-43C0-9D26-A49D06AD91F6} = {8E8F7A97-F6F8-451E-802F-8A299644240A}
+		{272B9AA5-1897-4EA6-95A3-F2A23598F554} = {4A04BE3B-FA43-43C0-9D26-A49D06AD91F6}
+		{304E0B73-6167-4CFB-9C59-0B2685E28FDB} = {4A04BE3B-FA43-43C0-9D26-A49D06AD91F6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E2352083-EE88-4EDB-BE3B-2FA8D4B955A7}
