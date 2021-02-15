@@ -112,6 +112,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Refactor", "Refactor", "{30
 		Todo_v4\Refactor\refactor.todo = Todo_v4\Refactor\refactor.todo
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wpf.Account.Db.Test", "10.Tests\Wpf.Account.Db.Test\Wpf.Account.Db.Test.csproj", "{F330F218-EE1B-490B-B2AE-2FB568D9E93E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -214,6 +216,10 @@ Global
 		{7517EB79-EACB-4F0C-A5D3-C78D9873635E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7517EB79-EACB-4F0C-A5D3-C78D9873635E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7517EB79-EACB-4F0C-A5D3-C78D9873635E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F330F218-EE1B-490B-B2AE-2FB568D9E93E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F330F218-EE1B-490B-B2AE-2FB568D9E93E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F330F218-EE1B-490B-B2AE-2FB568D9E93E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F330F218-EE1B-490B-B2AE-2FB568D9E93E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -250,6 +256,7 @@ Global
 		{4A04BE3B-FA43-43C0-9D26-A49D06AD91F6} = {8E8F7A97-F6F8-451E-802F-8A299644240A}
 		{272B9AA5-1897-4EA6-95A3-F2A23598F554} = {4A04BE3B-FA43-43C0-9D26-A49D06AD91F6}
 		{304E0B73-6167-4CFB-9C59-0B2685E28FDB} = {4A04BE3B-FA43-43C0-9D26-A49D06AD91F6}
+		{F330F218-EE1B-490B-B2AE-2FB568D9E93E} = {C3E0F368-5341-4484-BAD1-C067D68279A2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E2352083-EE88-4EDB-BE3B-2FA8D4B955A7}
