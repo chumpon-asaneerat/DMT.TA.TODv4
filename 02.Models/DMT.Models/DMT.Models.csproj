@@ -176,9 +176,11 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>REM xcopy "$(SolutionDir)References\runtimes\*.*" "$(TargetDir)\runtimes\*.*" /Y/D/E
+xcopy "$(SolutionDir)References\runtimes\*.*" "$(TargetDir)\..\Common\runtimes\*.*" /Y/D/E
 xcopy "$(SolutionDir)References\runtimes\*.*" "$(TargetDir)\..\Account\runtimes\*.*" /Y/D/E
 xcopy "$(SolutionDir)References\runtimes\*.*" "$(TargetDir)\..\TA\runtimes\*.*" /Y/D/E
 xcopy "$(SolutionDir)References\runtimes\*.*" "$(TargetDir)\..\TOD\runtimes\*.*" /Y/D/E
+xcopy "$(SolutionDir)References\runtimes\*.*" "$(TargetDir)\..\Utilities\runtimes\*.*" /Y/D/E
 
 </PostBuildEvent>
   </PropertyGroup>
