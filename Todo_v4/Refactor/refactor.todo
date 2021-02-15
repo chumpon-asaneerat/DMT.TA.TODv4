@@ -1,2 +1,13 @@
 Refactor:
-    ☐ 
+    DMT.Models:
+        Database:
+            Infrastructures:
+                TSB:
+                    ☐ Separate all limit to another table.
+                TSBLimit:
+                    ☐ Create new Table to keep each limit by currency value and currency type (Coin/Note)
+                    ☐ Need UserId/FullNameTH/FullNameEN -> who changed the value?.
+        Models:
+            Infrastructures:
+                Common:
+                    ☐ Add Impport/Export methods
