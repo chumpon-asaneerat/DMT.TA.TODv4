@@ -1,6 +1,15 @@
 Refactor:
     DMT.Models:
         Database:
+            Master:
+                MCurrency:
+                    ☐ Need SortOrder, IsEnable column.
+                MCoupon:
+                    ☐ Need SortOrder, IsEnable column.
+                MCouponBook:
+                    ☐ Need SortOrder, IsEnable column.
+                MCardAllow:
+                    ☐ Need SortOrder, IsEnable column.
             Infrastructures:
                 TSB:
                     ☐ Separate all limit to another table.
@@ -8,6 +17,9 @@ Refactor:
                     ☐ Create new Table to keep each limit by currency value and currency type (Coin/Note)
                     ☐ Need UserId/FullNameTH/FullNameEN -> who changed the value?.
         Models:
+            Master:
+                Common:
+                    ☐ Add Impport/Export methods
             Infrastructures:
                 Common:
                     ☐ Add Impport/Export methods
