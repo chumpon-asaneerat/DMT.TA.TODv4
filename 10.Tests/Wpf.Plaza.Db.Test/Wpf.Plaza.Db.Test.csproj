@@ -163,6 +163,10 @@
       <Project>{7d584f0a-920f-4be1-8652-3527fd7a5c27}</Project>
       <Name>DMT.Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\02.Models\DMT.Plaza.Models\DMT.Plaza.Models.csproj">
+      <Project>{7517eb79-eacb-4f0c-a5d3-c78d9873635e}</Project>
+      <Name>DMT.Plaza.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
