@@ -104,7 +104,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ExtensionMethods\NullableType.ExtensionMethods.cs" />
-    <Compile Include="Models\Plaza\Common\DMT.Search.cs" />
+    <Compile Include="Models\Common\DMT.Search.cs" />
     <Compile Include="Models\SCW\Common.cs" />
     <Compile Include="Models\SCW\SCWCardAllowList.cs" />
     <Compile Include="Models\SCW\SCWChangePassword.cs" />
@@ -151,7 +151,7 @@
     <None Include="v3\Models\Plaza\Shifts\UserShiftRevenue.cs" />
     <Compile Include="Models\Plaza\Users\Role.cs" />
     <Compile Include="Models\Plaza\Users\User.cs" />
-    <None Include="v3\Models\Plaza\Users\UserAccess.cs" />
+    <Compile Include="Models\Plaza\Users\UserAccess.cs" />
     <None Include="v3\Models\TAxTOD\TACouponReveiced.cs" />
     <None Include="v3\Models\TAxTOD\TACouponTransaction.cs" />
   </ItemGroup>
@@ -166,6 +166,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Models\Plaza\Common\" />
     <Folder Include="Models\Plaza\Configuration\" />
     <Folder Include="Models\Plaza\Coupon\Common\" />
     <Folder Include="Models\Plaza\Coupon\TSB\" />
@@ -186,6 +187,7 @@
     <Folder Include="v3\Models\Plaza\Credit\User\" />
     <Folder Include="v3\Models\Plaza\Exchange\" />
     <Folder Include="v3\Models\Plaza\Revenues\" />
+    <Folder Include="v3\Models\Plaza\Users\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
