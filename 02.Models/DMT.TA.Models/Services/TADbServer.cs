@@ -2012,7 +2012,7 @@ namespace DMT.Services
 
             // Users - Embeded resource used . instead / to access sub contents.
             prefix = @"Users";
-            //InitView("UserView", 1, prefix);
+            InitView("UserView", 1, prefix);
 
             // Shifts - Embeded resource used . instead / to access sub contents.
             prefix = @"Shifts";
@@ -2083,7 +2083,6 @@ namespace DMT.Services
 
         private void InitView(string viewName, int version, string resourcePrefix = "")
         {
-            /*
             if (null == Db) return;
 
             var hist = ViewHistory.GetWithChildren(viewName, false).Value();
@@ -2167,7 +2166,6 @@ namespace DMT.Services
                     //Console.WriteLine(script);
                 }
             }
-            */
         }
 
         #endregion
