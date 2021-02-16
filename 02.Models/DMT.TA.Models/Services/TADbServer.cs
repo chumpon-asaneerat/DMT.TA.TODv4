@@ -392,7 +392,6 @@ namespace DMT.Services
 
         private void InitShifts()
         {
-            /*
             if (null == Db) return;
 
             if (Db.Table<Shift>().Count() > 0) return; // already exists.
@@ -402,24 +401,29 @@ namespace DMT.Services
             {
                 ShiftId = 1,
                 ShiftNameEN = "Morning",
-                ShiftNameTH = "เช้า"
+                ShiftNameTH = "เช้า",
+                TimeStart = new DateTime(1, 1, 1, 5, 0, 0, 0, 0),
+                TimeEnd = new DateTime(1, 1, 1, 13, 0, 0, 0, 0)
             };
             if (!Shift.Exists(item)) Shift.Save(item);
             item = new Shift()
             {
                 ShiftId = 2,
                 ShiftNameEN = "Afternoon",
-                ShiftNameTH = "บ่าย"
+                ShiftNameTH = "บ่าย",
+                TimeStart = new DateTime(1, 1, 1, 13, 0, 0, 0, 0),
+                TimeEnd = new DateTime(1, 1, 1, 21, 0, 0, 0, 0)
             };
             if (!Shift.Exists(item)) Shift.Save(item);
             item = new Shift()
             {
                 ShiftId = 3,
                 ShiftNameEN = "Midnight",
-                ShiftNameTH = "ดึก"
+                ShiftNameTH = "ดึก",
+                TimeStart = new DateTime(1, 1, 1, 21, 0, 0, 0, 0),
+                TimeEnd = new DateTime(1, 1, 1, 5, 0, 0, 0, 0)
             };
             if (!Shift.Exists(item)) Shift.Save(item);
-            */
         }
 
         private void InitRoleAndUsers()
