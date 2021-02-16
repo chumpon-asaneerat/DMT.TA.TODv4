@@ -105,7 +105,6 @@ namespace DMT.Services
 
         private void InitTables()
         {
-            /*
             Db.CreateTable<ViewHistory>();
 
             Db.CreateTable<Shift>();
@@ -113,7 +112,7 @@ namespace DMT.Services
             Db.CreateTable<Role>();
             Db.CreateTable<User>();
             Db.CreateTable<UserAccess>();
-
+            /*
             Db.CreateTable<TSB>();
             Db.CreateTable<PlazaGroup>();
             Db.CreateTable<Plaza>();

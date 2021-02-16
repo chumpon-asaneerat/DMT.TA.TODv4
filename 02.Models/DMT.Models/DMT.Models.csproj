@@ -176,7 +176,6 @@
     <Folder Include="Models\Plaza\Master\" />
     <Folder Include="Models\Plaza\Revenues\" />
     <Folder Include="Models\TAxTOD\" />
-    <Folder Include="v3\Models\Plaza\Configuration\" />
     <Folder Include="v3\Models\Plaza\Coupon\Common\" />
     <Folder Include="v3\Models\Plaza\Coupon\TSB\" />
     <Folder Include="v3\Models\Plaza\Coupon\User\" />
