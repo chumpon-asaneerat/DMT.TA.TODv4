@@ -122,7 +122,7 @@
     <Compile Include="Models\SCW\SCWQRCodeTransactionList.cs" />
     <Compile Include="Models\SCW\SCWSaveChiefDuty.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <None Include="v3\Models\RabbitMQ\RabbitMQ.cs" />
+    <Compile Include="Models\RabbitMQ\RabbitMQ.cs" />
     <None Include="v3\ExtensionMethods\ModelExtensionMethods.cs" />
     <None Include="v3\Models\Common\DMT.Search.cs" />
     <Compile Include="Models\Common\DMTModelBase.cs" />
@@ -177,7 +177,6 @@
     <Folder Include="Models\Plaza\Infrastructures\" />
     <Folder Include="Models\Plaza\Master\" />
     <Folder Include="Models\Plaza\Revenues\" />
-    <Folder Include="Models\RabbitMQ\" />
     <Folder Include="Models\TAxTOD\" />
     <Folder Include="v3\Models\Plaza\Coupon\Common\" />
     <Folder Include="v3\Models\Plaza\Coupon\TSB\" />
