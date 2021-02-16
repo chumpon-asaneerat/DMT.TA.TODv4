@@ -105,6 +105,7 @@ namespace DMT.Services
 
         private void InitTables()
         {
+            /*
             Db.CreateTable<ViewHistory>();
 
             Db.CreateTable<Shift>();
@@ -117,18 +118,22 @@ namespace DMT.Services
             Db.CreateTable<PlazaGroup>();
             Db.CreateTable<Plaza>();
             Db.CreateTable<Lane>();
+            */
         }
 
         private void InitDefaults()
         {
+            /*
             InitShifts();
             InitRoleAndUsers();
 
             InitTSBAndPlazaAndLanes();
+            */
         }
 
         private void InitShifts()
         {
+            /*
             if (null == Db) return;
 
             if (Db.Table<Shift>().Count() > 0) return; // already exists.
@@ -155,10 +160,12 @@ namespace DMT.Services
                 ShiftNameTH = "ดึก"
             };
             if (!Shift.Exists(item)) Shift.Save(item);
+            */
         }
 
         private void InitRoleAndUsers()
         {
+            /*
             if (null == Db) return;
 
             if (Db.Table<User>().Count() > 0) return; // has user data so not insert dummy.
@@ -384,10 +391,13 @@ namespace DMT.Services
             if (!Role.Exists(item)) Role.Save(item);
 
             #endregion
+
+            */
         }
 
         private void InitTSBAndPlazaAndLanes()
         {
+            /*
             if (null == Db) return;
 
             if (Db.Table<TSB>().Count() > 0) return; // already exists.
@@ -1706,12 +1716,16 @@ namespace DMT.Services
             #endregion
 
             #endregion
+
+            */
         }
 
+        /*
         private void InitTSBCreditInitializeTransaction(TSB value)
         {
             // Do nothing.
         }
+        */
 
         private void InitViews()
         {
@@ -1721,13 +1735,13 @@ namespace DMT.Services
 
             // Infrastructures - Embeded resource used . instead / to access sub contents.
             prefix = @"Infrastructures";
-            InitView("PlazaGroupView", 1, prefix);
-            InitView("PlazaView", 1, prefix);
-            InitView("LaneView", 1, prefix);
+            //InitView("PlazaGroupView", 1, prefix);
+            //InitView("PlazaView", 1, prefix);
+            //InitView("LaneView", 1, prefix);
 
             // Users - Embeded resource used . instead / to access sub contents.
             prefix = @"Users";
-            InitView("UserView", 1, prefix);
+            //InitView("UserView", 1, prefix);
         }
 
         class ViewInfo
@@ -1737,6 +1751,7 @@ namespace DMT.Services
 
         private void InitView(string viewName, int version, string resourcePrefix = "")
         {
+            /*
             if (null == Db) return;
 
             var hist = ViewHistory.GetWithChildren(viewName, false).Value();
@@ -1820,6 +1835,7 @@ namespace DMT.Services
                     //Console.WriteLine(script);
                 }
             }
+            */
         }
 
         #endregion
@@ -1870,13 +1886,13 @@ namespace DMT.Services
                         // (be careful to make sure that we only has single database
                         // for all domain otherwise call static method with user connnection
                         // in each domain class instead omit connection version).
-
+                        /*
                         NTable.Default = Db;
                         NQuery.Default = Db;
                         InitTables(); // Init Tables.
                         InitDefaults(); // init default data.
                         InitViews(); // init views.
-
+                        */
                         OnConnected.Call(this, EventArgs.Empty);
                     }
                 }

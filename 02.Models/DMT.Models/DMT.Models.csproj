@@ -103,37 +103,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ExtensionMethods\ModelExtensionMethods.cs" />
     <Compile Include="ExtensionMethods\NullableType.ExtensionMethods.cs" />
-    <Compile Include="Models\Common\DMT.Search.cs" />
-    <Compile Include="Models\Common\DMTModelBase.cs" />
-    <Compile Include="Models\Common\NDbResult.cs" />
-    <Compile Include="Models\Common\NQueries.cs" />
-    <Compile Include="Models\Common\NSearch.cs" />
-    <Compile Include="Models\Common\NTables.cs" />
-    <Compile Include="Models\Common\UICommands.cs" />
-    <Compile Include="Models\Common\Utils.cs" />
-    <Compile Include="Models\Plaza\Common\IsAliveResult.cs" />
-    <Compile Include="Models\Plaza\Configuration\UniqueCode.cs" />
-    <Compile Include="Models\Plaza\Configuration\ViewHistory.cs" />
-    <Compile Include="Models\Plaza\Infrastructures\Lane.cs" />
-    <Compile Include="Models\Plaza\Infrastructures\Plaza.cs" />
-    <Compile Include="Models\Plaza\Infrastructures\PlazaGroup.cs" />
-    <Compile Include="Models\Plaza\Infrastructures\TSB.cs" />
-    <Compile Include="Models\Plaza\Infrastructures\UIModels.cs" />
-    <Compile Include="Models\Plaza\Master\MActiveStatus.cs" />
-    <Compile Include="Models\Plaza\Master\MCardAllow.cs" />
-    <Compile Include="Models\Plaza\Master\MCoupon.cs" />
-    <Compile Include="Models\Plaza\Master\MCouponBook.cs" />
-    <Compile Include="Models\Plaza\Master\MCurrency.cs" />
-    <Compile Include="Models\Plaza\Shifts\Shift.cs" />
-    <Compile Include="Models\Plaza\Shifts\TSBShift.cs" />
-    <Compile Include="Models\Plaza\Shifts\UserShift.cs" />
-    <Compile Include="Models\Plaza\Shifts\UserShiftRevenue.cs" />
-    <Compile Include="Models\Plaza\Users\Role.cs" />
-    <Compile Include="Models\Plaza\Users\User.cs" />
-    <Compile Include="Models\Plaza\Users\UserAccess.cs" />
-    <Compile Include="Models\RabbitMQ\RabbitMQ.cs" />
     <Compile Include="Models\SCW\Common.cs" />
     <Compile Include="Models\SCW\SCWCardAllowList.cs" />
     <Compile Include="Models\SCW\SCWChangePassword.cs" />
@@ -150,9 +120,39 @@
     <Compile Include="Models\SCW\SCWPasswordExpiresDays.cs" />
     <Compile Include="Models\SCW\SCWQRCodeTransactionList.cs" />
     <Compile Include="Models\SCW\SCWSaveChiefDuty.cs" />
-    <Compile Include="Models\TAxTOD\TACouponReveiced.cs" />
-    <Compile Include="Models\TAxTOD\TACouponTransaction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="v3\Models\RabbitMQ\RabbitMQ.cs" />
+    <None Include="v3\ExtensionMethods\ModelExtensionMethods.cs" />
+    <None Include="v3\Models\Common\DMT.Search.cs" />
+    <None Include="v3\Models\Common\DMTModelBase.cs" />
+    <None Include="v3\Models\Common\NDbResult.cs" />
+    <None Include="v3\Models\Common\NQueries.cs" />
+    <None Include="v3\Models\Common\NSearch.cs" />
+    <None Include="v3\Models\Common\NTables.cs" />
+    <None Include="v3\Models\Common\UICommands.cs" />
+    <None Include="v3\Models\Common\Utils.cs" />
+    <None Include="v3\Models\Plaza\Common\IsAliveResult.cs" />
+    <None Include="v3\Models\Plaza\Configuration\UniqueCode.cs" />
+    <None Include="v3\Models\Plaza\Configuration\ViewHistory.cs" />
+    <None Include="v3\Models\Plaza\Infrastructures\Lane.cs" />
+    <None Include="v3\Models\Plaza\Infrastructures\Plaza.cs" />
+    <None Include="v3\Models\Plaza\Infrastructures\PlazaGroup.cs" />
+    <None Include="v3\Models\Plaza\Infrastructures\TSB.cs" />
+    <None Include="v3\Models\Plaza\Infrastructures\UIModels.cs" />
+    <None Include="v3\Models\Plaza\Master\MActiveStatus.cs" />
+    <None Include="v3\Models\Plaza\Master\MCardAllow.cs" />
+    <None Include="v3\Models\Plaza\Master\MCoupon.cs" />
+    <None Include="v3\Models\Plaza\Master\MCouponBook.cs" />
+    <None Include="v3\Models\Plaza\Master\MCurrency.cs" />
+    <None Include="v3\Models\Plaza\Shifts\Shift.cs" />
+    <None Include="v3\Models\Plaza\Shifts\TSBShift.cs" />
+    <None Include="v3\Models\Plaza\Shifts\UserShift.cs" />
+    <None Include="v3\Models\Plaza\Shifts\UserShiftRevenue.cs" />
+    <None Include="v3\Models\Plaza\Users\Role.cs" />
+    <None Include="v3\Models\Plaza\Users\User.cs" />
+    <None Include="v3\Models\Plaza\Users\UserAccess.cs" />
+    <None Include="v3\Models\TAxTOD\TACouponReveiced.cs" />
+    <None Include="v3\Models\TAxTOD\TACouponTransaction.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\00.NLib\NLib\NLib.csproj">
@@ -165,13 +165,29 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Models\Common\" />
+    <Folder Include="Models\Plaza\Common\" />
+    <Folder Include="Models\Plaza\Configuration\" />
     <Folder Include="Models\Plaza\Coupon\Common\" />
     <Folder Include="Models\Plaza\Coupon\TSB\" />
     <Folder Include="Models\Plaza\Coupon\User\" />
     <Folder Include="Models\Plaza\Credit\TSB\" />
     <Folder Include="Models\Plaza\Credit\User\" />
     <Folder Include="Models\Plaza\Exchange\" />
+    <Folder Include="Models\Plaza\Infrastructures\" />
+    <Folder Include="Models\Plaza\Master\" />
     <Folder Include="Models\Plaza\Revenues\" />
+    <Folder Include="Models\Plaza\Shifts\" />
+    <Folder Include="Models\Plaza\Users\" />
+    <Folder Include="Models\RabbitMQ\" />
+    <Folder Include="Models\TAxTOD\" />
+    <Folder Include="v3\Models\Plaza\Coupon\Common\" />
+    <Folder Include="v3\Models\Plaza\Coupon\TSB\" />
+    <Folder Include="v3\Models\Plaza\Coupon\User\" />
+    <Folder Include="v3\Models\Plaza\Credit\TSB\" />
+    <Folder Include="v3\Models\Plaza\Credit\User\" />
+    <Folder Include="v3\Models\Plaza\Exchange\" />
+    <Folder Include="v3\Models\Plaza\Revenues\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
