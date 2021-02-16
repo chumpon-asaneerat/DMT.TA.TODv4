@@ -132,7 +132,7 @@
     <Compile Include="Models\Common\NTables.cs" />
     <None Include="v3\Models\Common\UICommands.cs" />
     <Compile Include="Models\Common\Utils.cs" />
-    <None Include="v3\Models\Plaza\Common\IsAliveResult.cs" />
+    <None Include="Models\Plaza\Common\IsAliveResult.cs" />
     <None Include="v3\Models\Plaza\Configuration\UniqueCode.cs" />
     <None Include="v3\Models\Plaza\Configuration\ViewHistory.cs" />
     <None Include="v3\Models\Plaza\Infrastructures\Lane.cs" />
@@ -166,7 +166,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\Plaza\Common\" />
     <Folder Include="Models\Plaza\Configuration\" />
     <Folder Include="Models\Plaza\Coupon\Common\" />
     <Folder Include="Models\Plaza\Coupon\TSB\" />
@@ -178,6 +177,7 @@
     <Folder Include="Models\Plaza\Master\" />
     <Folder Include="Models\Plaza\Revenues\" />
     <Folder Include="Models\TAxTOD\" />
+    <Folder Include="v3\Models\Plaza\Common\" />
     <Folder Include="v3\Models\Plaza\Coupon\Common\" />
     <Folder Include="v3\Models\Plaza\Coupon\TSB\" />
     <Folder Include="v3\Models\Plaza\Coupon\User\" />
