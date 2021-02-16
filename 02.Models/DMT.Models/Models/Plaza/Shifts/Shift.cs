@@ -263,6 +263,7 @@ namespace DMT.Models
                     var data = NQuery.Query<Shift>(cmd);
                     if (null != data)
                     {
+                        // Note: Auto create TimeStart/TimeEnd of shift when no value assigned.
                         data.ForEach(shift => 
                         {
                             bool needSave = false;
@@ -308,12 +309,10 @@ namespace DMT.Models
                             }
                             if (needSave)
                             {
-                                /*
-                                Console.WriteLine("Shift: {0} update. Start: {1}, End: {2} ",
-                                    shift.ShiftId, 
-                                    (shift.TimeStart.HasValue) ? shift.TimeStart.Value.ToString("HH:mm:ss") : "00:00:00",
-                                    (shift.TimeEnd.HasValue) ? shift.TimeEnd.Value.ToString("HH:mm:ss") : "00:00:00");
-                                */
+                                //Console.WriteLine("Shift: {0} update. Start: {1}, End: {2} ",
+                                //    shift.ShiftId, 
+                                //    (shift.TimeStart.HasValue) ? shift.TimeStart.Value.ToString("HH:mm:ss") : "00:00:00",
+                                //    (shift.TimeEnd.HasValue) ? shift.TimeEnd.Value.ToString("HH:mm:ss") : "00:00:00");
                                 Save(shift);
                             }
                         });
