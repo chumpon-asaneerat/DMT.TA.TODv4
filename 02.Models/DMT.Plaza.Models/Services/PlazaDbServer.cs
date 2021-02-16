@@ -165,7 +165,6 @@ namespace DMT.Services
 
         private void InitRoleAndUsers()
         {
-            /*
             if (null == Db) return;
 
             if (Db.Table<User>().Count() > 0) return; // has user data so not insert dummy.
@@ -391,8 +390,6 @@ namespace DMT.Services
             if (!Role.Exists(item)) Role.Save(item);
 
             #endregion
-
-            */
         }
 
         private void InitTSBAndPlazaAndLanes()
