@@ -2143,13 +2143,13 @@ namespace DMT.Services
                         // (be careful to make sure that we only has single database
                         // for all domain otherwise call static method with user connnection
                         // in each domain class instead omit connection version).
-                        /*
+
                         NTable.Default = Db;
                         NQuery.Default = Db;
                         InitTables(); // Init Tables.
                         InitDefaults(); // init default data.
                         InitViews(); // init views.
-                        */
+
                         OnConnected.Call(this, EventArgs.Empty);
                     }
                 }

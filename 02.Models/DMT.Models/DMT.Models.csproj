@@ -124,13 +124,13 @@
     <None Include="v3\Models\RabbitMQ\RabbitMQ.cs" />
     <None Include="v3\ExtensionMethods\ModelExtensionMethods.cs" />
     <None Include="v3\Models\Common\DMT.Search.cs" />
-    <None Include="v3\Models\Common\DMTModelBase.cs" />
-    <None Include="v3\Models\Common\NDbResult.cs" />
-    <None Include="v3\Models\Common\NQueries.cs" />
-    <None Include="v3\Models\Common\NSearch.cs" />
-    <None Include="v3\Models\Common\NTables.cs" />
+    <Compile Include="Models\Common\DMTModelBase.cs" />
+    <Compile Include="Models\Common\NDbResult.cs" />
+    <Compile Include="Models\Common\NQueries.cs" />
+    <Compile Include="Models\Common\NSearch.cs" />
+    <Compile Include="Models\Common\NTables.cs" />
     <None Include="v3\Models\Common\UICommands.cs" />
-    <None Include="v3\Models\Common\Utils.cs" />
+    <Compile Include="Models\Common\Utils.cs" />
     <None Include="v3\Models\Plaza\Common\IsAliveResult.cs" />
     <None Include="v3\Models\Plaza\Configuration\UniqueCode.cs" />
     <None Include="v3\Models\Plaza\Configuration\ViewHistory.cs" />
@@ -165,7 +165,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\Common\" />
     <Folder Include="Models\Plaza\Common\" />
     <Folder Include="Models\Plaza\Configuration\" />
     <Folder Include="Models\Plaza\Coupon\Common\" />
