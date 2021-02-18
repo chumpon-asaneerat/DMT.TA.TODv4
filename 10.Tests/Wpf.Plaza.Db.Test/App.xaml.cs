@@ -101,7 +101,7 @@ namespace DMT
             LogManager.Instance.Start();
 
             // All services start
-            PlazaDbServer.Instance.Start();
+            PlazaLocalDbServer.Instance.Start();
 
             Window window = null;
             window = new MainWindow();
@@ -118,7 +118,7 @@ namespace DMT
         protected override void OnExit(ExitEventArgs e)
         {
             // All services shutdown
-            PlazaDbServer.Instance.Shutdown();
+            PlazaLocalDbServer.Instance.Shutdown();
 
             // Shutdown log manager
             LogManager.Instance.Shutdown();
