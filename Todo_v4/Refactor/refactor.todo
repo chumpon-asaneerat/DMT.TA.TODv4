@@ -3,13 +3,55 @@ Refactor:
         Database:
             Master:
                 MCurrency:
-                    ☐ Need SortOrder, IsEnable column.
+                    Description
+                      -> currencyId (always 1)
+                      -> currencyDenomId (SCW Primary Key)
+                      -> denomTypeId (1 = Note, 2 = Coin)
+                      -> description/abbreviation is always in EN.
+                      -> Required TypeEN/TypeTH (25 Satang/25 สตางต์)
+                      -> Required ValueUnitEN/ValueUnitTH (BHT/บาท)
+                      -> Required CountUnitEN/CountUnitTH (Coin(s)/เหรียญ, Bill(s)/ฉบับ)
+                    ☐ Need SortOrder
+                    ☐ NeedIsEnable column.
+                    ☐ Need TypeEN/TypeTH
+                    ☐ Need ValueUnitEN/ValueUnitTH
+                    ☐ Need CountUnitEN/CountUnitTH
                 MCoupon:
-                    ☐ Need SortOrder, IsEnable column.
+                    Description
+                      -> couponId (SCW Primary Key)
+                      -> couponValue (The value of coupon)
+                      -> description/abbreviation is always in EN.
+                      -> Required TypeEN/TypeTH (30 BHT/30 บาท)
+                      -> Required ValueUnitEN/ValueUnitTH (BHT/บาท)
+                      -> Required CountUnitEN/CountUnitTH (Bill(s)/ฉบับ)
+                    ☐ Need SortOrder
+                    ☐ NeedIsEnable column.
+                    ☐ Need TypeEN/TypeTH
+                    ☐ Need ValueUnitEN/ValueUnitTH
+                    ☐ Need CountUnitEN/CountUnitTH
                 MCouponBook:
-                    ☐ Need SortOrder, IsEnable column.
+                    Description
+                      -> couponBookId (SCW Primary Key)
+                      -> couponBookValue (The value of coupon book)
+                      -> description/abbreviation is always in EN.
+                      -> Required TypeEN/TypeTH (35 BHT/35 บาท)
+                      -> Required ValueUnitEN/ValueUnitTH (BHT/บาท)
+                      -> Required CountUnitEN/CountUnitTH (Set(s))/เล่ม)
+                    ☐ Need SortOrder
+                    ☐ NeedIsEnable column.
+                    ☐ Need TypeEN/TypeTH
+                    ☐ Need ValueUnitEN/ValueUnitTH
+                    ☐ Need CountUnitEN/CountUnitTH
                 MCardAllow:
-                    ☐ Need SortOrder, IsEnable column.
+                    -> cardAllowId (SCW Primary Key)
+                    -> description is always in TH.
+                    -> abbreviation is always in EN.
+                    -> Required TypeEN/TypeTH (Card DMT P1/บัตร DMT (ป 1))
+                    -> Required CountUnitEN/CountUnitTH (Time(s)/ครั้ง)
+                    ☐ Need SortOrder
+                    ☐ NeedIsEnable column.
+                    ☐ Need TypeEN/TypeTH
+                    ☐ Need CountUnitEN/CountUnitTH
             Infrastructures:
                 TSB:
                     ☐ Separate all limit to another table.
