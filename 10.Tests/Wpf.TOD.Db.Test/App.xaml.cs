@@ -100,6 +100,9 @@ namespace DMT
             // Start log manager
             LogManager.Instance.Start();
 
+            // All services start
+            TODLocalDbServer.Instance.Start();
+
             Window window = null;
             window = new MainWindow();
 
@@ -114,6 +117,9 @@ namespace DMT
         /// <param name="e"></param>
         protected override void OnExit(ExitEventArgs e)
         {
+            // All services shutdown
+            TODLocalDbServer.Instance.Shutdown();
+
             // Shutdown log manager
             LogManager.Instance.Shutdown();
 

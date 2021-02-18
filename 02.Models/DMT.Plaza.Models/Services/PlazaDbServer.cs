@@ -26,28 +26,28 @@ using DMT.Views;
 
 namespace DMT.Services
 {
-    #region PlazaDbServer
+    #region PlazaLocalDbServer
 
     /// <summary>
-    /// Plaza Database Server.
+    /// Plaza Local Database Server.
     /// </summary>
-    public class PlazaDbServer
+    public class PlazaLocalDbServer
     {
         #region Singelton
 
-        private static PlazaDbServer _instance = null;
+        private static PlazaLocalDbServer _instance = null;
         /// <summary>
         /// Singelton Access.
         /// </summary>
-        public static PlazaDbServer Instance
+        public static PlazaLocalDbServer Instance
         {
             get
             {
                 if (null == _instance)
                 {
-                    lock (typeof(PlazaDbServer))
+                    lock (typeof(PlazaLocalDbServer))
                     {
-                        _instance = new PlazaDbServer();
+                        _instance = new PlazaLocalDbServer();
                     }
                 }
                 return _instance;
@@ -61,14 +61,14 @@ namespace DMT.Services
         /// <summary>
         /// Constructor.
         /// </summary>
-        private PlazaDbServer() : base()
+        private PlazaLocalDbServer() : base()
         {
             this.FileName = "Plaza.db";
         }
         /// <summary>
         /// Destructor.
         /// </summary>
-        ~PlazaDbServer()
+        ~PlazaLocalDbServer()
         {
             Shutdown();
         }
@@ -1845,7 +1845,7 @@ namespace DMT.Services
             MethodBase med = MethodBase.GetCurrentMethod();
             if (null == Db)
             {
-                lock (typeof(PlazaDbServer))
+                lock (typeof(PlazaLocalDbServer))
                 {
                     try
                     {
