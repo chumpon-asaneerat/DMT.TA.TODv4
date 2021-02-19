@@ -369,12 +369,12 @@ namespace DMT.Models.ExtensionMethods
             inst.CouponType = (int)value.CouponType;
             inst.FinishFlag = (int)value.FinishFlag;
             inst.Price = value.Price;
-            inst.SoldBy = value.SoldBy;
+            inst.SoldBy = (!string.IsNullOrEmpty(value.SoldBy)) ? value.SoldBy : null;
             inst.SoldDate = value.SoldDate;
             inst.TSBId = value.TSBId;
             if (value.TransactionType == TSBCouponTransactionTypes.Stock)
             {
-                inst.UserId = string.Empty;
+                inst.UserId = (!string.IsNullOrEmpty(value.UserId)) ? value.UserId : null;
             }
             else
             {
