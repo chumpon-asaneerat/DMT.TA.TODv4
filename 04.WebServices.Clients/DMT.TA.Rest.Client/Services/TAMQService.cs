@@ -68,17 +68,7 @@ namespace DMT.Services
 
         #region Private Methods
 
-        private string GetFileName(string msgType)
-        {
-
-            if (string.IsNullOrWhiteSpace(msgType))
-                return string.Empty;
-            // Save message.
-            string fileName = "msg." + DateTime.Now.ToString("yyyy.MM.dd-HH.mm.ss.ffffff",
-                System.Globalization.DateTimeFormatInfo.InvariantInfo) + "." + msgType;
-            return fileName;
-        }
-
+        /*
         private void SendChangeTSBShift(string fullFileName, Models.TSBShift value)
         {
             MethodBase med = MethodBase.GetCurrentMethod();
@@ -93,27 +83,29 @@ namespace DMT.Services
             // Success
             MoveToBackup(fullFileName);
         }
+        */
+
         /*
         private void SendRevenueEntry(string fullFileName, Models.RevenueEntry value)
         {
             MethodBase med = MethodBase.GetCurrentMethod();
 
-            var ret = ops.Security.changePassword(value);
-            if (null == ret || null == ret.status || string.IsNullOrWhiteSpace(ret.status.code))
-            {
-                // Error may be cannot connect to WS. Wait for next loop.
-                med.Err("Cannot connect to SCW Web Service.");
-                return;
-            }
-            if (ret.status.code != "S200")
-            {
-                // Execute Result is not Success so move to error folder.
-                med.Err("SCW Web Service returns error.");
-                MoveToError(fullFileName);
-                return;
-            }
-            // Success
-            MoveToBackup(fullFileName);
+            //var ret = ops.Security.changePassword(value);
+            //if (null == ret || null == ret.status || string.IsNullOrWhiteSpace(ret.status.code))
+            //{
+            //    // Error may be cannot connect to WS. Wait for next loop.
+            //    med.Err("Cannot connect to SCW Web Service.");
+            //    return;
+            //}
+            //if (ret.status.code != "S200")
+            //{
+            //    // Execute Result is not Success so move to error folder.
+            //    med.Err("SCW Web Service returns error.");
+            //    MoveToError(fullFileName);
+            //    return;
+            //}
+            //// Success
+            //MoveToBackup(fullFileName);
         }
         */
 
@@ -141,8 +133,10 @@ namespace DMT.Services
             {
                 try
                 {
+                    /*
                     var value = jsonString.FromJson<Models.TSBShift>();
                     SendChangeTSBShift(fullFileName, value);
+                    */
                 }
                 catch (Exception ex)
                 {
@@ -152,13 +146,14 @@ namespace DMT.Services
                     MoveToError(fullFileName);
                 }
             }
-            /*
             else if (fullFileName.Contains("revenue.entry"))
             {
                 try
                 {
+                    /*
                     var value = jsonString.FromJson<Models.RevenueEntry>();
                     SendRevenueEntry(fullFileName, value);
+                    */
                 }
                 catch (Exception ex)
                 {
@@ -168,7 +163,6 @@ namespace DMT.Services
                     MoveToError(fullFileName);
                 }
             }
-            */
             else
             {
                 // process not staff list so Not Supports file.
@@ -189,6 +183,7 @@ namespace DMT.Services
 
         #region Public Methods
 
+        /*
         /// <summary>
         /// Write Queue.
         /// </summary>
@@ -200,6 +195,8 @@ namespace DMT.Services
             string msg = value.ToJson(false);
             WriteFile(fileName, msg);
         }
+        */
+
         /*
         /// <summary>
         /// Write Queue.

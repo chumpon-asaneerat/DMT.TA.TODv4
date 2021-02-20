@@ -15,8 +15,10 @@
   - ใบเสร็จขายคูปอง ที่ TA ขาดเรื่อง Running Number
   - หลังป้อนรายได้ควร update กลับไปยัง UserCredit/RevenueShift ด้วย
 --------------------------------------------------------------------------------------------
+[commited]
 Refactor DMT.TA.TODv4 #1820
-- 
+- DMT.TAxTODv4
+  - Poretd TAMQService from v3
 
 [commited]
 Refactor DMT.TA.TODv4 #1819
