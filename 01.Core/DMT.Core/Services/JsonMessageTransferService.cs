@@ -54,6 +54,7 @@ namespace DMT.Services
             MethodBase med = MethodBase.GetCurrentMethod();
             try
             {
+                CompressFiles();
                 List<string> files = new List<string>();
                 var msgFiles = Directory.GetFiles(this.MessageFolder, "*.json");
                 if (null != msgFiles && msgFiles.Length > 0) files.AddRange(msgFiles);
@@ -164,6 +165,26 @@ namespace DMT.Services
 
         #endregion
 
+        #region GetFileName
+
+        /// <summary>
+        /// Get File Name.
+        /// </summary>
+        /// <param name="msgType">The message type.</param>
+        /// <returns>Returns file name</returns>
+        protected string GetFileName(string msgType)
+        {
+
+            if (string.IsNullOrWhiteSpace(msgType))
+                return string.Empty;
+            // Save message.
+            string fileName = "msg." + DateTime.Now.ToString("yyyy.MM.dd-HH.mm.ss.ffffff",
+                System.Globalization.DateTimeFormatInfo.InvariantInfo) + "." + msgType;
+            return fileName;
+        }
+
+        #endregion
+
         #region ProcessJson
 
         /// <summary>
@@ -172,6 +193,99 @@ namespace DMT.Services
         /// <param name="fullFileName">The json full file name.</param>
         /// <param name="jsonString">The json data in string.</param>
         protected abstract void ProcessJson(string fullFileName, string jsonString);
+
+        #endregion
+
+        #region Compress file
+
+        /// <summary>
+        /// Compress Files.
+        /// </summary>
+        protected void CompressFiles()
+        {
+            MethodBase med = MethodBase.GetCurrentMethod();
+
+            List<string> files = new List<string>();
+            List<string> oldFiles = new List<string>();
+
+            string backupFolder = Path.Combine(this.MessageFolder, "Backup");
+            if (!Directory.Exists(backupFolder)) return; // No Backup Folder.
+
+            var backupFiles = Directory.GetFiles(backupFolder, "*.json");
+            if (null != backupFiles && backupFiles.Length > 0) files.AddRange(backupFiles);
+
+            // Find old files to compress.
+            DateTime today = DateTime.Today;
+            DateTime firstOnMonth = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
+            DateTime targetDT = firstOnMonth.AddMonths(-2); // last 2 month.
+
+            files.ForEach(file => 
+            {
+                try
+                {
+                    string fileName = Path.GetFileName(file);
+                    string fileYMD = fileName.Substring(4, 10);
+                    DateTime fileDT;
+                    if (DateTime.TryParseExact(fileYMD, "yyyy.MM.dd",
+                        System.Globalization.DateTimeFormatInfo.InvariantInfo,
+                        System.Globalization.DateTimeStyles.None,
+                        out fileDT))
+                    {
+                        if (fileDT < targetDT)
+                        {
+                            oldFiles.Add(file);
+                        }
+                    }
+                }
+                catch (Exception ex1)
+                {
+                    med.Err(ex1);
+                }
+            });
+            // Move old files to target folder.
+            if (null != oldFiles && oldFiles.Count > 0)
+            {
+                string zipDir = targetDT.ToString("yyyy.MM.dd", System.Globalization.DateTimeFormatInfo.InvariantInfo);
+                oldFiles.ForEach(file => 
+                {
+                    try
+                    {
+                        MoveTo(file, zipDir);
+                    }
+                    catch (Exception ex2)
+                    {
+                        med.Err(ex2);
+                    }
+                });
+
+                // Compress.
+                string targetDir = Path.Combine(this.MessageFolder, "Backup", zipDir);
+                string targetFile = zipDir + ".zip";
+                string outputFile = Path.Combine(this.MessageFolder, "Backup", targetFile);
+                try
+                {
+                    NLib.Utils.SevenZipManager.CompressDirectory(targetDir, outputFile, true);
+                }
+                catch (Exception ex3)
+                {
+                    med.Err(ex3);
+                }
+
+                // Remove Folder.
+                try
+                {
+                    if (Directory.Exists(targetDir))
+                    {
+                        // Delete all sub directories and files
+                        Directory.Delete(targetDir, true);
+                    }
+                }
+                catch (Exception ex4)
+                {
+                    med.Err(ex4);
+                }
+            }
+        }
 
         #endregion
 
@@ -234,7 +348,7 @@ namespace DMT.Services
                         }
                     }
                 }
-                ApplicationManager.Instance.Wait(100);
+                ApplicationManager.Instance.Wait(50);
                 iRetry++;
             }
 
@@ -306,7 +420,7 @@ namespace DMT.Services
 
         #endregion
 
-        #region Start/Shutdown
+        #region OnStart/OnShutdown
 
         /// <summary>
         /// OnStart.
