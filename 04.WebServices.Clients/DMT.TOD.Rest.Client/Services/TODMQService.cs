@@ -68,22 +68,11 @@ namespace DMT.Services
 
         #region Private Methods
 
-        private string GetFileName(string msgType)
-        {
-
-            if (string.IsNullOrWhiteSpace(msgType))
-                return string.Empty;
-            // Save message.
-            string fileName = "msg." + DateTime.Now.ToString("yyyy.MM.dd-HH.mm.ss.ffffff",
-                System.Globalization.DateTimeFormatInfo.InvariantInfo) + "." + msgType;
-            return fileName;
-        }
-        //TODO: RevenueEntry model required.
-        /*
         private void SendRevenueEntry(string fullFileName, Models.RevenueEntry value)
         {
             MethodBase med = MethodBase.GetCurrentMethod();
 
+            /*
             var ret = ops.Security.changePassword(value);
             if (null == ret || null == ret.status || string.IsNullOrWhiteSpace(ret.status.code))
             {
@@ -100,8 +89,8 @@ namespace DMT.Services
             }
             // Success
             MoveToBackup(fullFileName);
+            */
         }
-        */
 
         #endregion
 
@@ -125,8 +114,6 @@ namespace DMT.Services
 
             if (fullFileName.Contains("revenueentry"))
             {
-                //TODO: RevenueEntry model required.
-                /*
                 try
                 {
                     var value = jsonString.FromJson<Models.RevenueEntry>();
@@ -139,7 +126,6 @@ namespace DMT.Services
                     med.Err("message is null or cannot convert to json object.");
                     MoveToError(fullFileName);
                 }
-                */
             }
             else
             {
@@ -161,8 +147,6 @@ namespace DMT.Services
 
         #region Public Methods
 
-        //TODO: RevenueEntry model required.
-        /*
         /// <summary>
         /// Write Queue.
         /// </summary>
@@ -174,7 +158,7 @@ namespace DMT.Services
             string msg = value.ToJson(false);
             WriteFile(fileName, msg);
         }
-        */
+
         #endregion
 
         #region Public Properties
