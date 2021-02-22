@@ -33,7 +33,7 @@
             <TextBlock x:Name="txtStatus"
                        Margin="10,0"
                        Style="{StaticResource LocalDbStatusTextBlockCommonStyle}"
-                       Text="Disconnected" />
+                       Text="Off" />
         </Border>
     </StackPanel>
 </UserControl>
