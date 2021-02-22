@@ -1530,8 +1530,24 @@ namespace DMT.Services
                         param.networkId = networkId;
                         param.plazaId = pzId;
                         param.staffId = User.UserId;
-                        param.startDateTime = Begin;
-                        param.endDateTime = End;
+                        if (Begin.HasValue)
+                        {
+                            var dt = Begin.Value;
+                            param.startDateTime = new DateTime?(new DateTime(dt.Year, dt.Month, dt.Day, dt.Hour, dt.Minute, dt.Second, dt.Millisecond, DateTimeKind.Local));
+                        }
+                        else
+                        {
+                            param.startDateTime = new DateTime?();
+                        }
+                        if (End.HasValue)
+                        {
+                            var dt = End.Value;
+                            param.endDateTime = new DateTime?(new DateTime(dt.Year, dt.Month, dt.Day, dt.Hour, dt.Minute, dt.Second, dt.Millisecond, DateTimeKind.Local));
+                        }
+                        else
+                        {
+                            param.endDateTime = new DateTime?();
+                        }
                         var emvList = scwOps.emvTransactionList(param);
                         if (null != emvList && null != emvList.list)
                         {
@@ -1607,8 +1623,24 @@ namespace DMT.Services
                         param.networkId = networkId;
                         param.plazaId = pzId;
                         param.staffId = User.UserId;
-                        param.startDateTime = Begin;
-                        param.endDateTime = End;
+                        if (Begin.HasValue)
+                        {
+                            var dt = Begin.Value;
+                            param.startDateTime = new DateTime?(new DateTime(dt.Year, dt.Month, dt.Day, dt.Hour, dt.Minute, dt.Second, dt.Millisecond, DateTimeKind.Local));
+                        }
+                        else
+                        {
+                            param.startDateTime = new DateTime?();
+                        }
+                        if (End.HasValue)
+                        {
+                            var dt = End.Value;
+                            param.endDateTime = new DateTime?(new DateTime(dt.Year, dt.Month, dt.Day, dt.Hour, dt.Minute, dt.Second, dt.Millisecond, DateTimeKind.Local));
+                        }
+                        else
+                        {
+                            param.endDateTime = new DateTime?();
+                        }
                         var qrcodeList = scwOps.qrcodeTransactionList(param);
                         if (null != qrcodeList && null != qrcodeList.list)
                         {
@@ -1815,8 +1847,8 @@ namespace DMT.Services
 
     #endregion
 
-    #region RevenueEntryManager (comment out)
-    /*
+    #region RevenueEntryManager
+
     /// <summary>
     /// The RevenueEntryManager class.
     /// </summary>
@@ -1934,9 +1966,11 @@ namespace DMT.Services
                 usrCredit = taaOps.Credit.User.Completed(search).Value();
 
                 //TODO: UserCredit offline need some model and logic.
-                //var ret = taaOps.Credit.User.Completed(search);
-                //usrCredit = (null != ret && ret.Ok) ? ret.Value() : null;
-}
+                /*
+                var ret = taaOps.Credit.User.Completed(search);
+                usrCredit = (null != ret && ret.Ok) ? ret.Value() : null;
+                */
+            }
             else
             {
                 // By chief create empty balance - update from Revenue Entry and save.
@@ -1970,12 +2004,19 @@ namespace DMT.Services
 
         #region Coupon Sold Methods
 
-        private UserCouponBalance CheckSoldCoupon()
+        private UserCouponSoldSummary CheckSoldCoupon()
         {
-            UserCouponBalance usrCouponSold = null;
+            UserCouponSoldSummary usrCouponSold = null;
             if (!ByChief)
             {
-
+                var dt1 = UserShift.Begin.Value;
+                var dt2 = (UserShift.End.HasValue) ? UserShift.End.Value : DateTime.Now;
+                var search = Search.Coupon.User.Sold.Create(PlazaGroup, User, dt1, dt2);
+                var ret = taaOps.Coupon.User.Sold(search);
+                if (null != ret && ret.Ok)
+                {
+                    usrCouponSold = ret.Value();
+                }
             }
             return usrCouponSold;
         }
@@ -2128,23 +2169,24 @@ namespace DMT.Services
             if (!ByChief)
             {
                 // Check User Coupon Sold Balance
-                //var usrSold = CheckSoldCoupon();
-                //if (null != usrSold)
-                //{
-                //    //Entry.CouponSoldEnable = false;
-                //    //Entry.CouponSoldBHT35 = usrSold.CouponBHT35;
-                //    //Entry.CouponSoldBHT80 = usrSold.CouponBHT80;
-                //    //Entry.CouponSoldBHT35Total = ;
-                //    //Entry.CouponSoldBHT80Total;
-                //}
-                //else
-                //{
-                //    //Entry.CouponSoldEnable = true;
-                //}
+                var usrSold = CheckSoldCoupon();
+                if (null != usrSold)
+                {
+                    //Entry.CouponSoldEnable = false;
+                    Entry.CouponSoldEnable = true;
+                    Entry.CouponSoldBHT35 = usrSold.CouponBHT35;
+                    Entry.CouponSoldBHT80 = usrSold.CouponBHT80;
+                    Entry.CouponSoldBHT35Total = usrSold.CouponBHT35Total;
+                    Entry.CouponSoldBHT80Total = usrSold.CouponBHT80Total;
+                }
+                else
+                {
+                    Entry.CouponSoldEnable = true;
+                }
             }
             else
             {
-                //Entry.CouponSoldEnable = true;
+                Entry.CouponSoldEnable = true;
             }
 
             bool success = UpdateRevenueEntry();
@@ -2200,21 +2242,32 @@ namespace DMT.Services
             usrshf.AssignTo(Entry); // assigned user shift
 
             // assigned date after sync object(s) to RevenueEntry.
-            Entry.EntryDate = EntryDate; // assigned Entry date.
+
+            // assigned Entry date.
+            if (EntryDate.HasValue)
+            {
+                var dt = EntryDate.Value;
+                Entry.EntryDate = new DateTime?(new DateTime(dt.Year, dt.Month, dt.Day, 0, 0, 0, DateTimeKind.Local));
+            }
+            else
+            {
+                Entry.EntryDate = new DateTime?();
+            }
+
             var dtNow = DateTime.Now;
             if (!ByChief)
             {
-                Entry.RevenueDate = new DateTime(
+                Entry.RevenueDate = new DateTime?(new DateTime(
                     RevenueDate.Value.Year, RevenueDate.Value.Month, RevenueDate.Value.Day,
-                    dtNow.Hour, dtNow.Minute, dtNow.Second, dtNow.Millisecond);
+                    dtNow.Hour, dtNow.Minute, dtNow.Second, dtNow.Millisecond, DateTimeKind.Local));
             }
             else
             {
                 if (!Entry.RevenueDate.HasValue)
                 {
-                    Entry.RevenueDate = new DateTime(
+                    Entry.RevenueDate = new DateTime?(new DateTime(
                         RevenueDate.Value.Year, RevenueDate.Value.Month, RevenueDate.Value.Day,
-                        dtNow.Hour, dtNow.Minute, dtNow.Second, dtNow.Millisecond);
+                        dtNow.Hour, dtNow.Minute, dtNow.Second, dtNow.Millisecond, DateTimeKind.Local));
                 }
                 med.Info("Revenue Date - By Chief : {0:dd/MM/yyyy}", Entry.RevenueDate);
             }
@@ -2881,6 +2934,6 @@ namespace DMT.Services
 
         #endregion
     }
-    */
+
     #endregion
 }
