@@ -95,7 +95,7 @@ namespace DMT.Models.ExtensionMethods
             {
                 var dt = value.EntryDate.Value;
                 // date part only.
-                inst.declareDateTime = new DateTime?(new DateTime(dt.Year, dt.Month, dt.Day, 0, 0, 0, DateTimeKind.Local));
+                inst.declareDateTime = new DateTime?(new DateTime(dt.Year, dt.Month, dt.Day, dt.Hour, dt.Minute, dt.Second, DateTimeKind.Local));
             }
             else
             {
@@ -412,16 +412,17 @@ namespace DMT.Models.ExtensionMethods
             inst.TSBId = value.TSBId;
             if (value.TransactionType == TSBCouponTransactionTypes.Stock)
             {
-                inst.UserId = (!string.IsNullOrEmpty(value.UserId)) ? value.UserId : null;
+                inst.UserId = null;
             }
             else
             {
-                inst.UserId = value.UserId;
+                inst.UserId = (!string.IsNullOrEmpty(value.UserId)) ? value.UserId : null;
             }
             inst.UserReceiveDate = value.UserReceiveDate;
 
             return inst;
         }
+
         /// <summary>
         /// Convert to Server Model list.
         /// </summary>
