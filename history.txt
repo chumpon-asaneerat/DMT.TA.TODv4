@@ -1,14 +1,6 @@
-﻿Refactor DMT.TA.TODv4 #2030
-- 
-
-Refactor DMT.TA.TODv4 #2029
-- 
-
-Refactor DMT.TA.TODv4 #2028
-- 
-
+﻿[commited]
 Refactor DMT.TA.TODv4 #2027
-- 
+- Refactor end.
 
 [commited]
 Refactor DMT.TA.TODv4 #2026
